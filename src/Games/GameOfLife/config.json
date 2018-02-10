@@ -1,0 +1,5 @@
+{
+  "name": "GameOfLife",
+  "playerCount": 1,
+  "entryClass": "GameOfLife.js"
+}

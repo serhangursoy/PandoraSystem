@@ -4,8 +4,10 @@ import './index.css';
 import './style/bootstrap.css';
 import './style/kit.css';
 import './style/custom.css';
-import Presenter from './system/Presenter';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Presenter />, document.getElementById('root'));
+import App from "./App";
+
+ReactDOM.render(
+    <App/>, document.getElementById('root'));
 registerServiceWorker();

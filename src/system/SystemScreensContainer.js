@@ -6,7 +6,7 @@ import CreateGame from '../screens/CreateGame';
 import GameLobby from '../screens/GameLobby';
 import GameRooms from '../screens/GameRooms';
 
-class Presenter extends Component {
+class SystemScreensContainer extends Component {
 
     constructor() {
         var debug= false;
@@ -67,7 +67,7 @@ class Presenter extends Component {
     }
 
     goGameRooms() {
-        console.log("Listing game rooms..")
+        console.log("Listing game rooms..");
         let tmpState = this.state;
         tmpState.GuestHandler.showRooms = true;
         this.setState(tmpState);
@@ -76,7 +76,8 @@ class Presenter extends Component {
     calculatePage() {
         if(this.state.dummyButton === "false") {
             return <Welcome dummyClicked={this.dummyClicked.bind(this)}/>
-        } else {
+        }
+        else {
             if (this.state.loginHandler.isLogged) {
                 if (this.state.AdminHandler.createNewGame) {
                     if (this.state.AdminHandler.selectedGame) {
@@ -107,4 +108,4 @@ class Presenter extends Component {
     }
 }
 
-export default Presenter;
+export default SystemScreensContainer;

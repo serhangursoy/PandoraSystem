@@ -6,7 +6,14 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-responsive-modal": "^2.0.0",
-    "react-scripts": "1.1.0"
+    "react-scripts": "1.1.0",
+    "logstash": "^2.0.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-devtools": "^3.4.1",
+    "underscore": "^1.8.3",
+    "prop-types": "latest"
   },
   "scripts": {
     "start": "react-scripts start",

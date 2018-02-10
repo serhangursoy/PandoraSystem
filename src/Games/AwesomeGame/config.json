@@ -1,0 +1,5 @@
+{
+  "name": "AwesomeGame",
+  "playerCount": 4,
+  "entryClass": "awesomeComponent.js"
+}

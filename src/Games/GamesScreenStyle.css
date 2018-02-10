@@ -1,0 +1,81 @@
+.App {
+    text-align: center;
+}
+
+body {
+    background-color: #14bdac;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.Marker {
+    animation: Marker-float infinite 1s linear;
+    height: 80px;
+}
+
+.MarkerX {
+    animation: Marker-float infinite 0.8s linear;
+    height: 80px;
+}
+table {
+    background-color: beige;
+    margin-top: 2%;
+}
+
+td {
+    border-color: rgba(34, 34, 34, 0.15);
+    border-style: solid;
+    border-width: 3px;
+    margin: 0px;
+    padding: 0px;
+}
+
+tr {
+    margin: 0px;
+}
+
+.CellBlocks {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    /*  background-color: #fff8dc; */
+    /* background-color: rgba(255, 239, 217, 0.86); */
+}
+
+.App-header {
+    background-color: #c44a7d;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.App-title {
+    font-size: 1.5em;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+@keyframes App-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes Marker-float {
+    0% {
+        transform: translateY(0px);
+        background-color: transparent;
+    }
+    50% {
+        transform: translateY(-10px);
+        background-color: transparent;
+    }
+    100% {
+        transform: translateY(0px);
+        background-color: transparent;
+    }
+}

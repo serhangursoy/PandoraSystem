@@ -1,0 +1,5 @@
+{
+  "name": "MemoryGame",
+  "playerCount": 1,
+  "entryClass": "MemoryGame.js"
+}

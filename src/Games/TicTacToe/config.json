@@ -1,0 +1,5 @@
+{
+  "name": "TicTacToe",
+  "playerCount": 2,
+  "entryClass": "Board.js"
+}
