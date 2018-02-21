@@ -89,7 +89,7 @@ h5 .welcome-message {
 }
 
 .gameContainer {
-    padding-top: -10px;
+    padding: 4%;
     border-radius: 10px;
     z-index: -2;
     background-color: rgba(230, 255, 253, 0.26);
@@ -102,4 +102,12 @@ h5 .welcome-message {
     width: 100%;
     height: 100%;
     z-index: -1;
+}
+
+.card {
+    background: rgba(0,50,100,0.6);
+}
+
+.adaptiveTitle {
+    margin: 0;
 }

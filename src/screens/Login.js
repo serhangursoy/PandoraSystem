@@ -83,7 +83,7 @@ class Login extends Component {
                         </div>
                         <h1 className="welcome-message">Pandora</h1>
                         <p> Adventure for only those who can endure! </p>
-                        <div className="card card-login card-plain">
+                        <div className="card-login card-plain">
                             <div className="button-holder text-center">
                                 <a className="btn btn-primary btn-round btn-lg btn-block" onClick={this.openPopupModal.bind(this)}>Login as Admin</a>
                             </div>
