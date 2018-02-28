@@ -4,9 +4,10 @@ import {Route} from "react-router-dom";
 import AwesomeGame from "./AwesomeGame/awesomeComponent.js";
 import TicTacToe from "./TicTacToe/Board.js";
 import TodoList from "./TodoList/index.js";
+import ButtonPressAdventure from "./ButtonPressAdventure/game_index.js";
 import GameOfLife from "./GameOfLife/GameOfLife.js";
 import MemoryGame from "./MemoryGame/MemoryGame.js";
-const g = {"AwesomeGame": AwesomeGame,"TicTacToe": TicTacToe,"TodoList": TodoList,"GameOfLife": GameOfLife,"MemoryGame": MemoryGame,};
+const g = {"AwesomeGame": AwesomeGame,"TicTacToe": TicTacToe,"TodoList": TodoList,"ButtonPressAdventure": ButtonPressAdventure,"GameOfLife": GameOfLife,"MemoryGame": MemoryGame,};
 
 export const  Initializer = () => {
         let routes = [];
@@ -14,7 +15,7 @@ export const  Initializer = () => {
         games.forEach(function (game) {
             let pathString = "/"+game.name+"";
             let kn = "game-" + key;
-            routes.push(<Route key={kn} path={pathString} component={g[game['name']]}/>);
+            routes.push(<Route key={kn} path={pathString} component={g[game['name']]} name={game['name']}/>);
             key = key + 1
         });
         console.log("Get loaded games");

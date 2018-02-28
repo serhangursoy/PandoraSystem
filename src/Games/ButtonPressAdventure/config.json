@@ -1,0 +1,5 @@
+{
+  "name": "ButtonPressAdventure",
+  "playerCount": 2,
+  "entryClass": "game_index.js"
+}

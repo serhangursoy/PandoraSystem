@@ -44,6 +44,7 @@ class SystemScreensContainer extends Component {
     }
     getConnectionID() {
         console.log("You are requesting your connection ID. This is cool. I mean, really. I like it");
+
     }
 
     adminLogin( passphrase ) {

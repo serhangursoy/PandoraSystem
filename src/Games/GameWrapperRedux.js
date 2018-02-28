@@ -7,6 +7,7 @@ export default class GameWrapperRedux extends Component {
     constructor(props){
         super(props);
         SocketConnection.startGame.bind(this)();
+        this.state = {}
 
 
     }
