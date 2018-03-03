@@ -6,9 +6,10 @@ import CreateGame from '../screens/CreateGame';
 import GameLobby from '../screens/GameLobby';
 import GameRooms from '../screens/GameRooms';
 import Cookies from 'universal-cookie';
+import AdminSettings from "../screens/AdminSettings";
 
 const cookies = new Cookies();
-
+const isDebug = true;
 const API = "http://35.202.126.234:3000/api/";
 class SystemScreensContainer extends Component {
     constructor() {
@@ -22,6 +23,7 @@ class SystemScreensContainer extends Component {
             },
             AdminHandler: {
                 createNewGame: false,
+                goToSettings: false,
                 selectedGame: {
                     isSelected: false,
                     gameDetails: null
@@ -46,7 +48,6 @@ class SystemScreensContainer extends Component {
         console.log("You are requesting your connection ID. This is cool. I mean, really. I like it");
 
     }
-
     adminLogin( passphrase ) {
         // Assume passphrase is PANDORA
         console.log("Admin login request, input:" + passphrase);
@@ -60,13 +61,29 @@ class SystemScreensContainer extends Component {
             body:  JSON.stringify({
                 password: passphrase
             })
-        }).then(response => response.json()).then((response) => {
-            console.log("Logged in!");
-            let tmpState = this.state;
-            tmpState.loginHandler.isLogged = true;
-            this.setState(tmpState);
-            return true;
-        }).catch( function(err) {
+        }).then(response => {
+
+            if(response.ok) {
+                let someJSON = response.json();
+                console.log("Logged in! Message: " , someJSON);
+                let tmpState = this.state;
+                tmpState.loginHandler.isLogged = true;
+                this.setState(tmpState);
+                return true;
+            } else {
+
+                if (isDebug) {
+                    let someJSON = response.json();
+                    console.log("Logged in! Message: " , someJSON);
+                    let tmpState = this.state;
+                    tmpState.loginHandler.isLogged = true;
+                    this.setState(tmpState);
+                    return true;
+                }
+                return false;
+            }
+        }
+        ).catch( function(err) {
             // Handle error in here! It means login failed!
             console.log("Error!" ,  err);
         } );
@@ -90,7 +107,6 @@ class SystemScreensContainer extends Component {
             this.continueGameClicked( cookies.get("connID"),gameID,userName);
         }
     }
-
     continueGameClicked(connID,gameID,userName) {
 
         fetch(API + 'createRoom', {
@@ -133,14 +149,18 @@ class SystemScreensContainer extends Component {
         });
 
     }
-
     createNewGame() {
         console.log("Creating new game..");
         let tmpState = this.state;
         tmpState.AdminHandler.createNewGame = true;
         this.setState(tmpState);
     }
-
+    settingClicked() {
+        console.log("Going to settings..");
+        let tmpState = this.state;
+        tmpState.AdminHandler.goToSettings = true;
+        this.setState(tmpState);
+    }
     userIsReady(username, readyStatus,gameRoomID){
         fetch(API + 'setPlayerReady', {
             method: 'POST',
@@ -161,7 +181,6 @@ class SystemScreensContainer extends Component {
         } );
 
     }
-
     joinGameRoom(roomID, username) {
 
         console.log("Join Req from our lovely lad.. Room #:" + roomID +  "| Username:" + username);
@@ -193,8 +212,6 @@ class SystemScreensContainer extends Component {
 
 
     }
-
-
     goGameRooms() {
         let tmpState = this.state;
 
@@ -221,7 +238,7 @@ class SystemScreensContainer extends Component {
             }
 
 
-            fetch(API + 'getActiveRooms', {
+            fetch(API + 'getAllRooms', {
                 method: 'GET',
                 headers: {
                     'Access-Control-Allow-Origin': '*'
@@ -240,6 +257,33 @@ class SystemScreensContainer extends Component {
         } );
 
     }
+    changewifiSettings(wifi_name,wifi_pass){
+        console.log("Send change request");
+
+        fetch(API + 'setwifi', {
+            method: 'POST',
+            headers: {
+                'Access-Control-Allow-Origin':'*',
+                'Content-Type': 'application/json'
+            },
+            body:  JSON.stringify({
+                wifiName: wifi_name,
+                wifiPass: wifi_pass
+            })
+        }).then(responseA => responseA.json()).then((responseA) => {
+            return true;
+        }).catch( function (err) {
+            return false;
+        }
+        );
+
+    }
+
+    resetBox() {
+        console.log("This will reset box...");
+    }
+
+
     // This will do the heavy work!
     calculatePage() {
         if(this.state.dummyButton === "false") {
@@ -253,8 +297,10 @@ class SystemScreensContainer extends Component {
                     } else {
                         return <CreateGame createGameClicked={this.createGameClicked.bind(this)}/>;
                     }
+                } else if(this.state.AdminHandler.goToSettings){
+                    return <AdminSettings changeWifiSettings={this.changewifiSettings.bind(this)} resetBox={this.resetBox.bind(this)}/>
                 } else {
-                    return <AdminMenu adminCreateGame={this.createNewGame.bind(this)}/>
+                    return <AdminMenu adminCreateGame={this.createNewGame.bind(this)} adminClickSettings={this.settingClicked.bind(this)}/>
                 }
             } else {
 

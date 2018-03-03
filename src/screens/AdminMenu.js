@@ -19,7 +19,7 @@ class AdminMenu extends Component {
                         <ul className="list-group">
                         <a className="list-group-item btn btn-info" onClick={this.props.adminCreateGame}> Create New Game</a>
                         <a className="list-group-item btn btn-purp"> Saved Games</a>
-                        <a className="list-group-item btn"> Settings</a>
+                        <a className="list-group-item btn" onClick={this.props.adminClickSettings}> Settings</a>
                         </ul>
                     </div>
                 </div>

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Lobby from '../image/gamelobby.gif';
 import {games} from "../Games/games";
 
+
+// SOCKET WILL BE IN THIS CLASS.. I GUESS?
+
 class GameLobby extends Component {
 
     constructor(props) {
@@ -34,10 +37,11 @@ class GameLobby extends Component {
         console.log(this.state.gameRoomDetails);
         let listAdder = gameRoomUsers.map( (user,i) => {
             if (user.connID == this.state.gameRoomDetails.ourConnID && this.state.gameRoomDetails.isAdmin == false) {
-            return <div key={user.connID}> {user.username} <div className="aa"><input id="checkbox1" type="checkbox" onClick={this.changeReadyStatus()}/>
-            <label>READY</label></div> </div>} else {
-                return <div key={user.connID}> {user.username} <div className="aa">
-                    <label>READY</label></div> </div>
+            return <div key={user.connID}> <div className="row">
+                <div className="col"> {user.username} </div> <div className="col"> <div className="aa"><input id="checkbox1" type="checkbox" onClick={this.changeReadyStatus()}/>
+                <label hidden={!this.state.amIReady}>READY</label></div> </div> </div>
+            </div>} else {
+                return <div key={user.connID}> {user.username} </div>
             }
         } );
 

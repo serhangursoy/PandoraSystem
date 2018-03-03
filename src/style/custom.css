@@ -63,6 +63,11 @@ h5 .welcome-message {
     color: white !important;
 }
 
+.modal-success{
+    background: #64f630 !important;
+    color: white !important;
+}
+
 .adaptiveTitle {
     margin-top: -50%;
 }
@@ -110,4 +115,8 @@ h5 .welcome-message {
 
 .adaptiveTitle {
     margin: 0;
+}
+
+label {
+    color: black;
 }

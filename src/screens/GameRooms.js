@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GameBack from '../image/roomnew.gif'//'../image/gamerooms.gif';
+import GameBack from '../image/hole.gif'//'../image/gamerooms.gif';
 import {games} from '../Games/games.js';
 
 import Modal from 'react-responsive-modal';
