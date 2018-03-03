@@ -6,29 +6,26 @@ import {SocketConnection} from './SocketConnection'
 export default class GameWrapperRedux extends Component {
     constructor(props){
         super(props);
-        SocketConnection.startGame.bind(this)();
+
         this.state = {}
 
 
+
     }
 
-    handleReduxStateChange(){
-        if(this.state !== null) {
-            let currentState = this.state.store.getState();
-            SocketConnection.reduxListener(currentState)
-        }
-    }
+ //   componentWillUpdate(){
+ //       if(this.state !== null){
+ //           SocketConnection.sendNewState(this.state.store.getState())
+ //       }
+ //   }
 
 
-    componentWillMount(){
-        if(this.state !== null)
-            this.state.store.subscribe(this.handleReduxStateChange.bind(this));
-    }
+//    componentWillMount(){
+//        if(this.state !== null)
+//            this.state.store.subscribe(SocketConnection.sendNewState.apply(this.state.store.getState()));
+//    }
 
 
 
-    componentWillUnmount(){
-        SocketConnection.exitGame.bind(this)();
-    }
 
 }

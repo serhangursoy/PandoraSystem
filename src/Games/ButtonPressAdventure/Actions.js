@@ -11,3 +11,11 @@ export const decrementCounter = () => {
         type: ActionTypes.decrementCounter,
     }
 };
+
+export const updateState = (newState) => {
+    return {
+        type: ActionTypes.stateUpdate,
+        payload: newState
+    }
+
+}

@@ -7,6 +7,8 @@ export default function (state = 0 , action) {
     }
     else if(action.type === ActionTypes.decrementCounter){
         return state - 1
+    }else if(action.type === ActionTypes.stateUpdate){
+        return action.payload
     }
 }
 
