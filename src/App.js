@@ -20,10 +20,10 @@ class App extends Component {
         console.log(this.state);
 
     return (
-        //<BrowserRouter>
-        //    <GamesScreenContainer selectedGame="ButtonPressAdventure"/>
-        //</BrowserRouter>
-        <SystemScreensContainer/>
+        <BrowserRouter>
+            <GamesScreenContainer selectedGame="ButtonPressAdventure"/>
+        </BrowserRouter>
+        //<SystemScreensContainer/>
     );
   }
 }

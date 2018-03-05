@@ -2,7 +2,7 @@
 
 import {Component} from 'react'
 import {} from 'react-redux'
-import {SocketConnection} from './SocketConnection'
+import {SocketConnection} from './GameSocketConnection'
 
 
 export default class GameWrapper extends Component {

@@ -8,7 +8,7 @@ import reducer from "./reducer"
 import {incrementCounter , decrementCounter} from "./Actions"
 import "./style.css"
 import * as Actions from "./Actions";
-import {SocketConnection} from "../SocketConnection";
+import {SocketConnection} from "../GameSocketConnection";
 
 
 
