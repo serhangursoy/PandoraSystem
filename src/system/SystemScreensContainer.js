@@ -10,7 +10,8 @@ import AdminSettings from "../screens/AdminSettings";
 
 const cookies = new Cookies();
 const isDebug = true;
-const API = "http://35.202.126.234:3000/api/";
+//const API = "http://35.202.126.234:3000/api/";
+const API = "http://127.0.0.1:3000/api/";
 class SystemScreensContainer extends Component {
     constructor() {
         var debug= false;

@@ -1,7 +1,7 @@
 
 
 
-export const GameSocketConnection = function(gameRoomID , callback){
+export const SocketConnection = function(gameRoomID , callback){
     window.WebSocket = window.WebSocket || window.MozWebSocket;
 
     const connection = new WebSocket('ws://127.0.0.1:1337');
@@ -19,7 +19,7 @@ export const GameSocketConnection = function(gameRoomID , callback){
         try {
             let json = JSON.parse(message.data);
             switch(json.type){
-                case "STATE_UPDATED":
+                case "STATE_UPDATE":
                     callback(json.state);
                     break;
                 default:
@@ -54,7 +54,7 @@ export const GameSocketConnection = function(gameRoomID , callback){
     return {
         "sendNewState": function (state) {
                 waitForSocketConnection(connection ,function () {
-                    connection.send(JSON.stringify({"type": "SAVE_STATE","gameRoomID": gameRoomID , "state": state}));
+                    connection.send(JSON.stringify({"type": "STATE_UPDATE","gameRoomID": gameRoomID , "state": state}));
                 })
 
         }
