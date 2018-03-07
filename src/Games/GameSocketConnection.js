@@ -1,7 +1,7 @@
 
 
 
-export const SocketConnection = function(gameRoomID , callback){
+export const GameSocketConnection = function(gameRoomID , callback){
     window.WebSocket = window.WebSocket || window.MozWebSocket;
 
     const connection = new WebSocket('ws://127.0.0.1:1337');
@@ -18,6 +18,7 @@ export const SocketConnection = function(gameRoomID , callback){
     connection.onmessage = function (message) {
         try {
             let json = JSON.parse(message.data);
+            console.log(json);
             switch(json.type){
                 case "STATE_UPDATE":
                     callback(json.state);
@@ -38,7 +39,6 @@ export const SocketConnection = function(gameRoomID , callback){
         setTimeout(
             function () {
                 if (socket.readyState === 1) {
-                    console.log("Connection is made");
                     if(callback !== null){
                         callback();
                     }

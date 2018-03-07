@@ -8,7 +8,7 @@ import reducer from "./reducer"
 import {incrementCounter , decrementCounter} from "./Actions"
 import "./style.css"
 import * as Actions from "./Actions";
-import {SocketConnection} from "../GameSocketConnection";
+import {GameSocketConnection} from "../GameSocketConnection";
 
 
 
@@ -25,7 +25,7 @@ export default class GameContainer extends GameWrapperRedux {
             this.setState({gameState: this.state.store.getState()})
         }.bind(this));
 
-        this.state.connection = SocketConnection(1, function (newState) { // TODO 1 is gameRoomID - should be dynamic
+        this.state.connection = GameSocketConnection(1, function (newState) { // TODO 1 is gameRoomID - should be dynamic
             if(this.state.store.getState() !== newState)
                 this.state.store.dispatch(Actions.updateState(newState));
         }.bind(this));

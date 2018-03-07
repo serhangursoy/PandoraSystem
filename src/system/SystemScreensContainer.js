@@ -7,6 +7,7 @@ import GameLobby from '../screens/GameLobby';
 import GameRooms from '../screens/GameRooms';
 import Cookies from 'universal-cookie';
 import AdminSettings from "../screens/AdminSettings";
+import {SystemSocketConnectionHandler} from "./SystemSocketConnectionHandler";
 
 const cookies = new Cookies();
 const isDebug = true;
@@ -185,6 +186,10 @@ class SystemScreensContainer extends Component {
     joinGameRoom(roomID, username) {
 
         console.log("Join Req from our lovely lad.. Room #:" + roomID +  "| Username:" + username);
+
+        SystemSocketConnectionHandler(roomID, console.log).joinGameRoom(username);
+
+
 
         fetch(API + 'enterGameRoom', {
             method: 'POST',

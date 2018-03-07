@@ -29,7 +29,7 @@ import {ServerActions} from "./ServerActions"
  */
 
 
-export const SystemSocketConnectionHandler = function(gameRoomID , callbackObj){
+export const SystemSocketConnectionHandler = function(callback){
     window.WebSocket = window.WebSocket || window.MozWebSocket;
 
     const connection = new WebSocket('ws://127.0.0.1:1337');
@@ -49,25 +49,8 @@ export const SystemSocketConnectionHandler = function(gameRoomID , callbackObj){
         try {
             let json = JSON.parse(message.data);
 
-            ServerActions.forEach(function (key) {
-                if(ServerActions[key] === json.type){
-                    callbackObj[key] ? callbackObj[key](json): null
-                }
-            });
-
-
-            switch(json.type){
-                case ServerActions.userJoined:
-                    callbackObj.userJoined? callbackObj.userJoined(json): null;
-                    break;
-                case ServerActions.userExit:
-                    callbackObj.userExit? callbackObj.userExit(json): null;
-                    break;
-                case  ServerActions.userReadyStateChanged:
-                    callbackObj.userReadyStateChanged? callbackObj.userReadyStateChanged(json): null;
-                    break;
-                default:
-                    console.log("UNRECOGNIZED MESSAGE: " + json)
+            if(callback){
+                callback(json)
             }
         } catch (e) {
             console.log('This doesn\'t look like a valid JSON: ',
@@ -80,7 +63,6 @@ export const SystemSocketConnectionHandler = function(gameRoomID , callbackObj){
         setTimeout(
             function () {
                 if (socket.readyState === 1) {
-                    console.log("Connection is made");
                     if(callback !== null){
                         callback();
                     }
@@ -114,22 +96,22 @@ export const SystemSocketConnectionHandler = function(gameRoomID , callbackObj){
                 connection.send(JSON.stringify({type: "GET_ALL_ROOMS"}))
             })
         },
-        "joinGameRoom": function (user) {
+        "joinGameRoom": function (gameRoomID,username) {
             waitForSocketConnection(connection ,function () {
-                connection.send(JSON.stringify({type: "ENTER_GAME_ROOM","gameRoomID": gameRoomID , "user": user}));
+                connection.send(JSON.stringify({type: "ENTER_GAME_ROOM","gameRoomID": gameRoomID , "username": username}));
             })
         },
-        "exitGameRoom": function (username) {
+        "exitGameRoom": function (gameRoomID,username) {
             waitForSocketConnection(connection, function () {
                 connection.send(JSON.stringify({"type": "EXIT_GAME_ROOM", "gameRoomID": gameRoomID, "username": username}))
             })
         },
-        "setReadyTrue": function (username) {
+        "setReadyTrue": function (gameRoomID,username) {
             waitForSocketConnection(connection, function () {
                 connection.send(JSON.stringify({"type": "SET_READY_TRUE", "gameRoomID": gameRoomID, "username": username}))
             })
         },
-        "setReadyFalse": function (username) {
+        "setReadyFalse": function (gameRoomID,username) {
             waitForSocketConnection(connection, function () {
                 connection.send(JSON.stringify({"type": "SET_READY_FALSE", "gameRoomID": gameRoomID, "username": username}))
             })

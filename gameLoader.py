@@ -1,5 +1,6 @@
 import os
 import json
+import uuid
 
 
 configArr = []
@@ -56,6 +57,7 @@ with open("./src/Games/Initializer.js", "w") as init_file:
     init_file.write("import React from \"react\";\n");
     init_file.write("import {games} from \"./games\";\n");
     init_file.write("import {Route} from \"react-router-dom\";\n");
+    init_file.write("import {SocketHandler} from \"../system/SocketHandler\";\n");
 
     for i in range(0, len(configArr)):
         name = configArr[i]["name"]
