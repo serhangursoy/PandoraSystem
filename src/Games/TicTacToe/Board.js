@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import xObj from './static/img/xicon.svg'
 import oObj from './static/img/oicon.svg'
-import GameWrapper from '../GameWrapper'
+
+import GameWrapperRedux from "../GameWrapper";
 
 
 
-export default class Board extends GameWrapper {
+export default class Board extends GameWrapperRedux {
 
-    constructor() {
-        super();
-        this.state = {
+    constructor(props) {
+        super(props);
+        this.state.game = {
             "cells": [ [-1,-1,-1],[-1,-1,-1],[-1,-1,-1] ],
             "turn" : 0,  // Always start with player 1
             "moveCount": 0,
@@ -27,7 +28,7 @@ export default class Board extends GameWrapper {
     }
 
     cellClicked(clickedID) {
-        let currState = this.state;
+        let currState = this.state.game;
         let cells = currState.cells;
         let turn = currState.turn;
         let row = Math.floor(clickedID / 3);
@@ -52,7 +53,7 @@ export default class Board extends GameWrapper {
     }
 
     controlGamestatus( lastActionRow, lastActionColumn, moveData) {
-        let currState = this.state;
+        let currState = this.state.game;
         console.log("ROW: " + lastActionRow + " COL: " + lastActionColumn + " DATA: " + moveData + " Turn: " + currState.turn );
         if (currState.moveCount === 9) {
             // DRAW
@@ -194,7 +195,7 @@ export default class Board extends GameWrapper {
         let tmpStye= {
             width: "10%"
         };
-        if(this.state.turn !== 1) {
+        if(this.state.game.turn !== 1) {
             return ( <img src={oObj} style={tmpStye} alt="logo"/> );
         } else {
             return ( <img src={xObj}  style={tmpStye} alt="logo"/> );
@@ -203,7 +204,7 @@ export default class Board extends GameWrapper {
 
     render() {
         let elements = [];
-        let currState = this.state;
+        let currState = this.state.game;
         let cellCount = 0;
         for(let i = 0; i < currState.cells.length; i++) {
             let tmpRow = currState.cells[i];
@@ -231,7 +232,7 @@ export default class Board extends GameWrapper {
         };
         return (
             <div style={st}>
-                <h1> Player { this.state.turn  + 1 }'s turn.</h1>
+                <h1> Player { this.state.game.turn  + 1 }'s turn.</h1>
                 <h2> Your icon: { this.getIcon() }</h2>
                 <table style={st2}>
                     {elements}

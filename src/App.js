@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {Initializer} from "./Games/Initializer"
-import SystemScreensContainer from "./system/SystemScreensContainer";
 import GamesScreenContainer from "./Games/GamesScreenContainer";
-import {BrowserRouter, Router} from "react-router-dom";
+
 
 class App extends Component {
 
@@ -20,7 +17,7 @@ class App extends Component {
         console.log(this.state);
 
     return (
-        <GamesScreenContainer selectedGame="ButtonPressAdventure"/>
+        <GamesScreenContainer selectedGame="TicTacToe" gameID={"985ebfa1-33f3-48fa-87cc-9e5a1170b014"} gameRoomID={1}/>
         //<SystemScreensContainer/>
     );
   }

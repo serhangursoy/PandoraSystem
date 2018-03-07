@@ -16,21 +16,15 @@ export const GameSocketConnection = function(gameRoomID , callback){
     };
 
     connection.onmessage = function (message) {
-        try {
-            let json = JSON.parse(message.data);
-            console.log(json);
-            switch(json.type){
-                case "STATE_UPDATE":
-                    callback(json.state);
-                    break;
-                default:
-                    console.log("UNRECOGNIZED MESSAGE: " + json)
-            }
-        } catch (e) {
-            console.log('This doesn\'t look like a valid JSON: ',
-                message.data);
+        let json = JSON.parse(message.data);
+        console.log("Printing parsed message", json);
+        switch(json.type){
+            case "STATE_UPDATE":
+                callback(json.state);
+                break;
+            default:
+                console.log("UNRECOGNIZED MESSAGE: ", json)
         }
-
     };
 
 
@@ -54,7 +48,7 @@ export const GameSocketConnection = function(gameRoomID , callback){
     return {
         "sendNewState": function (state) {
                 waitForSocketConnection(connection ,function () {
-                    connection.send(JSON.stringify({"type": "STATE_UPDATE","gameRoomID": gameRoomID , "state": state}));
+                    connection.send(JSON.stringify({type: "STATE_UPDATE", gameRoomID: gameRoomID , state: state }));
                 })
 
         }

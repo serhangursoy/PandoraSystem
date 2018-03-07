@@ -20,8 +20,8 @@ export const SocketHandler = function () {
                 SystemSocket = SystemSocketConnectionHandler(ServerNotification);
             return SystemSocket
         },
-        "newGameSocketConnection": function (gameRoomID) {
-            GameSocket = GameSocketConnection(gameRoomID , GameNotification);
+        "newGameSocketConnection": function (gameRoomID , callback) {
+            GameSocket = GameSocketConnection(gameRoomID , callback);
             return GameSocket
         },
     }

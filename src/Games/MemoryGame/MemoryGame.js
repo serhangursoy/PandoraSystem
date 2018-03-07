@@ -1,10 +1,13 @@
 
 
 import React from "react"
-import GameWrapper from "../GameWrapper";
 import "./style.css"
+import GameWrapperRedux from "../GameWrapper";
 
-class GenNumber extends GameWrapper {
+class GenNumber extends GameWrapperRedux {
+    constructor(props){
+        super(props);
+    }
     componentDidUpdate() {
         let time, digit;
         // increase showing time depend on level
@@ -39,8 +42,8 @@ class GenNumber extends GameWrapper {
 }
 
 class InputNumber extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.handleUserInput = this.handleUserInput.bind(this);
         this.handleReset = this.handleReset.bind(this);
     }
@@ -80,24 +83,24 @@ class InputNumber extends React.Component {
     }
 }
 
-export default class App extends GameWrapper {
-    constructor() {
-        super();
+export default class App extends GameWrapperRedux {
+    constructor(props) {
+        super(props);
         this.compareUserInput = this.compareUserInput.bind(this);
         this.randomGenerate = this.randomGenerate.bind(this);
         this.resetState = this.resetState.bind(this);
-        this.state = {
+        this.state.game = {
             question: btoa(this.randomGenerate(2)),
             level: {main: 1, sub: 1},
             wrong: 0
         }
     }
     resetState() {
-        this.setState({
+        this.setState({game: {
             question: btoa(this.randomGenerate(2)),
             level: {main: 1, sub: 1},
             wrong: 0,
-        })
+        }})
     }
     randomGenerate(digit) {
         let max = Math.pow(10, digit) - 1,
@@ -106,10 +109,10 @@ export default class App extends GameWrapper {
         return Math.floor(Math.random() * (max - min + 1)) + min
     }
     compareUserInput(userNumber) {
-        let currQuestion = this.state.question,
-            mainLevel = this.state.level.main,
-            subLevel = this.state.level.sub,
-            wrong = this.state.wrong,
+        let currQuestion = this.state.game.question,
+            mainLevel = this.state.game.level.main,
+            subLevel = this.state.game.level.sub,
+            wrong = this.state.game.wrong,
             digit;
 
         if(userNumber == currQuestion) {
@@ -125,22 +128,22 @@ export default class App extends GameWrapper {
         }
         digit = mainLevel + 2;
 
-        this.setState({
+        this.setState({game: {
             question: btoa(this.randomGenerate(digit)),
             level: {main: mainLevel, sub: subLevel},
             wrong: wrong
-        });
+        }});
     }
     render() {
         return(
             <div className="main__app">
                 <GenNumber
-                    question={this.state.question}
-                    level={this.state.level}
-                    wrong={this.state.wrong}/>
+                    question={this.state.game.question}
+                    level={this.state.game.level}
+                    wrong={this.state.game.wrong}/>
                 <InputNumber
                     compareUserInput={this.compareUserInput}
-                    wrong = {this.state.wrong}
+                    wrong = {this.state.game.wrong}
                     onReset = {this.resetState} />
             </div>
         )

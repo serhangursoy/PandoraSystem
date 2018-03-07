@@ -1,61 +1,36 @@
 
 
 import React from "react"
-import GameWrapperRedux from "../GameWrapperRedux";
-import {Provider} from "react-redux"
-import {createStore} from "redux"
-import reducer from "./reducer"
-import {incrementCounter , decrementCounter} from "./Actions"
+import GameWrapperRedux from "../GameWrapper";
 import "./style.css"
-import * as Actions from "./Actions";
-import {GameSocketConnection} from "../GameSocketConnection";
+
+
 
 
 
 
 export default class GameContainer extends GameWrapperRedux {
-    constructor(props){
+    constructor(props) {
         super(props);
-
-        this.state = {
-            store: createStore(reducer , 0)
-        };
-
-        this.state.store.subscribe(function () {
-            this.setState({gameState: this.state.store.getState()})
-        }.bind(this));
-
-        this.state.connection = GameSocketConnection(1, function (newState) { // TODO 1 is gameRoomID - should be dynamic
-            if(this.state.store.getState() !== newState)
-                this.state.store.dispatch(Actions.updateState(newState));
-        }.bind(this));
-
-        this.state.store.subscribe(function () {
-            let s = this.state.store.getState();
-            this.state.connection.sendNewState(s);
-        }.bind(this))
+        this.state.game.count = 0;
     }
 
 
     incrementButtonPressed() {
-        this.state.store.dispatch(Actions.incrementCounter());
+       this.setState({game: {count : this.state.game.count + 1}})
     }
     decrementButtonPressed() {
-        this.state.store.dispatch(Actions.decrementCounter())
+        this.setState({game:{count : this.state.game.count + 1}})
     }
 
-
-
     render() {
+        console.log("render: ",this.state.game);
         return(
-
-
-            <div className="mainContainer">
-                <div><span className="step">{this.state.store.getState()}</span></div>
-                <button onClick={this.incrementButtonPressed.bind(this)}>Increment</button>
-                <button onClick={this.decrementButtonPressed.bind(this)}>Decrement</button>
-            </div>
-
+                <div className="mainContainer">
+                    <div><span className="step">{this.state.game.count}</span></div>
+                    <button onClick={this.incrementButtonPressed.bind(this)}>Increment</button>
+                    <button onClick={this.decrementButtonPressed.bind(this)}>Decrement</button>
+                </div>
         )
     }
 }

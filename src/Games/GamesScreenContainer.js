@@ -5,13 +5,17 @@ import {Initializer} from './Initializer'
 import {games} from "./games.js"
 
 
-let selectedGame = Initializer("c617fcd9-edb3-486e-b2bf-0c610b78275c");
+//let selectedGame = Initializer("f1cc46ef-8525-444b-af88-a4c90cb9bcdc", 1);
+
+
 
 class GamesScreenContainer extends Component {
-    constructor(){
+    constructor(props){
         super();
+        console.log(props);
         this.state = {
-            installedGames: games
+            installedGames: games,
+            selectedGame: Initializer(props.gameID , props.gameRoomID)
         }
 
     }
@@ -29,7 +33,7 @@ class GamesScreenContainer extends Component {
                         <h1 className="App-title">Welcome to Pandora</h1>
                     </header>
                     <div className="GameContainer" style={{margin: "auto",width: "100%"}}>
-                        {selectedGame}
+                        {this.state.selectedGame}
                     </div>
                 </div>
         );
