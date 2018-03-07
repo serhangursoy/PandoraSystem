@@ -202,6 +202,24 @@ export default class Board extends GameWrapperRedux {
         }
     }
 
+    onReset(){
+        this.setState({game:{
+            "cells": [ [-1,-1,-1],[-1,-1,-1],[-1,-1,-1] ],
+            "turn" : 0,  // Always start with player 1
+            "moveCount": 0,
+            "winlose": {
+                "playerone": {
+                    "win" : 0,
+                    "lose" : 0
+                },
+                "playertwo": {
+                    "win" : 0,
+                    "lose" : 0
+                }
+            }
+        }});
+    }
+
     render() {
         let elements = [];
         let currState = this.state.game;
@@ -230,6 +248,9 @@ export default class Board extends GameWrapperRedux {
         const st2 = {
             margin: "auto",
         };
+        const st3 = {
+            marginTop: "15px",
+        };
         return (
             <div style={st}>
                 <h1> Player { this.state.game.turn  + 1 }'s turn.</h1>
@@ -237,6 +258,7 @@ export default class Board extends GameWrapperRedux {
                 <table style={st2}>
                     {elements}
                 </table>
+                <button style={st3} onClick={this.onReset.bind(this)}>Reset</button>
             </div>
         );
     }

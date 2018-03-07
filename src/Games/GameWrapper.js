@@ -11,15 +11,13 @@ export default class GameWrapper extends Component {
             game: {}
         };
         this.state.connection.enterGame();
-        console.log("Children: ", this.props);
+
         return this;
     }
 
 
     setServerState(serverState){
         console.log("will update?" , JSON.stringify(this.state.game)!== JSON.stringify(serverState));
-        console.log(serverState);
-        console.log(this.state);
         if(JSON.stringify(this.state.game) !== JSON.stringify(serverState)) {
             if(JSON.stringify(serverState) !== JSON.stringify({}))
                 this.setState({
@@ -33,7 +31,6 @@ export default class GameWrapper extends Component {
     }
 
     componentDidUpdate(){
-        console.log("Sending the new state", this.state.game);
         if(this.state.updatedFromServer === false)
             this.state.connection.sendNewState(this.state.game);
     }
