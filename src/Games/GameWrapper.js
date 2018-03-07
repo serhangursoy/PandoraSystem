@@ -1,4 +1,4 @@
-import {Component} from 'react'
+import React,{Component} from 'react'
 import {SocketHandler} from "../system/SocketHandler"
 
 
@@ -11,6 +11,7 @@ export default class GameWrapper extends Component {
             game: {}
         };
         this.state.connection.enterGame();
+        console.log("Children: ", this.props);
         return this;
     }
 
@@ -19,13 +20,15 @@ export default class GameWrapper extends Component {
         console.log("will update?" , JSON.stringify(this.state.game)!== JSON.stringify(serverState));
         console.log(serverState);
         console.log(this.state);
-        if(JSON.stringify(this.state.game) !== JSON.stringify(serverState))
-            this.setState({
-                game: serverState,
-                updatedFromServer: true
-            } , function () {
-                this.state.updatedFromServer = false;
-            }.bind(this))
+        if(JSON.stringify(this.state.game) !== JSON.stringify(serverState)) {
+            if(JSON.stringify(serverState) !== JSON.stringify({}))
+                this.setState({
+                    game: serverState,
+                    updatedFromServer: true
+                }, function () {
+                    this.state.updatedFromServer = false;
+                }.bind(this))
+        }
 
     }
 
