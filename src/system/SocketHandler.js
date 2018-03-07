@@ -14,9 +14,9 @@ export const SocketHandler = function () {
 
 
     return {
-        "newSystemSocketConnection": function () {
+        "newSystemSocketConnection": function (callFunc) {
             if(!SystemSocket)
-                SystemSocket = SystemSocketConnectionHandler(ServerNotification);
+                SystemSocket = SystemSocketConnectionHandler(callFunc);
             return SystemSocket
         },
         "newGameSocketConnection": function (gameRoomID , callback) {

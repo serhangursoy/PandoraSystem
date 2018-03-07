@@ -21,11 +21,6 @@ class Login extends Component {
         }
     }
 
-    componentDidMount() {
-        let connReqFunc = this.props.getConnectionID;
-        connReqFunc();
-    }
-
     passChange( e ) {
         let tmpState = this.state;
         tmpState.password = e.target.value;
