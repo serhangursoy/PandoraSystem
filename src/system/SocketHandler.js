@@ -7,7 +7,6 @@
 import {SystemSocketConnectionHandler} from "./SystemSocketConnectionHandler";
 import {GameSocketConnection} from "../Games/GameSocketConnection";
 import {ServerNotification} from "./ServerNotification"
-import {GameNotification} from "./GameNotification";
 
 export const SocketHandler = function () {
     let SystemSocket = null;

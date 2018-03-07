@@ -10,6 +10,7 @@ export default class GameWrapper extends Component {
             updatedFromServer: false,
             game: {}
         };
+        this.state.connection.enterGame();
         return this;
     }
 

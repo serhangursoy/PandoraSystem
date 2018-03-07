@@ -51,6 +51,13 @@ export const GameSocketConnection = function(gameRoomID , callback){
                     connection.send(JSON.stringify({type: "STATE_UPDATE", gameRoomID: gameRoomID , state: state }));
                 })
 
+        },
+        "enterGame": function () {
+            console.log("Sending Enter Game");
+            waitForSocketConnection(connection, function () {
+                connection.send(JSON.stringify({type: "ENTER_GAME" , gameRoomID: gameRoomID}))
+            })
+
         }
 
     }
