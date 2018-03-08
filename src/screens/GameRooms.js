@@ -86,7 +86,7 @@ class GameRooms extends Component {
                     <div className="page-header-image" style={customStyle}></div>
                     <div className="container">
                         <h1 className="welcome-message">Game Rooms</h1>
-                        <div className="col-md-4 content-center">
+                        <div className="col-md-4 content-center gameLobbyCont">
                             <div className="gameContainer">
                                 {listAdder}
                             </div>

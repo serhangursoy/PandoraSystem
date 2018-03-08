@@ -57,9 +57,9 @@ class SystemScreensContainer extends Component {
                 console.log("User joined!!!!!!");
                 console.log(event);
                 let tmpState = this.state;
-                if(this.state.loginHandler.isLogged)
+              //  if(this.state.loginHandler.isLogged)
                     tmpState.AdminHandler.selectedGame.gameDetails = event.room;
-                else
+           //     else
                     tmpState.GuestHandler.gameDetails = event.room;
                 this.setState(tmpState);
                 break;
@@ -109,19 +109,22 @@ class SystemScreensContainer extends Component {
                 console.log(event.message);
                 break;
             case ServerActions.userExit:
-                console.log("User çıktı yeni game room objesi gelmiştir ;)");
+                console.log("USERLARDAN BIRISI DÜŞTÜ, ALLAHU ACKBAR;)");
+                /*
                 tmpState = this.state;
                 if(this.state.loginHandler.isLogged)
                     tmpState.AdminHandler.selectedGame.gameDetails = event.room;
                 else
                     tmpState.GuestHandler.gameDetails = event.room;
                 this.setState(tmpState);
+*/
                 break;
             case ServerActions.userReadyStateChanged:
                 tmpState = this.state;
-                if(this.state.loginHandler.isLogged)
+                console.log("Stateler değişti, orta gamelobbyde kartlar yeniden karılıyor! Yeni event... ", event);
+               // if(this.state.loginHandler.isLogged)
                     tmpState.AdminHandler.selectedGame.gameDetails = event.room;
-                else
+              //  else
                     tmpState.GuestHandler.gameDetails = event.room;
                 this.setState(tmpState);
                 break;
@@ -137,6 +140,18 @@ class SystemScreensContainer extends Component {
         this.setState(tmpState);
     }
 
+    startGame() {
+        let tmpState = this.state;
+        let someTemp = tmpState.AdminHandler.selectedGame.gameDetails;
+        someTemp.active = true;
+        tmpState.AdminHandler.selectedGame.gameDetails = someTemp;
+        let someTemp2 = tmpState.GuestHandler.gameDetails;
+        someTemp2.active = true;
+        tmpState.GuestHandler.gameDetails = someTemp2;
+        console.log("Starting the game.. ", someTemp, " other temp2 ", someTemp2 );
+        this.setState(tmpState);
+    }
+
     adminLogin( passphrase ) {
         console.log("Admin login request, input:" + passphrase);
         this.state.connection.adminLogin(passphrase);
@@ -144,6 +159,7 @@ class SystemScreensContainer extends Component {
 
     createGameClicked(gameID,userName) {
         this.state.connection.createGameRoom(gameID , cookies.get("adminKey"));
+        cookies.set("uname", userName);
         let tmpState = this.state;
         tmpState.AdminHandler.adminUsername = userName;
         this.setState(tmpState);
@@ -162,6 +178,8 @@ class SystemScreensContainer extends Component {
         this.setState(tmpState);
     }
     userIsReady(username, readyStatus,gameRoomID){
+
+        console.log("Someone changed its state.. ", username, " to ", readyStatus, " in gameroom", gameRoomID);
         if(readyStatus)
             this.state.connection.setReadyTrue(gameRoomID, username);
         else
@@ -170,12 +188,12 @@ class SystemScreensContainer extends Component {
 
 
     goGameRooms() {
-        let tmpState = this.state;
         console.log("kankalarla go game room keyfi");
         this.state.connection.getAllRooms();
     }
 
     joinGameRoom(gameRoomID, username){
+        cookies.set("uname", username);
         this.state.connection.joinGameRoom(gameRoomID, username);
     }
     /*
@@ -218,7 +236,7 @@ class SystemScreensContainer extends Component {
             if (this.state.loginHandler.isLogged) {
                 if (this.state.AdminHandler.createNewGame) {
                     if (this.state.AdminHandler.selectedGame.isSelected) {
-                        return <GameLobby gameDetails={this.state.AdminHandler.selectedGame.gameDetails} userReady={ this.userIsReady.bind(this)}/>
+                        return <GameLobby gameDetails={this.state.AdminHandler.selectedGame.gameDetails} userReady={ this.userIsReady.bind(this)} startGame={this.startGame.bind(this)}/>
                     } else {
                         return <CreateGame createGameClicked={this.createGameClicked.bind(this)}/>;
                     }
@@ -230,7 +248,7 @@ class SystemScreensContainer extends Component {
             } else {
 
                 if (this.state.GuestHandler.joinedRoom) {
-                    return <GameLobby gameDetails={this.state.GuestHandler.gameDetails} userReady={ this.userIsReady.bind(this)}/>
+                    return <GameLobby gameDetails={this.state.GuestHandler.gameDetails} userReady={ this.userIsReady.bind(this)} startGame={this.startGame.bind(this)}/>
                 } else {
                     if (this.state.GuestHandler.showRooms) {
                         return <GameRooms gameRooms={this.state.GuestHandler.gameRoomData} joinGameRoom={this.joinGameRoom.bind(this)}/>
@@ -245,7 +263,7 @@ class SystemScreensContainer extends Component {
     }
 
     render() {
-        console.log("render: ", this.state);
+     //   console.log("render: ", this.state);
         let page = this.calculatePage();
         return (<div>{ page }</div>);
     }
