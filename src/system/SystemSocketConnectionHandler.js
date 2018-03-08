@@ -81,9 +81,9 @@ export const SystemSocketConnectionHandler = function(callback){
                 connection.send(JSON.stringify({type: "ADMIN_LOGIN", password: password}))
             })
         },
-        "createGameRoom": function (gameID) {
+        "createGameRoom": function (gameID , adminKey) {
             waitForSocketConnection(connection, function () {
-                connection.send(JSON.stringify({type: "CREATE_GAME_ROOM" , gameID: gameID}))
+                connection.send(JSON.stringify({type: "CREATE_GAME_ROOM" , gameID: gameID, key: adminKey}))
             })
         },
         "getActiveGameRoom": function () {

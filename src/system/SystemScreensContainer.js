@@ -13,8 +13,6 @@ import {ServerActions} from "./ServerActions";
 
 const cookies = new Cookies();
 const isDebug = true;
-let soc;
-const ENUMS = ServerActions;
 //const API = "http://35.202.126.234:3000/api/";
 const API = "http://127.0.0.1:3000/api/";
 class SystemScreensContainer extends Component {
@@ -24,8 +22,8 @@ class SystemScreensContainer extends Component {
     constructor() {
         var debug= false;
         super();
-        soc = SocketHandler.newSystemSocketConnection(this.SocketHandlerFunction.bind(this));
         this.state = {
+            connection: SocketHandler.newSystemSocketConnection(this.SocketHandlerFunction.bind(this)),
             dummyButton: "false",
             loginHandler: {
                 loginFailed: debug,
@@ -45,7 +43,9 @@ class SystemScreensContainer extends Component {
                 joinedRoom: false,
                 gameRoomData: null,
                 gameDetails: null
-            }
+            },
+            goToGame: false,
+            gameRoomState: null
         };
     }
 
@@ -55,15 +55,20 @@ class SystemScreensContainer extends Component {
         switch (event.type) {
             case ServerActions.userJoined:
                 console.log("User joined!!!!!!");
+                console.log(event);
+                this.setState({gameRoomState: event.room});
                 break;
             case ServerActions.adminLogin:
                 console.log("Admin hazretleri.. Key: " + event.key);
                 cookies.set("adminKey", event.key);
-                tmpState.loginHandler.isLogged = true;
-                this.setState(tmpState);
+                this.setState({loginHandler: {isLogged: true}});
                 break;
             case ServerActions.createGameRoom:
                 console.log("Creating game room..");
+                console.log(event);
+                console.log(this.state.AdminHandler.adminUsername);
+                this.state.connection.joinGameRoom(event.gameRoom.gameRoomID , this.state.AdminHandler.adminUsername);
+                this.setState({goToGame: true});
                 console.log(event);
                 break;
             case ServerActions.joinGameRoom:
@@ -78,6 +83,7 @@ class SystemScreensContainer extends Component {
                 break;
             case ServerActions.getAllRooms:
                 console.log(event);
+                tmpState = this.state;
                 tmpState.GuestHandler.gameRoomData = event.roomList;
                 tmpState.GuestHandler.showRooms = true;
                 this.setState(tmpState);
@@ -91,7 +97,8 @@ class SystemScreensContainer extends Component {
                 break;
             case ServerActions.userExit:
                 console.log("User çıktı yeni game room objesi gelmiştir ;)");
-                console.log(event.gameRoom);
+                this.setState({gameRoomState: event.room});
+                console.log(event.room);
                 break;
             default:
                 new Error("Server Action not recognized");
@@ -107,13 +114,14 @@ class SystemScreensContainer extends Component {
 
     adminLogin( passphrase ) {
         console.log("Admin login request, input:" + passphrase);
-        soc.adminLogin(passphrase);
+        this.state.connection.adminLogin(passphrase);
     }
 
     createGameClicked(gameID,userName) {
-        soc.createGameRoom(gameID);
+        this.state.connection.createGameRoom(gameID , cookies.get("adminKey"));
         let tmpState = this.state;
         tmpState.AdminHandler.adminUsername = userName;
+        this.setState(tmpState);
     }
 
     createNewGame() {
@@ -148,6 +156,7 @@ class SystemScreensContainer extends Component {
         } );
 
     }
+    /*
     joinGameRoom(roomID, username) {
 
         console.log("Join Req from our lovely lad.. Room #:" + roomID +  "| Username:" + username);
@@ -180,12 +189,12 @@ class SystemScreensContainer extends Component {
             console.log("Error!" ,  err);
         } );
     }
-
+*/
 
     goGameRooms() {
         let tmpState = this.state;
         console.log("kankalarla go game room keyfi");
-        soc.getAllRooms();
+        this.state.connection.getAllRooms();
         /*
         fetch(API + 'loginGuest', {
             method: 'POST',
@@ -292,6 +301,7 @@ class SystemScreensContainer extends Component {
     }
 
     render() {
+        console.log("render: ", this.state);
         let page = this.calculatePage();
         return (<div>{ page }</div>);
     }

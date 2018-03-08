@@ -58,7 +58,7 @@ class CreateGame extends Component {
             <div key={i} className="card gameCard">
                     <div className="header text-center">
                         <h4 className="title title-up">{game.name}</h4>
-                        <a className="btn btn-success btn-round" onClick={this.openPopupModal.bind(this, i+1)}>Create</a>
+                        <a className="btn btn-success btn-round" onClick={this.openPopupModal.bind(this, games[i].id)}>Create</a>
                     </div>
             </div>
         );
