@@ -7,9 +7,9 @@ import GameLobby from '../screens/GameLobby';
 import GameRooms from '../screens/GameRooms';
 import Cookies from 'universal-cookie';
 import AdminSettings from "../screens/AdminSettings";
-import {SystemSocketConnectionHandler} from "./SystemSocketConnectionHandler";
 import {SocketHandler} from "./SocketHandler";
 import {ServerActions} from "./ServerActions";
+import GamesScreenContainer from "../Games/GamesScreenContainer";
 
 const cookies = new Cookies();
 const isDebug = true;
@@ -56,7 +56,12 @@ class SystemScreensContainer extends Component {
             case ServerActions.userJoined:
                 console.log("User joined!!!!!!");
                 console.log(event);
-                this.setState({gameRoomState: event.room});
+                let tmpState = this.state;
+                if(this.state.loginHandler.isLogged)
+                    tmpState.AdminHandler.selectedGame.gameDetails = event.room;
+                else
+                    tmpState.GuestHandler.gameDetails = event.room;
+                this.setState(tmpState);
                 break;
             case ServerActions.adminLogin:
                 console.log("Admin hazretleri.. Key: " + event.key);
@@ -68,20 +73,28 @@ class SystemScreensContainer extends Component {
                 console.log(event);
                 console.log(this.state.AdminHandler.adminUsername);
                 this.state.connection.joinGameRoom(event.gameRoom.gameRoomID , this.state.AdminHandler.adminUsername);
-                this.setState({goToGame: true});
                 console.log(event);
                 break;
             case ServerActions.joinGameRoom:
-                console.log("Logged in!");
+                console.log("Join game room");
                 console.log(event);
-                let tmpState = this.state;
-                tmpState.AdminHandler.selectedGame.isSelected = true;
-                tmpState.AdminHandler.selectedGame.gameDetails = event;
-                tmpState.AdminHandler.selectedGame.gameDetails.isAdmin = false;
-                tmpState.AdminHandler.selectedGame.gameDetails.username = this.state.AdminHandler.adminUsername;
+                tmpState = this.state;
+                if(this.state.loginHandler.isLogged) {
+                    console.log("admin going to lobby :):):)");
+                    tmpState.AdminHandler.selectedGame.isSelected = true;
+                    tmpState.AdminHandler.selectedGame.gameDetails = event.room;
+                    tmpState.AdminHandler.selectedGame.gameDetails.isAdmin = false;
+                    tmpState.AdminHandler.selectedGame.gameDetails.username = this.state.AdminHandler.adminUsername;
+                }else {
+                    console.log("guest going to lobby :):):)");
+                    tmpState.GuestHandler.gameDetails = event.room;
+                    tmpState.GuestHandler.joinedRoom = true;
+                    tmpState.GuestHandler.showRooms = false;
+                }
                 this.setState(tmpState);
                 break;
             case ServerActions.getAllRooms:
+                console.log("get all rooms");
                 console.log(event);
                 tmpState = this.state;
                 tmpState.GuestHandler.gameRoomData = event.roomList;
@@ -97,8 +110,20 @@ class SystemScreensContainer extends Component {
                 break;
             case ServerActions.userExit:
                 console.log("User çıktı yeni game room objesi gelmiştir ;)");
-                this.setState({gameRoomState: event.room});
-                console.log(event.room);
+                tmpState = this.state;
+                if(this.state.loginHandler.isLogged)
+                    tmpState.AdminHandler.selectedGame.gameDetails = event.room;
+                else
+                    tmpState.GuestHandler.gameDetails = event.room;
+                this.setState(tmpState);
+                break;
+            case ServerActions.userReadyStateChanged:
+                tmpState = this.state;
+                if(this.state.loginHandler.isLogged)
+                    tmpState.AdminHandler.selectedGame.gameDetails = event.room;
+                else
+                    tmpState.GuestHandler.gameDetails = event.room;
+                this.setState(tmpState);
                 break;
             default:
                 new Error("Server Action not recognized");
@@ -137,107 +162,23 @@ class SystemScreensContainer extends Component {
         this.setState(tmpState);
     }
     userIsReady(username, readyStatus,gameRoomID){
-        fetch(API + 'setPlayerReady', {
-            method: 'POST',
-            headers: {
-                'Access-Control-Allow-Origin':'*',
-                'Content-Type': 'application/json'
-            },
-            body:  JSON.stringify({
-                connID: cookies.get("connID"),
-                username: username,
-                readyStatus: readyStatus,
-                gameRoomID: gameRoomID
-            })
-        }).then(response => response.json()).then((response) => {
-        }).catch( function(err) {
-            // Handle error in here! It means login failed!
-            console.log("Error!" ,  err);
-        } );
-
+        if(readyStatus)
+            this.state.connection.setReadyTrue(gameRoomID, username);
+        else
+            this.state.connection.setReadyFalse(gameRoomID, username);
     }
-    /*
-    joinGameRoom(roomID, username) {
 
-        console.log("Join Req from our lovely lad.. Room #:" + roomID +  "| Username:" + username);
-
-        SystemSocketConnectionHandler(roomID, console.log).joinGameRoom(username);
-
-
-
-        fetch(API + 'enterGameRoom', {
-            method: 'POST',
-            headers: {
-                'Access-Control-Allow-Origin':'*',
-                'Content-Type': 'application/json'
-            },
-            body:  JSON.stringify({
-                connID: cookies.get("connID"),
-                username: username,
-                gameRoomID: roomID
-            })
-        }).then(response => response.json()).then((response) => {
-            let tmpState = this.state;
-            tmpState.GuestHandler.joinedRoom = true;
-            tmpState.GuestHandler.gameDetails = response;
-            tmpState.GuestHandler.gameDetails.isAdmin = false;
-            tmpState.GuestHandler.gameDetails.username = username;
-            tmpState.GuestHandler.gameDetails.ourConnID = cookies.get("connID");
-            this.setState(tmpState);
-        }).catch( function(err) {
-            // Handle error in here! It means login failed!
-            console.log("Error!" ,  err);
-        } );
-    }
-*/
 
     goGameRooms() {
         let tmpState = this.state;
         console.log("kankalarla go game room keyfi");
         this.state.connection.getAllRooms();
-        /*
-        fetch(API + 'loginGuest', {
-            method: 'POST',
-            headers: {
-                'Access-Control-Allow-Origin':'*'
-            }
-        }).then(response => response.json()).then((response) => {
-
-            if (cookies.get("connID") == null) {
-                fetch(API + 'getConnIdGuest', {
-                    method: 'GET',
-                    headers: {
-                        'Access-Control-Allow-Origin': '*'
-                    }
-                }).then(response => response.json()).then((response) => {
-                    let userConnID = response.connID;
-                    cookies.set("connID", userConnID);
-                });
-
-            } else {
-                console.log("Already have conn ID, no need to send query again")
-            }
-
-
-            fetch(API + 'getAllRooms', {
-                method: 'GET',
-                headers: {
-                    'Access-Control-Allow-Origin': '*'
-                }
-            }).then(responseA => responseA.json()).then((responseA) => {
-
-                console.log("Listing game rooms..");
-                tmpState.GuestHandler.gameRoomData = responseA.activeGameRooms;
-                tmpState.GuestHandler.showRooms = true;
-                this.setState(tmpState);
-            });
-
-        }).catch( function(err) {
-            // Handle error in here! It means login failed!
-            console.log("Error!" ,  err);
-        } );
-        */
     }
+
+    joinGameRoom(gameRoomID, username){
+        this.state.connection.joinGameRoom(gameRoomID, username);
+    }
+    /*
     changewifiSettings(wifi_name,wifi_pass){
         console.log("Send change request");
 
@@ -259,6 +200,7 @@ class SystemScreensContainer extends Component {
         );
 
     }
+    */
 
     resetBox() {
         console.log("This will reset box...");
@@ -267,6 +209,8 @@ class SystemScreensContainer extends Component {
 
     // This will do the heavy work!
     calculatePage() {
+
+
         if(this.state.dummyButton === "false") {
             return <Welcome dummyClicked={this.dummyClicked.bind(this)}/>
         }

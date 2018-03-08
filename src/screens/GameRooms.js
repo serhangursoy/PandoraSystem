@@ -51,6 +51,18 @@ class GameRooms extends Component {
         }
     }
 
+    findGameName(gameID){
+        let name = {};
+        games.forEach(function (game) {
+            if(game.id == gameID) {
+                console.log("found game name", game.name);
+                name.name = game.name;
+            }
+        }, name)
+        return name.name;
+    }
+
+
     render() {
         let customStyle = { backgroundImage: "url(" + GameBack + ")",
             backgroundSize: "cover",
@@ -62,7 +74,7 @@ class GameRooms extends Component {
         let listAdder = allGameRooms.map( (game,i) =>  <div className="card" key={i}>
             <img className="card-img-top" alt="Card image cap"/>
             <div className="card-body">
-                <h5 className="card-title">{games[game.gameID].name}</h5>
+                <h5 className="card-title">{this.findGameName(game.gameID)}</h5>
                 <p className="card-text">Game Room #{game.gameRoomID}</p>
                 <a onClick={ this.openPopupModal.bind(this,game.gameRoomID) } className="btn btn-primary">Enter Game Room</a>
             </div>
