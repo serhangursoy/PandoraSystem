@@ -65,6 +65,10 @@ class GameLobby extends Component {
         }
     }
 
+    startGameBinder() {
+        this.props.startGame(this.state.gameRoomDetails.gameRoomID);
+    }
+
     render() {
         let customStyle = { backgroundImage: "url(" + Lobby + ")",
             backgroundSize: "cover",
@@ -96,7 +100,7 @@ class GameLobby extends Component {
             for(let k = 0 ; k< gameRoomUsers.length; k++) {
                 if(!gameRoomUsers[k].ready) shouldGoOn = false
             }
-            if (shouldGoOn) buttonAdder = <a className="btn btn-warning" onClick={this.props.startGame}> Start Game</a>;
+            if (shouldGoOn) buttonAdder = <a className="btn btn-warning" onClick={this.startGameBinder.bind(this) }> Start Game</a>;
         }
 
         if (this.state.gameRoomDetails.active) {

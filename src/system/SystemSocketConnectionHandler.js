@@ -32,8 +32,8 @@ import {ServerActions} from "./ServerActions"
 export const SystemSocketConnectionHandler = function(callback){
     window.WebSocket = window.WebSocket || window.MozWebSocket;
 
-    // const connection = new WebSocket('ws://139.179.194.218:1337');
-    const connection = new WebSocket('ws://localhost:1337');
+    const connection = new WebSocket('ws://139.179.194.218:1337');
+    //const connection = new WebSocket('ws://localhost:1337');
 
 
     connection.onopen = function () {
@@ -114,6 +114,11 @@ export const SystemSocketConnectionHandler = function(callback){
         "setReadyFalse": function (gameRoomID,username) {
             waitForSocketConnection(connection, function () {
                 connection.send(JSON.stringify({"type": "SET_READY_FALSE", "gameRoomID": gameRoomID, "username": username}))
+            })
+        },
+        "startGame": function (gameRoomID) {
+            waitForSocketConnection(connection, function () {
+                connection.send(JSON.stringify({"type": "START_GAME", "gameRoomID": gameRoomID}))
             })
         }
 

@@ -9,4 +9,5 @@ export const ServerActions = {
     getAllRooms: "GET_ALL_ROOMS",
     stateUpdate: "STATE_UPDATE",
     joinGameRoom: "ENTER_GAME_ROOM",
+    startGame: "START_GAME",
 };

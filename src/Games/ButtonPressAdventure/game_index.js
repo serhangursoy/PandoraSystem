@@ -20,7 +20,7 @@ export default class GameContainer extends GameWrapperRedux {
        this.setState({game: {count : this.state.game.count + 1}})
     }
     decrementButtonPressed() {
-        this.setState({game:{count : this.state.game.count + 1}})
+        this.setState({game:{count : this.state.game.count - 1}})
     }
 
     render() {

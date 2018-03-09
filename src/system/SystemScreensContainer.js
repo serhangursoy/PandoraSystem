@@ -128,6 +128,15 @@ class SystemScreensContainer extends Component {
                     tmpState.GuestHandler.gameDetails = event.room;
                 this.setState(tmpState);
                 break;
+
+            case ServerActions.startGame:
+                console.log("Starting Game for everyone!... ");
+                console.log(event);
+                tmpState = this.state;
+                tmpState.AdminHandler.selectedGame.gameDetails = event.room;
+                tmpState.GuestHandler.gameDetails = event.room;
+                this.setState(tmpState);
+                break;
             default:
                 new Error("Server Action not recognized");
                 break;
@@ -140,16 +149,9 @@ class SystemScreensContainer extends Component {
         this.setState(tmpState);
     }
 
-    startGame() {
-        let tmpState = this.state;
-        let someTemp = tmpState.AdminHandler.selectedGame.gameDetails;
-        someTemp.active = true;
-        tmpState.AdminHandler.selectedGame.gameDetails = someTemp;
-        let someTemp2 = tmpState.GuestHandler.gameDetails;
-        someTemp2.active = true;
-        tmpState.GuestHandler.gameDetails = someTemp2;
-        console.log("Starting the game.. ", someTemp, " other temp2 ", someTemp2 );
-        this.setState(tmpState);
+    startGame( gameRoomID ) {
+        console.log("Start game from frontend, ID " , gameRoomID);
+       this.state.connection.startGame(gameRoomID);
     }
 
     adminLogin( passphrase ) {
@@ -248,7 +250,7 @@ class SystemScreensContainer extends Component {
             } else {
 
                 if (this.state.GuestHandler.joinedRoom) {
-                    return <GameLobby gameDetails={this.state.GuestHandler.gameDetails} userReady={ this.userIsReady.bind(this)} startGame={this.startGame.bind(this)}/>
+                    return <GameLobby gameDetails={this.state.GuestHandler.gameDetails} userReady={ this.userIsReady.bind(this)}/>
                 } else {
                     if (this.state.GuestHandler.showRooms) {
                         return <GameRooms gameRooms={this.state.GuestHandler.gameRoomData} joinGameRoom={this.joinGameRoom.bind(this)}/>

@@ -224,21 +224,25 @@ export default class Board extends GameWrapperRedux {
         let elements = [];
         let currState = this.state.game;
         let cellCount = 0;
-        for(let i = 0; i < currState.cells.length; i++) {
-            let tmpRow = currState.cells[i];
-            let rowInner = [];
-            for(let j=0; j < tmpRow.length; j++) {
-                let tmpCell = tmpRow[j];
-                let cellInner;
-                if (tmpCell === 1) {
-                    cellInner = <img src={xObj} className="MarkerX" alt="logo"/>;
-                } else if(tmpCell === 0) {
-                    cellInner = <img src={oObj} className="Marker" alt="logo"/>;
+
+        if(currState !== undefined) {
+            console.log(currState);
+            for (let i = 0; i < currState.cells.length; i++) {
+                let tmpRow = currState.cells[i];
+                let rowInner = [];
+                for (let j = 0; j < tmpRow.length; j++) {
+                    let tmpCell = tmpRow[j];
+                    let cellInner;
+                    if (tmpCell === 1) {
+                        cellInner = <img src={xObj} className="MarkerX" alt="logo"/>;
+                    } else if (tmpCell === 0) {
+                        cellInner = <img src={oObj} className="Marker" alt="logo"/>;
+                    }
+                    rowInner.push(<td  key={ (j+1) * (i+1)} ><div className='CellBlocks' onClick={this.cellClicked.bind(this, cellCount)}><p/> {cellInner}</div></td>);
+                    cellCount++;
                 }
-                rowInner.push( <td> <div className='CellBlocks' onClick={this.cellClicked.bind(this, cellCount)}> <p/> {cellInner} </div> </td>);
-                cellCount++;
+                elements.push(<tr key={i}>{rowInner}</tr>);
             }
-            elements.push(<tr> { rowInner} </tr>);
         }
 
         const st = {
@@ -256,7 +260,9 @@ export default class Board extends GameWrapperRedux {
                 <h1> Player { this.state.game.turn  + 1 }'s turn.</h1>
                 <h2> Your icon: { this.getIcon() }</h2>
                 <table style={st2}>
+                    <tbody>
                     {elements}
+                    </tbody>
                 </table>
                 <button style={st3} onClick={this.onReset.bind(this)}>Reset</button>
             </div>
