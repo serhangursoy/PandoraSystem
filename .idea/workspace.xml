@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3ba77e93-2a42-4b9f-8262-856fa9e54ce2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Games/GameSocketConnection.js" afterPath="$PROJECT_DIR$/src/Games/GameSocketConnection.js" />
-      <change beforePath="$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js" afterPath="$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js" />
+      <change beforePath="$PROJECT_DIR$/src/Games/GamesScreenContainer.js" afterPath="$PROJECT_DIR$/src/Games/GamesScreenContainer.js" />
+      <change beforePath="$PROJECT_DIR$/src/Games/Initializer.js" afterPath="$PROJECT_DIR$/src/Games/Initializer.js" />
+      <change beforePath="$PROJECT_DIR$/src/Games/TicTacToe/Board.js" afterPath="$PROJECT_DIR$/src/Games/TicTacToe/Board.js" />
+      <change beforePath="$PROJECT_DIR$/src/screens/GameLobby.js" afterPath="$PROJECT_DIR$/src/screens/GameLobby.js" />
+      <change beforePath="$PROJECT_DIR$/src/system/SystemScreensContainer.js" afterPath="$PROJECT_DIR$/src/system/SystemScreensContainer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,38 +24,30 @@
       <file leaf-file-name="SystemScreensContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/system/SystemScreensContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11169">
-              <caret line="230" column="21" lean-forward="true" selection-start-line="230" selection-start-column="21" selection-end-line="230" selection-end-column="21" />
+            <state relative-caret-position="2270">
+              <caret line="71" column="52" lean-forward="true" selection-start-line="71" selection-start-column="52" selection-end-line="71" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CreateGame.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/screens/CreateGame.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3060">
+              <caret line="60" column="112" lean-forward="false" selection-start-line="60" selection-start-column="112" selection-end-line="60" selection-end-column="112" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Board.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Games/TicTacToe/Board.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9384">
-              <caret line="197" column="40" lean-forward="true" selection-start-line="197" selection-start-column="40" selection-end-line="197" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Games/TicTacToe/config.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="4" column="45" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game_index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Games/ButtonPressAdventure/game_index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="22" column="60" lean-forward="false" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+            <state relative-caret-position="810">
+              <caret line="36" column="70" lean-forward="false" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -61,18 +56,18 @@
       <file leaf-file-name="Initializer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Games/Initializer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+            <state relative-caret-position="-52">
+              <caret line="4" column="45" lean-forward="true" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameSocketConnection.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Games/GameSocketConnection.js">
+      <file leaf-file-name="GameWrapper.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Games/GameWrapper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255">
-              <caret line="4" column="63" lean-forward="true" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
+            <state relative-caret-position="204">
+              <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -81,8 +76,8 @@
       <file leaf-file-name="GameLobby.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/GameLobby.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5304">
-              <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+            <state relative-caret-position="816">
+              <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -90,21 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SystemSocketConnectionHandler.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js">
+      <file leaf-file-name="GamesScreenContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Games/GamesScreenContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="34" column="6" lean-forward="false" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerActions.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/ServerActions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            <state relative-caret-position="102">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -141,6 +126,8 @@
       <find>.room</find>
       <find>http://127.0.0.1API</find>
       <find>uname</find>
+      <find>GameWrapper</find>
+      <find>userName</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -186,8 +173,6 @@
         <option value="$PROJECT_DIR$/src/Games/AwesomeGame/awesomeComponent.js" />
         <option value="$PROJECT_DIR$/src/Games/ButtonPressAdventure/Actions.js" />
         <option value="$PROJECT_DIR$/src/Games/GameWrapperRedux.js" />
-        <option value="$PROJECT_DIR$/src/Games/GamesScreenContainer.js" />
-        <option value="$PROJECT_DIR$/src/Games/Initializer.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/system/SocketHandler.js" />
         <option value="$PROJECT_DIR$/src/screens/Login.js" />
@@ -195,12 +180,14 @@
         <option value="$PROJECT_DIR$/src/style/custom.css" />
         <option value="$PROJECT_DIR$/src/screens/GameRooms.js" />
         <option value="$PROJECT_DIR$/src/system/ServerActions.js" />
-        <option value="$PROJECT_DIR$/src/screens/GameLobby.js" />
-        <option value="$PROJECT_DIR$/src/system/SystemScreensContainer.js" />
         <option value="$PROJECT_DIR$/src/Games/ButtonPressAdventure/game_index.js" />
-        <option value="$PROJECT_DIR$/src/Games/TicTacToe/Board.js" />
         <option value="$PROJECT_DIR$/src/Games/GameSocketConnection.js" />
         <option value="$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js" />
+        <option value="$PROJECT_DIR$/src/Games/GamesScreenContainer.js" />
+        <option value="$PROJECT_DIR$/src/Games/Initializer.js" />
+        <option value="$PROJECT_DIR$/src/system/SystemScreensContainer.js" />
+        <option value="$PROJECT_DIR$/src/screens/GameLobby.js" />
+        <option value="$PROJECT_DIR$/src/Games/TicTacToe/Board.js" />
       </list>
     </option>
   </component>
@@ -242,7 +229,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -271,22 +257,7 @@
               <item name="PandoraSystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Games" type="462c0819:PsiDirectoryNode" />
-              <item name="ButtonPressAdventure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PandoraSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PandoraSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Games" type="462c0819:PsiDirectoryNode" />
               <item name="TicTacToe" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PandoraSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PandoraSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Games" type="462c0819:PsiDirectoryNode" />
-              <item name="TicTacToe" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PandoraSystem" type="b2602c69:ProjectViewProjectNode" />
@@ -304,6 +275,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -401,7 +373,8 @@
       <workItem from="1520407370010" duration="15518000" />
       <workItem from="1520537543527" duration="15671000" />
       <workItem from="1520557225874" duration="43000" />
-      <workItem from="1520631875254" duration="5616000" />
+      <workItem from="1520631875254" duration="6265000" />
+      <workItem from="1520687257217" duration="4824000" />
     </task>
     <task id="LOCAL-00001" summary="GameRoomSocketConnectionHandler added.">
       <created>1520255311165</created>
@@ -428,21 +401,23 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136437000" />
+    <option name="totallyTimeSpent" value="141910000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5024665" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33010882" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33010882" sideWeight="0.49753347" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33010882" sideWeight="0.49753347" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37361997" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20220801" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -450,7 +425,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -606,13 +580,6 @@
     <entry file="file://$PROJECT_DIR$/src/Games/ButtonPressAdventure/Actions.js" />
     <entry file="file://$PROJECT_DIR$/src/Games/GenericReducer.js" />
     <entry file="file://$PROJECT_DIR$/src/Games/ActionTypes.js" />
-    <entry file="file://$PROJECT_DIR$/src/Games/GameWrapper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -625,16 +592,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/CreateGame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="60" column="112" lean-forward="false" selection-start-line="60" selection-start-column="112" selection-end-line="60" selection-end-column="112" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -678,9 +635,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding>
-            <element signature="e#6#84#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -695,14 +650,6 @@
     <entry file="file://$PROJECT_DIR$/src/logo.svg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Games/GamesScreenContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-154">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Games/InitializerTemplate">
@@ -721,17 +668,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Games/Initializer.js">
+    <entry file="file://$PROJECT_DIR$/src/Games/GameSocketConnection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        <state relative-caret-position="-2159">
+          <caret line="4" column="63" lean-forward="true" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Games/ButtonPressAdventure/game_index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="1020">
           <caret line="22" column="60" lean-forward="false" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
           <folding />
         </state>
@@ -745,44 +692,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Games/TicTacToe/Board.js">
+    <entry file="file://$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9384">
-          <caret line="197" column="40" lean-forward="true" selection-start-line="197" selection-start-column="40" selection-end-line="197" selection-end-column="40" />
+        <state relative-caret-position="-1938">
+          <caret line="34" column="6" lean-forward="false" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/SystemScreensContainer.js">
+    <entry file="file://$PROJECT_DIR$/src/screens/CreateGame.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11169">
-          <caret line="230" column="21" lean-forward="true" selection-start-line="230" selection-start-column="21" selection-end-line="230" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/GameLobby.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5304">
-          <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        <state relative-caret-position="3060">
+          <caret line="60" column="112" lean-forward="false" selection-start-line="60" selection-start-column="112" selection-end-line="60" selection-end-column="112" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js">
+    <entry file="file://$PROJECT_DIR$/src/Games/Initializer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="34" column="6" lean-forward="false" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+        <state relative-caret-position="-52">
+          <caret line="4" column="45" lean-forward="true" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Games/GameSocketConnection.js">
+    <entry file="file://$PROJECT_DIR$/src/Games/GamesScreenContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="4" column="63" lean-forward="true" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
+        <state relative-caret-position="102">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/SystemScreensContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2270">
+          <caret line="71" column="52" lean-forward="true" selection-start-line="71" selection-start-column="52" selection-end-line="71" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Games/GameWrapper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/GameLobby.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Games/TicTacToe/Board.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="36" column="70" lean-forward="false" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
           <folding />
         </state>
       </provider>

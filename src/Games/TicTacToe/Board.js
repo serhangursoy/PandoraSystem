@@ -3,14 +3,18 @@ import xObj from './static/img/xicon.svg'
 import oObj from './static/img/oicon.svg'
 
 import GameWrapperRedux from "../GameWrapper";
+import Cookies from "universal-cookie";
 
+const cookies = new Cookies();
 
 
 export default class Board extends GameWrapperRedux {
 
     constructor(props) {
         super(props);
+        console.log("GELEN PROPS ", props);
         this.state.game = {
+            "ID": props.gameRoomID,
             "cells": [ [-1,-1,-1],[-1,-1,-1],[-1,-1,-1] ],
             "turn" : 0,  // Always start with player 1
             "moveCount": 0,
@@ -23,33 +27,38 @@ export default class Board extends GameWrapperRedux {
                     "win" : 0,
                     "lose" : 0
                 }
-            }
+            },
+            "users": props.users
         };
     }
 
     cellClicked(clickedID) {
         let currState = this.state.game;
-        let cells = currState.cells;
-        let turn = currState.turn;
-        let row = Math.floor(clickedID / 3);
-        let ind = (clickedID % 3);
-        if ((cells[row])[ind] !== -1) {
-            return;
-        }
-        (cells[row])[ind] = turn;
+        let username = cookies.get(currState.ID+"uname").toUpperCase();
+        console.log("Cookie username ", username, " lakin şu an oynaması gereken user ", currState.users[currState.turn].username );
+        if ( username === currState.users[currState.turn].username) {
+            let cells = currState.cells;
+            let turn = currState.turn;
+            let row = Math.floor(clickedID / 3);
+            let ind = (clickedID % 3);
+            if ((cells[row])[ind] !== -1) {
+                return;
+            }
+            (cells[row])[ind] = turn;
 
-        if (turn === 1) {
-            turn = 0;
-        } else {
-            turn = 1;
-        }
-        currState.cells = cells;
-        currState.turn  = turn;
-        currState.moveCount += 1;
-        // console.log("Clicked: ID=" + clickedID + " Row:" + row + " Index:" + ind + "MATH " + (clickedID / 3)  );
-        this.setState(currState);
+            if (turn === 1) {
+                turn = 0;
+            } else {
+                turn = 1;
+            }
+            currState.cells = cells;
+            currState.turn = turn;
+            currState.moveCount += 1;
+            // console.log("Clicked: ID=" + clickedID + " Row:" + row + " Index:" + ind + "MATH " + (clickedID / 3)  );
+            this.setState(currState);
 
-        this.controlGamestatus( row, ind, (cells[row])[ind] );
+            this.controlGamestatus(row, ind, (cells[row])[ind]);
+        }
     }
 
     controlGamestatus( lastActionRow, lastActionColumn, moveData) {

@@ -20,11 +20,13 @@ class GameLobby extends Component {
 
     constructor(props) {
         super(props);
-        uname = cookies.get("uname");
+        console.log("GameRoomID: ", props.gameDetails.gameRoomID, " user List: ", props.gameDetails.users);
+        uname = cookies.get(props.gameDetails.gameRoomID+"uname");
         if (cookies.get("adminKey") != null) isAdmin = true;
         this.state = {
             gameRoomDetails: this.props.gameDetails,
-            amIReady: false
+            amIReady: false,
+            users: props.gameDetails.users
         };
     }
 
@@ -104,7 +106,7 @@ class GameLobby extends Component {
         }
 
         if (this.state.gameRoomDetails.active) {
-            return (<GamesScreenContainer selectedGame="DummyName" gameID={this.state.gameRoomDetails.gameID} gameRoomID={this.state.gameRoomDetails.gameRoomID}/>);
+            return (<GamesScreenContainer selectedGame="DummyName" gameID={this.state.gameRoomDetails.gameID} gameRoomID={this.state.gameRoomDetails.gameRoomID} users={this.state.users}/>);
         } else
             {
                 return (

@@ -72,6 +72,7 @@ class SystemScreensContainer extends Component {
                 console.log("Creating game room..");
                 console.log(event);
                 console.log(this.state.AdminHandler.adminUsername);
+                cookies.set(event.gameRoom.gameRoomID+"uname", this.state.AdminHandler.adminUsername);
                 this.state.connection.joinGameRoom(event.gameRoom.gameRoomID , this.state.AdminHandler.adminUsername);
                 console.log(event);
                 break;
@@ -161,7 +162,7 @@ class SystemScreensContainer extends Component {
 
     createGameClicked(gameID,userName) {
         this.state.connection.createGameRoom(gameID , cookies.get("adminKey"));
-        cookies.set("uname", userName);
+
         let tmpState = this.state;
         tmpState.AdminHandler.adminUsername = userName;
         this.setState(tmpState);
@@ -195,7 +196,7 @@ class SystemScreensContainer extends Component {
     }
 
     joinGameRoom(gameRoomID, username){
-        cookies.set("uname", username);
+        cookies.set(gameRoomID+"uname", username);
         this.state.connection.joinGameRoom(gameRoomID, username);
     }
     /*

@@ -7,7 +7,7 @@ import ButtonPressAdventure from "./ButtonPressAdventure/game_index.js";
 import MemoryGame from "./MemoryGame/MemoryGame.js";
 const g = {"TicTacToe": TicTacToe,"ButtonPressAdventure": ButtonPressAdventure,"MemoryGame": MemoryGame,};
 
-export const  Initializer = (gameID,gameRoomID) => {
+export const  Initializer = (gameID,gameRoomID, userList) => {
     console.log("initializer gameid: ", gameID);
     let SelectedGame = null;
     games.forEach(function (game) {
@@ -19,7 +19,7 @@ export const  Initializer = (gameID,gameRoomID) => {
 
 
     if(SelectedGame)
-        return <SelectedGame connection = {SocketHandler.newGameSocketConnection.bind({gameRoomID: gameRoomID})}/>;
+        return <SelectedGame connection = {SocketHandler.newGameSocketConnection.bind({gameRoomID: gameRoomID})}  users={userList} gameRoomID={gameRoomID}/>;
     else
         return <p>ERROR WHILE LOADING THE GAME</p>
 };
