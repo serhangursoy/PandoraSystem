@@ -30,19 +30,23 @@ class GameLobby extends Component {
         };
     }
 
+
     componentWillReceiveProps(nextProps) {
         console.log("Değiştik", nextProps);
         let aState = {
             gameRoomDetails: nextProps.gameDetails,
+            users: nextProps.gameDetails.users
         };
         this.setState(aState);
-        /*
+
         // You don't have to do this check first, but it can help prevent an unneeded render
-        if (nextProps.startTime !== this.state.startTime) {
-            this.setState({ startTime: nextProps.startTime });
-        }
-        */
+        //if (nextProps.startTime !== this.state.startTime) {
+        //    this.setState({ startTime: nextProps.startTime });
+        //}
+
     }
+
+
 
     changeReadyStatus(){
 
