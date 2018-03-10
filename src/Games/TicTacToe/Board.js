@@ -34,9 +34,9 @@ export default class Board extends GameWrapperRedux {
 
     cellClicked(clickedID) {
         let currState = this.state.game;
-        let username = cookies.get(currState.ID+"uname").toUpperCase();
-        console.log("Cookie username ", username, " lakin şu an oynaması gereken user ", currState.users[currState.turn].username );
-        if ( username === currState.users[currState.turn].username) {
+        let username = cookies.get(this.props.gameRoomID + "uname").toUpperCase();
+        console.log("Cookie username ", username, " lakin şu an oynaması gereken user ", this.props.users[currState.turn].username );
+        if ( username === this.props.users[currState.turn].username) {
             let cells = currState.cells;
             let turn = currState.turn;
             let row = Math.floor(clickedID / 3);
