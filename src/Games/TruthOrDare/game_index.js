@@ -14,7 +14,7 @@ export default class GameContainer extends GameWrapperRedux {
         super(props);
         username = cookies.get(this.props.gameRoomID + "uname").toUpperCase();
 
-        this.state = {
+        this.state.game = {
             "ID": props.gameRoomID,
             "asking" : 0,     // Player no
             "answering": 1,   // Player no
@@ -27,7 +27,7 @@ export default class GameContainer extends GameWrapperRedux {
 
 
     spin() {
-        let currState = this.state;
+        let currState = this.state.game;
         const min = 1;
         const max = (this.props.users).length;
         const rand1 = (min + Math.random() * (max - min)).toFixed() - 1;
@@ -43,15 +43,15 @@ export default class GameContainer extends GameWrapperRedux {
 
     // If no, just let them watch..
     amIPlaying(){
-        console.log("Am I playing? ", username === this.props.users[this.state.asking].username || username === this.props.users[this.state.answering].username);
-        if ( username === this.props.users[this.state.asking].username || username === this.props.users[this.state.answering].username)
+        console.log("Am I playing? ", username === this.props.users[this.state.game.asking].username || username === this.props.users[this.state.game.answering].username);
+        if ( username === this.props.users[this.state.game.asking].username || username === this.props.users[this.state.game.answering].username)
             return true;
          else
             return false;
     }
 
     changePlayerChoic( ch ){
-        var tmpState = this.state;
+        var tmpState = this.state.game;
         if (ch) {
             tmpState.answered = 0;
         } else {
@@ -62,17 +62,17 @@ export default class GameContainer extends GameWrapperRedux {
     }
 
     playingAsWho(){
-        console.log("Im playing as  ", username === this.props.users[this.state.asking].username);
-        if ( username === this.props.users[this.state.asking].username)
+        console.log("Im playing as  ", username === this.props.users[this.state.game.asking].username);
+        if ( username === this.props.users[this.state.game.asking].username)
             return false;   // ASKING
         else
             return true;
     }
 
     whatIsTheFinalDecision(){
-        if(this.state.answered === 0)
+        if(this.state.game.answered === 0)
             return <div className="exbtn truthbutton">TRUTH</div>;
-        else if (this.state.answered === 1)
+        else if (this.state.game.answered === 1)
             return <div className="exbtn darebutton">DARE</div>;
         else
             return <div className="exbtn waitingbutton"> STILL WAITING </div>;
@@ -86,34 +86,34 @@ export default class GameContainer extends GameWrapperRedux {
 
         if (!amI) {
             card = <div className="mainContainer">
-                <div><span>{this.props.users[this.state.answering].username } says .. </span></div>
+                <div><span>{this.props.users[this.state.game.answering].username } says .. </span></div>
                 { answerOfPlayer }
             </div>
         } else {
             // If playing, playing as who?
             if (!this.playingAsWho()) { //If asking..
-                console.log("Guys answer is ", this.state.answered);
-                if ( this.state.answered === -1) {
+                console.log("Guys answer is ", this.state.game.answered);
+                if ( this.state.game.answered === -1) {
                     console.log("Im waiting for that guy to answer");
                     card = <div className="mainContainer">
-                        <div><span>{this.props.users[this.state.answering].username } still waiting.. </span></div>
+                        <div><span>{this.props.users[this.state.game.answering].username } still waiting.. </span></div>
                         { answerOfPlayer }
                     </div>
                 }else {
                     console.log("Dude answered finally..");
                     card = <div className="mainContainer">
-                        <div><span>{this.props.users[this.state.answering].username } says .. </span></div>
+                        <div><span>{this.props.users[this.state.game.answering].username } says .. </span></div>
                         { answerOfPlayer }
                         <div className="exbtn spinbutton" onClick={this.spin.bind(this)}> Done, SPIN AGAIN! </div>
                     </div>
                 }
 
             } else {
-                if ( this.state.answered == -1) {
+                if ( this.state.game.answered == -1) {
                     console.log("I have to answer");
                     card = <div className="mainContainer">
                         <div>
-                            <span>{ this.props.users[this.state.answering].username } , your choice is ... </span>
+                            <span>{ this.props.users[this.state.game.answering].username } , your choice is ... </span>
                         </div>
                         <div className="exbtn truthbutton" onClick={this.changePlayerChoic.bind(this, true)}>TRUTH</div>
                         <div className="exbtn darebutton" onClick={this.changePlayerChoic.bind(this, false)}>DARE</div>
@@ -121,7 +121,7 @@ export default class GameContainer extends GameWrapperRedux {
                 }else {
                     console.log("I already answered...");
                     card = <div className="mainContainer">
-                        <div><span>{this.props.users[this.state.answering].username }, your choice is .. </span></div>
+                        <div><span>{this.props.users[this.state.game.answering].username }, your choice is .. </span></div>
                         { answerOfPlayer }
                     </div>
                 }

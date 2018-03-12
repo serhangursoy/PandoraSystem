@@ -1,6 +1,5 @@
 import React from "react";
 import {games} from "./games";
-import {Route} from "react-router-dom";
 import {SocketHandler} from "../system/SocketHandler";
 import TicTacToe from "./TicTacToe/Board.js";
 import ButtonPressAdventure from "./ButtonPressAdventure/game_index.js";
