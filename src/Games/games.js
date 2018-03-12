@@ -26,5 +26,11 @@ export const games =[
         "playerCount": 8,
         "entryClass": "game_index.js",
         "id": "6c0e76d5-2fa2-46d0-9047-9526fe5855d9"
+    },
+    {
+        "name": "CelebrityHeads",
+        "playerCount": 10,
+        "entryClass": "game_index.js",
+        "id": "d177fcd9-edb3-486e-b2bf-0c925b782769"
     }
 ];

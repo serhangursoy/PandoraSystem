@@ -5,7 +5,9 @@ import TicTacToe from "./TicTacToe/Board.js";
 import ButtonPressAdventure from "./ButtonPressAdventure/game_index.js";
 import MemoryGame from "./MemoryGame/MemoryGame.js";
 import TruthOrDare from "./TruthOrDare/game_index";
-const g = {"TicTacToe": TicTacToe,"ButtonPressAdventure": ButtonPressAdventure,"MemoryGame": MemoryGame, "TruthOrDare": TruthOrDare};
+import CelebrityHeads from "./Celebrity/game_index";
+
+const g = {"TicTacToe": TicTacToe,"ButtonPressAdventure": ButtonPressAdventure,"MemoryGame": MemoryGame, "TruthOrDare": TruthOrDare, "CelebrityHeads": CelebrityHeads};
 
 export const  Initializer = (gameID,gameRoomID, userList) => {
     console.log("initializer gameid: ", gameID);
