@@ -5,7 +5,8 @@ import {SocketHandler} from "../system/SocketHandler";
 import TicTacToe from "./TicTacToe/Board.js";
 import ButtonPressAdventure from "./ButtonPressAdventure/game_index.js";
 import MemoryGame from "./MemoryGame/MemoryGame.js";
-const g = {"TicTacToe": TicTacToe,"ButtonPressAdventure": ButtonPressAdventure,"MemoryGame": MemoryGame,};
+import TruthOrDare from "./TruthOrDare/game_index";
+const g = {"TicTacToe": TicTacToe,"ButtonPressAdventure": ButtonPressAdventure,"MemoryGame": MemoryGame, "TruthOrDare": TruthOrDare};
 
 export const  Initializer = (gameID,gameRoomID, userList) => {
     console.log("initializer gameid: ", gameID);

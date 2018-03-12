@@ -20,5 +20,11 @@ export const games =[
         "playerCount": 1,
         "entryClass": "MemoryGame.js",
         "id": "6c0e76d5-2fa2-46d0-9047-9526fe5855d7"
+    },
+    {
+        "name": "TruthOrDare",
+        "playerCount": 8,
+        "entryClass": "game_index.js",
+        "id": "6c0e76d5-2fa2-46d0-9047-9526fe5855d9"
     }
 ];

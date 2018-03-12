@@ -7,12 +7,13 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-
+let username;
 export default class Board extends GameWrapperRedux {
 
     constructor(props) {
         super(props);
         console.log("GELEN PROPS ", props);
+        username = cookies.get(this.props.gameRoomID + "uname").toUpperCase();
         this.state.game = {
             "ID": props.gameRoomID,
             "cells": [ [-1,-1,-1],[-1,-1,-1],[-1,-1,-1] ],
@@ -34,7 +35,6 @@ export default class Board extends GameWrapperRedux {
 
     cellClicked(clickedID) {
         let currState = this.state.game;
-        let username = cookies.get(this.props.gameRoomID + "uname").toUpperCase();
         console.log("Cookie username ", username, " lakin şu an oynaması gereken user ", this.props.users[currState.turn].username );
         if ( username === this.props.users[currState.turn].username) {
             let cells = currState.cells;
