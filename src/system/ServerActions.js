@@ -10,4 +10,8 @@ export const ServerActions = {
     stateUpdate: "STATE_UPDATE",
     joinGameRoom: "ENTER_GAME_ROOM",
     startGame: "START_GAME",
+    gameRoomClosed: "GAME_ROOM_CLOSED",
+    userDisconnectedFromGame: "USER_DISCONNECTED_GAME",
+    waitUser: "WAIT_USER",
+    amIPlaying: "AM_I_PLAYING"
 };

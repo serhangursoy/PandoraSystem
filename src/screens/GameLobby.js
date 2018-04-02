@@ -75,6 +75,10 @@ class GameLobby extends Component {
         this.props.startGame(this.state.gameRoomDetails.gameRoomID);
     }
 
+    exitGame() {
+        this.props.exitGame(this.props.gameDetails.gameRoomID,uname)
+    }
+
     render() {
         let customStyle = { backgroundImage: "url(" + Lobby + ")",
             backgroundSize: "cover",
@@ -110,12 +114,19 @@ class GameLobby extends Component {
         }
 
         if (this.state.gameRoomDetails.active) {
-            return (<GamesScreenContainer selectedGame="DummyName" gameID={this.state.gameRoomDetails.gameID} gameRoomID={this.state.gameRoomDetails.gameRoomID} users={this.state.users}/>);
+
+            return (<div>
+                        <header className="pandoraHeader">
+                            <h1 className="App-title">Welcome to Pandora</h1>
+                            <button onClick={this.exitGame.bind(this)}>Exit game</button>
+                        </header>
+                        <GamesScreenContainer selectedGame="DummyName" gameID={this.state.gameRoomDetails.gameID} gameRoomID={this.state.gameRoomDetails.gameRoomID} users={this.state.users}/>
+                    </div>);
         } else
             {
                 return (
         <div className="page-header page-lobby">
-            <div className="page-header-image" style={customStyle}></div>
+            <div className="page-header-image" style={customStyle}/>
             <div className="container">
                 <h1 className="welcome-message">Game Lobby</h1>
                 <div className="col-md-4 content-center gameLobbyCont">

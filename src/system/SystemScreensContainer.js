@@ -13,8 +13,7 @@ import GamesScreenContainer from "../Games/GamesScreenContainer";
 
 const cookies = new Cookies();
 const isDebug = true;
-//const API = "http://35.202.126.234:3000/api/";
-const API = "http://127.0.0.1:3000/api/";
+
 class SystemScreensContainer extends Component {
 
 
@@ -138,6 +137,21 @@ class SystemScreensContainer extends Component {
                 tmpState.GuestHandler.gameDetails = event.room;
                 this.setState(tmpState);
                 break;
+            case ServerActions.gameRoomClosed:
+                console.log(ServerActions.gameRoomClosed);
+                tmpState = this.state;
+                if(this.state.loginHandler.isLogged) {
+                    console.log("admin not going to lobby :):):)");
+                    tmpState.AdminHandler.selectedGame.isSelected = false;
+                    tmpState.AdminHandler.selectedGame.gameDetails = null;
+                }else {
+                    console.log("guest not going to lobby :):):)");
+                    tmpState.GuestHandler.gameDetails = null;
+                    tmpState.GuestHandler.joinedRoom = false;
+                    tmpState.GuestHandler.showRooms = true;
+                }
+
+                break;
             default:
                 new Error("Server Action not recognized");
                 break;
@@ -152,14 +166,18 @@ class SystemScreensContainer extends Component {
 
     startGame( gameRoomID ) {
         console.log("Start game from frontend, ID " , gameRoomID);
-       this.state.connection.startGame(gameRoomID);
+       this.state.connection.startGame(gameRoomID, this.state.AdminHandler.adminUsername);
+    }
+
+    exitGame( gameRoomID, username ) {
+        console.log("Exit game from frontend, ID " , gameRoomID, username);
+        this.state.connection.exitGame(gameRoomID,username);
     }
 
     adminLogin( passphrase ) {
         console.log("Admin login request, input:" + passphrase);
         this.state.connection.adminLogin(passphrase);
     }
-
     createGameClicked(gameID,userName) {
         this.state.connection.createGameRoom(gameID , cookies.get("adminKey"));
 
@@ -239,7 +257,7 @@ class SystemScreensContainer extends Component {
             if (this.state.loginHandler.isLogged) {
                 if (this.state.AdminHandler.createNewGame) {
                     if (this.state.AdminHandler.selectedGame.isSelected) {
-                        return <GameLobby gameDetails={this.state.AdminHandler.selectedGame.gameDetails} userReady={ this.userIsReady.bind(this)} startGame={this.startGame.bind(this)}/>
+                        return <GameLobby  exitGame={this.exitGame.bind(this)} gameDetails={this.state.AdminHandler.selectedGame.gameDetails} userReady={ this.userIsReady.bind(this)} startGame={this.startGame.bind(this)}/>
                     } else {
                         return <CreateGame createGameClicked={this.createGameClicked.bind(this)}/>;
                     }
@@ -251,7 +269,7 @@ class SystemScreensContainer extends Component {
             } else {
 
                 if (this.state.GuestHandler.joinedRoom) {
-                    return <GameLobby gameDetails={this.state.GuestHandler.gameDetails} userReady={ this.userIsReady.bind(this)}/>
+                    return <GameLobby exitGame={this.exitGame.bind(this)} gameDetails={this.state.GuestHandler.gameDetails} userReady={ this.userIsReady.bind(this)}/>
                 } else {
                     if (this.state.GuestHandler.showRooms) {
                         return <GameRooms gameRooms={this.state.GuestHandler.gameRoomData} joinGameRoom={this.joinGameRoom.bind(this)}/>

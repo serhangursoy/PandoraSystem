@@ -28,10 +28,6 @@ class GamesScreenContainer extends Component {
 
         return (
                 <div className="App">
-                    <header className="pandoraHeader">
-                        <img src={ICON} className="App-logo" alt="logo"/>
-                        <h1 className="App-title">Welcome to Pandora</h1>
-                    </header>
                     <div className="GameContainer" style={{margin: "auto",width: "100%"}}>
                         {this.state.selectedGame}
                     </div>
