@@ -32,5 +32,11 @@ export const games =[
         "playerCount": 10,
         "entryClass": "game_index.js",
         "id": "d177fcd9-edb3-486e-b2bf-0c925b782769"
+    },
+    {
+        "name": "TroubledTown",
+        "playerCount": 5,
+        "entryClass": "game_index.js",
+        "id": "d177fcd9-edb3-486e-b2bf-0c925b111169"
     }
 ];

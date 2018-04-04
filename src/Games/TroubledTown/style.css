@@ -1,0 +1,8 @@
+@font-face {
+    font-family: gameFont;
+    src: url(./font/BLKCHCRY.TTF);
+}
+
+.gameRealBody{
+    font-family: gameFont;
+}
