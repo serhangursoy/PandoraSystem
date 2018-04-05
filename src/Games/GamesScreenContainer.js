@@ -23,9 +23,6 @@ class GamesScreenContainer extends Component {
 
 
     render() {
-
-
-
         return (
                 <div className="App">
                     <div className="GameContainer" style={{margin: "auto",width: "100%"}}>

@@ -119,6 +119,14 @@ class SystemScreensContainer extends Component {
                 this.setState(tmpState);
 */
                 break;
+            case ServerActions.meExit:
+                console.log("I EXIT");
+                tmpState = this.state;
+                tmpState.GuestHandler.gameDetails = null;
+                tmpState.GuestHandler.joinedRoom = false;
+                tmpState.GuestHandler.showRooms = false;
+                this.setState(tmpState);
+                break;
             case ServerActions.userReadyStateChanged:
                 tmpState = this.state;
                 console.log("Stateler değişti, orta gamelobbyde kartlar yeniden karılıyor! Yeni event... ", event);
@@ -148,9 +156,9 @@ class SystemScreensContainer extends Component {
                     console.log("guest not going to lobby :):):)");
                     tmpState.GuestHandler.gameDetails = null;
                     tmpState.GuestHandler.joinedRoom = false;
-                    tmpState.GuestHandler.showRooms = true;
+                    tmpState.GuestHandler.showRooms = false;
                 }
-
+                this.setState(tmpState);
                 break;
             default:
                 new Error("Server Action not recognized");

@@ -34,7 +34,7 @@ export const SystemSocketConnectionHandler = function(callback){
 
     //const connection = new WebSocket('ws://139.179.103.122:1337');
     const connection = new WebSocket('ws://localhost:1337');
-    //const connection = new WebSocket('ws://192.168.2.120:1337');
+    //const connection = new WebSocket('ws://192.168.1.111:1337');
 
     connection.onopen = function () {
         console.log("Connection established");
