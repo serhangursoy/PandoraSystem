@@ -5,7 +5,7 @@ export const GameSocketConnection = function(gameRoomID , callback){
     window.WebSocket = window.WebSocket || window.MozWebSocket;
 
     const connection = new WebSocket('ws://localhost:1337');
-    //const connection = new WebSocket('ws://139.179.103.122:1337');
+    //const connection = new WebSocket('ws://139.179.103.246:1337');
     //const connection = new WebSocket('ws://192.168.1.111:1337');
 
     connection.onopen = function () {

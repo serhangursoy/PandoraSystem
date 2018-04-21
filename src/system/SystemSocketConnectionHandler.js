@@ -1,38 +1,9 @@
 
-import {ServerActions} from "./ServerActions"
-
-
-
-//Server actions are defined in ServerActions
-// Callback object is for defining callbacks for each action.
-/*
-    Example callback obj
-    {
-        userJoined: function(gameRoomState) {
-            console.log("New game room state: " + gameRoomState);
-        }
-        userExit: function(gameRoomState) {
-            console.log("New game room state: " + gameRoomState);
-        }
-        etc...
-    }
- */
-//create the GameRoomSocketConnectionHandler with a specific gameRoomID as first parameter
-//After creating GameRoomSocketConnectionHadnler can be used as fallows:
-/* s = GameRoomSocketConnectionHandler(6)
-    s.joinGameRoom({connID: 4, username: "Ege", "ready": false});
-    s.exitGameRoom("Ege")
-    s.setReadyTrue("Ege")
-
-    etc...
-
- */
-
 
 export const SystemSocketConnectionHandler = function(callback){
     window.WebSocket = window.WebSocket || window.MozWebSocket;
 
-    //const connection = new WebSocket('ws://139.179.103.122:1337');
+    //const connection = new WebSocket('ws://139.179.103.246:1337');
     const connection = new WebSocket('ws://localhost:1337');
     //const connection = new WebSocket('ws://192.168.1.111:1337');
 
