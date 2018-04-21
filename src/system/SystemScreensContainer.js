@@ -59,6 +59,12 @@ class SystemScreensContainer extends Component {
             goToGame: false,
             gameRoomState: null
         };
+
+
+    }
+
+    componentDidMount() {
+        this.isAlreadyInAnyGame();
     }
 
 
@@ -298,38 +304,13 @@ removeAllCookies() {
         }.bind(this))
 
     }
-    /*
-    changewifiSettings(wifi_name,wifi_pass){
-        console.log("Send change request");
-
-        fetch(API + 'setwifi', {
-            method: 'POST',
-            headers: {
-                'Access-Control-Allow-Origin':'*',
-                'Content-Type': 'application/json'
-            },
-            body:  JSON.stringify({
-                wifiName: wifi_name,
-                wifiPass: wifi_pass
-            })
-        }).then(responseA => responseA.json()).then((responseA) => {
-            return true;
-        }).catch( function (err) {
-            return false;
-        }
-        );
-
-    }
-    */
 
     resetBox() {
         console.log("This will reset box...");
     }
 
-
     // This will do the heavy work!
     calculatePage() {
-        this.isAlreadyInAnyGame();
         if(this.state.dummyButton === "false") {
             return <Welcome dummyClicked={this.dummyClicked.bind(this)}/>
         }

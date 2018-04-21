@@ -135,21 +135,20 @@ class GameLobby extends Component {
             } else {
                 buttonAdderForAdminReis = <span></span>;
 
-                if (this.props.gameStatus.isDecided) {
-                    return(
-                        <div> Beklemeyi seçenler bekleyecekler </div>
-                    );
-                }
+                if (this.props.gameStatus.isWaiting) {
+                    if (this.props.gameStatus.isDecided) {
+                        return (
+                            <div> Beklemeyi seçenler bekleyecekler </div>
+                        );
+                    }
 
-                if (this.props.gameStatus.weAreGoing) {
-/*
-                    setTimeout( function countdownEnd() {
-                        this.exitGame()
-                    }, 15000);
-*/
-                    return( <div> Admin gg. birkaç saniye sonra kaçayruz =)</div>);
-                } else {
-                    return( <div> { this.props.gameStatus.downPlayer} kardeşimiz düştü. Beklemenin icap edip etmediğine admin Reis karar verecek. Beklemede kalın. </div>);
+                    if (this.props.gameStatus.weAreGoing) {
+                        return (<div> Admin gg. birkaç saniye sonra kaçayruz =)</div>);
+                    } else {
+                        return (
+                            <div> {this.props.gameStatus.downPlayer} kardeşimiz düştü. Beklemenin icap edip etmediğine
+                                admin Reis karar verecek. Beklemede kalın. </div>);
+                    }
                 }
             }
             return (<div>
