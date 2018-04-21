@@ -120,12 +120,12 @@ class GameLobby extends Component {
             } else {
                 buttonAdderForAdminReis = <span></span>;
                 if (this.props.gameStatus.weAreGoing) {
-
+/*
                     setTimeout( function countdownEnd() {
                         this.exitGame()
                     }, 15000);
-
-                    return( <div> Admin gg. 30 saniye sonra kaçayruz</div>);
+*/
+                    return( <div> Admin gg. birkaç saniye sonra kaçayruz =)</div>);
                 }
             }
             return (<div>
