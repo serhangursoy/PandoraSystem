@@ -62,6 +62,11 @@ export const SystemSocketConnectionHandler = function(callback){
                 connection.send(JSON.stringify({type: "GET_ACTIVE_GAME_ROOM"}))
             })
         },
+        "waitUser": function ( roomID ) {
+            waitForSocketConnection(connection, function () {
+                connection.send(JSON.stringify({type: "WAIT_USER", isWaiting: true, gameRoomID: roomID}))
+            })
+        },
         "getAllRooms": function () {
             waitForSocketConnection(connection, function () {
                 connection.send(JSON.stringify({type: "GET_ALL_ROOMS"}))

@@ -13,7 +13,7 @@ import GamesScreenContainer from "../Games/GamesScreenContainer";
 
 const cookies = new Cookies();
 const isDebug = true;
-
+const COOKIE_OPTIONS = { "maxAge": 42000};
 class SystemScreensContainer extends Component {
 
 
@@ -37,7 +37,8 @@ class SystemScreensContainer extends Component {
                     gameDetails: null,
                     gameStatus: {
                         isWaiting: false,
-                        downPlayer: null
+                        downPlayer: null,
+                        isDecided: false
                     }
                 }
             },
@@ -50,7 +51,8 @@ class SystemScreensContainer extends Component {
                     gameStatus: {
                         isWaiting: false,
                         downPlayer: null,
-                        weAreGoing: false
+                        weAreGoing: false,
+                        isDecided: false
                     }
                 }
             },
@@ -75,14 +77,14 @@ class SystemScreensContainer extends Component {
                 break;
             case ServerActions.adminLogin:
                 console.log("Admin hazretleri.. Key: " + event.key);
-                cookies.set("adminKey", event.key);
+                cookies.set("adminKey", event.key, COOKIE_OPTIONS);
                 this.setState({loginHandler: {isLogged: true}});
                 break;
             case ServerActions.createGameRoom:
                 console.log("Creating game room..");
                 console.log(event);
                 console.log(this.state.AdminHandler.adminUsername);
-                cookies.set(event.gameRoom.gameRoomID+"uname", this.state.AdminHandler.adminUsername);
+                cookies.set(event.gameRoom.gameRoomID+"uname", this.state.AdminHandler.adminUsername, COOKIE_OPTIONS);
                 this.state.connection.joinGameRoom(event.gameRoom.gameRoomID , this.state.AdminHandler.adminUsername);
                 console.log(event);
                 break;
@@ -135,6 +137,22 @@ class SystemScreensContainer extends Component {
                     tmpState.GuestHandler.selectedGame.gameStatus.isWaiting = true;
                     tmpState.GuestHandler.selectedGame.gameStatus.downPlayer = event.username;
                     tmpState.GuestHandler.selectedGame.gameStatus.weAreGoing = event.isDecided;
+                }
+                this.setState(tmpState);
+                break;
+            case ServerActions.continueGame:
+                tmpState = this.state;
+                if(this.state.loginHandler.isLogged) {
+                    console.log("BÜYÜK BEKLEYİŞ SONA ERDİ");
+                    tmpState.AdminHandler.selectedGame.gameStatus.isWaiting = false;
+                    tmpState.AdminHandler.selectedGame.gameStatus.isDecided = false;
+                    tmpState.AdminHandler.selectedGame.gameStatus.downPlayer = null;
+                }else {
+                    console.log("Sike sike bekleyeceksiniz xd");
+                    tmpState.GuestHandler.selectedGame.gameStatus.isWaiting = false;
+                    tmpState.GuestHandler.selectedGame.gameStatus.downPlayer = null;
+                    tmpState.GuestHandler.selectedGame.gameStatus.weAreGoing = false;
+                    tmpState.GuestHandler.selectedGame.gameStatus.isDecided = false;
                 }
                 this.setState(tmpState);
                 break;
@@ -240,16 +258,45 @@ class SystemScreensContainer extends Component {
         console.log("kankalarla go game room keyfi");
         this.state.connection.getAllRooms();
     }
-    /*
-    adminDecision(dec) {
-        if (dec) {
-            this.state.connection.
-        }
+
+    adminDecision( roomID) {
+        this.state.connection.waitUser( roomID );
+        let tmpState = this.state;
+        tmpState.AdminHandler.selectedGame.gameStatus.isDecided = true;
+        tmpState.GuestHandler.selectedGame.gameStatus.isDecided = true;
+        this.setState(tmpState);
     }
-*/
+
+
+removeAllCookies() {
+    let allCookies = cookies.getAll();
+
+    Object.keys(allCookies).forEach( function (kuki) {
+        if (kuki != "adminKey")
+             cookies.remove(kuki);
+    })
+}
     joinGameRoom(gameRoomID, username){
-        cookies.set(gameRoomID+"uname", username);
+        this.removeAllCookies();
+        cookies.set(gameRoomID+"uname", username, COOKIE_OPTIONS);
         this.state.connection.joinGameRoom(gameRoomID, username);
+    }
+
+    isAlreadyInAnyGame() {
+
+        let allCookies = cookies.getAll();
+        console.log(allCookies);
+
+        Object.keys(allCookies).forEach( function (kuki) {
+            console.log("KUKİ ", kuki);
+            if (kuki != "adminKey") {
+                let userOldName = cookies.get(kuki);
+                let gameRoomID = kuki.substring(0, kuki.length - 5);
+                console.log("heyo" , gameRoomID);
+                this.state.connection.joinGameRoom(gameRoomID, userOldName);
+            }
+        }.bind(this))
+
     }
     /*
     changewifiSettings(wifi_name,wifi_pass){
@@ -282,8 +329,7 @@ class SystemScreensContainer extends Component {
 
     // This will do the heavy work!
     calculatePage() {
-
-
+        this.isAlreadyInAnyGame();
         if(this.state.dummyButton === "false") {
             return <Welcome dummyClicked={this.dummyClicked.bind(this)}/>
         }
@@ -291,7 +337,7 @@ class SystemScreensContainer extends Component {
             if (this.state.loginHandler.isLogged) {
                 if (this.state.AdminHandler.createNewGame) {
                     if (this.state.AdminHandler.selectedGame.isSelected) {
-                        return <GameLobby  exitGame={this.exitGame.bind(this)} gameDetails={this.state.AdminHandler.selectedGame.gameDetails} userReady={ this.userIsReady.bind(this)} startGame={this.startGame.bind(this)} gameStatus={this.state.AdminHandler.selectedGame.gameStatus}/>
+                        return <GameLobby  exitGame={this.exitGame.bind(this)} gameDetails={this.state.AdminHandler.selectedGame.gameDetails} userReady={ this.userIsReady.bind(this)} startGame={this.startGame.bind(this)} adminDecision={this.adminDecision.bind(this)} gameStatus={this.state.AdminHandler.selectedGame.gameStatus}/>
                     } else {
                         return <CreateGame createGameClicked={this.createGameClicked.bind(this)}/>;
                     }

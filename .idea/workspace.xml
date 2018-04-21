@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3ba77e93-2a42-4b9f-8262-856fa9e54ce2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/screens/GameLobby.js" afterPath="$PROJECT_DIR$/src/screens/GameLobby.js" />
+      <change beforePath="$PROJECT_DIR$/src/system/ServerActions.js" afterPath="$PROJECT_DIR$/src/system/ServerActions.js" />
+      <change beforePath="$PROJECT_DIR$/src/system/SystemScreensContainer.js" afterPath="$PROJECT_DIR$/src/system/SystemScreensContainer.js" />
+      <change beforePath="$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js" afterPath="$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SystemScreensContainer.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SystemScreensContainer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/system/SystemScreensContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="832">
-              <caret line="248" column="2" lean-forward="false" selection-start-line="248" selection-start-column="2" selection-end-line="248" selection-end-column="2" />
+            <state relative-caret-position="196">
+              <caret line="143" column="38" lean-forward="false" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -39,8 +42,8 @@
       <file leaf-file-name="SystemSocketConnectionHandler.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="35" column="46" lean-forward="true" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+            <state relative-caret-position="362">
+              <caret line="64" column="8" lean-forward="false" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -49,7 +52,7 @@
       <file leaf-file-name="GamesScreenContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Games/GamesScreenContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1045">
+            <state relative-caret-position="1428">
               <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -61,18 +64,18 @@
       <file leaf-file-name="ServerActions.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/system/ServerActions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+            <state relative-caret-position="679">
+              <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameLobby.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameLobby.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/GameLobby.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="730">
-              <caret line="126" column="2" lean-forward="true" selection-start-line="126" selection-start-column="2" selection-end-line="126" selection-end-column="2" />
+            <state relative-caret-position="1087">
+              <caret line="139" column="48" lean-forward="false" selection-start-line="139" selection-start-column="40" selection-end-line="139" selection-end-column="48" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -93,8 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>font</find>
-      <find>../</find>
       <find>Modal</find>
       <find>game</find>
       <find>clickedGame</find>
@@ -107,7 +108,6 @@
       <find>getConn</find>
       <find>soc</find>
       <find>createGameRoom</find>
-      <find>cookie</find>
       <find>.room</find>
       <find>http://127.0.0.1API</find>
       <find>uname</find>
@@ -119,6 +119,13 @@
       <find>myRole</find>
       <find>didISeeMy</find>
       <find>affirmation</find>
+      <find>exitGame</find>
+      <find>cookie</find>
+      <find>.set</find>
+      <find>.set(</find>
+      <find>.get(</find>
+      <find>gameroom</find>
+      <find>joinGame</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,7 +167,6 @@
         <option value="$PROJECT_DIR$/src/screens/CreateGame.js" />
         <option value="$PROJECT_DIR$/src/style/custom.css" />
         <option value="$PROJECT_DIR$/src/screens/GameRooms.js" />
-        <option value="$PROJECT_DIR$/src/system/ServerActions.js" />
         <option value="$PROJECT_DIR$/src/Games/ButtonPressAdventure/game_index.js" />
         <option value="$PROJECT_DIR$/src/Games/TicTacToe/Board.js" />
         <option value="$PROJECT_DIR$/src/Games/TruthOrDare/config.json" />
@@ -169,7 +175,6 @@
         <option value="$PROJECT_DIR$/src/Games/Celebrity/config.json" />
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/Games/GamesScreenContainer.js" />
-        <option value="$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js" />
         <option value="$PROJECT_DIR$/src/Games/GameSocketConnection.js" />
         <option value="$PROJECT_DIR$/src/Games/Initializer.js" />
         <option value="$PROJECT_DIR$/src/Games/TroubledTown/config.json" />
@@ -177,8 +182,10 @@
         <option value="$PROJECT_DIR$/src/Games/TroubledTown/style.css" />
         <option value="$PROJECT_DIR$/src/Games/Celebrity/game_index.js" />
         <option value="$PROJECT_DIR$/src/Games/TroubledTown/game_index.js" />
-        <option value="$PROJECT_DIR$/src/system/SystemScreensContainer.js" />
+        <option value="$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js" />
         <option value="$PROJECT_DIR$/src/screens/GameLobby.js" />
+        <option value="$PROJECT_DIR$/src/system/ServerActions.js" />
+        <option value="$PROJECT_DIR$/src/system/SystemScreensContainer.js" />
       </list>
     </option>
   </component>
@@ -402,7 +409,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196137000" />
+    <option name="totallyTimeSpent" value="201818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
@@ -715,6 +722,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="985">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -729,29 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/ServerActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/SystemScreensContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="832">
-          <caret line="248" column="2" lean-forward="false" selection-start-line="248" selection-start-column="2" selection-end-line="248" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="35" column="46" lean-forward="true" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -766,7 +751,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Games/GamesScreenContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
+        <state relative-caret-position="1428">
           <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -774,13 +759,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/SystemSocketConnectionHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="64" column="8" lean-forward="false" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/GameLobby.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="730">
-          <caret line="126" column="2" lean-forward="true" selection-start-line="126" selection-start-column="2" selection-end-line="126" selection-end-column="2" />
+        <state relative-caret-position="1087">
+          <caret line="139" column="48" lean-forward="false" selection-start-line="139" selection-start-column="40" selection-end-line="139" selection-end-column="48" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/ServerActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/SystemScreensContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="143" column="38" lean-forward="false" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>

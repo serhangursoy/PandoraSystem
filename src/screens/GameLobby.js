@@ -71,6 +71,9 @@ class GameLobby extends Component {
         }
     }
 
+    adminSayYes() {
+        this.props.adminDecision(this.state.gameRoomDetails.gameRoomID);
+    }
     startGameBinder() {
         this.props.startGame(this.state.gameRoomDetails.gameRoomID);
     }
@@ -117,8 +120,27 @@ class GameLobby extends Component {
             let buttonAdderForAdminReis;
             if (isAdmin) {
                 buttonAdderForAdminReis =  <button onClick={this.exitGame.bind(this)}>Exit game</button>;
+
+                if (this.props.gameStatus.isDecided) {
+                  return(
+                      <div> Beklemeyi seçenler bekleyecekler </div>
+                  );
+                }
+
+                if (this.props.gameStatus.isWaiting) {
+                    return(
+                        <div> <p> Bekleyek mi? </p> <br/> <button onClick={this.adminSayYes.bind(this)}> YEP </button>  <button onClick={this.exitGame.bind(this)}> NO </button> </div>
+                    );
+                }
             } else {
                 buttonAdderForAdminReis = <span></span>;
+
+                if (this.props.gameStatus.isDecided) {
+                    return(
+                        <div> Beklemeyi seçenler bekleyecekler </div>
+                    );
+                }
+
                 if (this.props.gameStatus.weAreGoing) {
 /*
                     setTimeout( function countdownEnd() {
@@ -126,6 +148,8 @@ class GameLobby extends Component {
                     }, 15000);
 */
                     return( <div> Admin gg. birkaç saniye sonra kaçayruz =)</div>);
+                } else {
+                    return( <div> { this.props.gameStatus.downPlayer} kardeşimiz düştü. Beklemenin icap edip etmediğine admin Reis karar verecek. Beklemede kalın. </div>);
                 }
             }
             return (<div>

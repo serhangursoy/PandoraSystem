@@ -13,6 +13,7 @@ export const ServerActions = {
     gameRoomClosed: "GAME_ROOM_CLOSED",
     userDisconnectedFromGame: "USER_DISCONNECTED_GAME",
     waitUser: "WAIT_USER",
+    continueGame: "CONTINUE_GAME",
     amIPlaying: "AM_I_PLAYING",
     meExit: "ME_EXIT"
 };
