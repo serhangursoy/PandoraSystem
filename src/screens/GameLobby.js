@@ -72,7 +72,11 @@ class GameLobby extends Component {
     }
 
     adminSayYes() {
-        this.props.adminDecision(this.state.gameRoomDetails.gameRoomID);
+        this.props.adminDecision(this.state.gameRoomDetails.gameRoomID, true);
+    }
+    adminSayNo() {
+        this.props.adminDecision(this.state.gameRoomDetails.gameRoomID, false);
+        this.exitGame()
     }
     startGameBinder() {
         this.props.startGame(this.state.gameRoomDetails.gameRoomID);
@@ -129,7 +133,7 @@ class GameLobby extends Component {
 
                 if (this.props.gameStatus.isWaiting) {
                     return(
-                        <div> <p> Bekleyek mi? </p> <br/> <button onClick={this.adminSayYes.bind(this)}> YEP </button>  <button onClick={this.exitGame.bind(this)}> NO </button> </div>
+                        <div> <p> Bekleyek mi? </p> <br/> <button onClick={this.adminSayYes.bind(this)}> YEP </button>  <button onClick={this.adminSayNo.bind(this)}> NO </button> </div>
                     );
                 }
             } else {

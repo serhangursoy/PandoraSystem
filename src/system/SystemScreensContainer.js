@@ -265,12 +265,18 @@ class SystemScreensContainer extends Component {
         this.state.connection.getAllRooms();
     }
 
-    adminDecision( roomID) {
-        this.state.connection.waitUser( roomID );
-        let tmpState = this.state;
-        tmpState.AdminHandler.selectedGame.gameStatus.isDecided = true;
-        tmpState.GuestHandler.selectedGame.gameStatus.isDecided = true;
-        this.setState(tmpState);
+    adminDecision( roomID , dec) {
+        if(dec) {
+            this.state.connection.waitUser(roomID);
+            let tmpState = this.state;
+            tmpState.AdminHandler.selectedGame.gameStatus.isDecided = true;
+            tmpState.GuestHandler.selectedGame.gameStatus.isDecided = true;
+            this.setState(tmpState);
+        }else {
+            let tmpState = this.state;
+            tmpState.AdminHandler.selectedGame.gameStatus.isWaiting = false;
+            this.setState(tmpState);
+        }
     }
 
 
