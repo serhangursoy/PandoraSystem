@@ -114,11 +114,24 @@ class GameLobby extends Component {
         }
 
         if (this.state.gameRoomDetails.active) {
+            let buttonAdderForAdminReis;
+            if (isAdmin) {
+                buttonAdderForAdminReis =  <button onClick={this.exitGame.bind(this)}>Exit game</button>;
+            } else {
+                buttonAdderForAdminReis = <span></span>;
+                if (this.props.gameStatus.weAreGoing) {
 
+                    setTimeout( function countdownEnd() {
+                        this.exitGame()
+                    }, 15000);
+
+                    return( <div> Admin gg. 30 saniye sonra kaçayruz</div>);
+                }
+            }
             return (<div>
                         <header className="pandoraHeader">
                             <h1 className="App-title">Welcome to Pandora</h1>
-                            <button onClick={this.exitGame.bind(this)}>Exit game</button>
+                            { buttonAdderForAdminReis }
                         </header>
                         <GamesScreenContainer selectedGame="DummyName" gameID={this.state.gameRoomDetails.gameID} gameRoomID={this.state.gameRoomDetails.gameRoomID} users={this.state.users}/>
                     </div>);

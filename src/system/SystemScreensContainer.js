@@ -34,14 +34,25 @@ class SystemScreensContainer extends Component {
                 adminUsername: null,
                 selectedGame: {
                     isSelected: false,
-                    gameDetails: null
+                    gameDetails: null,
+                    gameStatus: {
+                        isWaiting: false,
+                        downPlayer: null
+                    }
                 }
             },
             GuestHandler: {
                 showRooms: false,
                 joinedRoom: false,
                 gameRoomData: null,
-                gameDetails: null
+                gameDetails: null,
+                selectedGame: {
+                    gameStatus: {
+                        isWaiting: false,
+                        downPlayer: null,
+                        weAreGoing: false
+                    }
+                }
             },
             goToGame: false,
             gameRoomState: null
@@ -110,16 +121,25 @@ class SystemScreensContainer extends Component {
                 break;
             case ServerActions.userExit:
                 console.log("USERLARDAN BIRISI DÜŞTÜ, ALLAHU ACKBAR;)");
-                /*
+                // Ben boş adamım
+                break;
+            case ServerActions.userDisconnectedFromGame:
+                console.log("User gg");
                 tmpState = this.state;
-                if(this.state.loginHandler.isLogged)
-                    tmpState.AdminHandler.selectedGame.gameDetails = event.room;
-                else
-                    tmpState.GuestHandler.gameDetails = event.room;
+                if(this.state.loginHandler.isLogged) {
+                    console.log("Bekleyek mi");
+                    tmpState.AdminHandler.selectedGame.gameStatus.isWaiting = true;
+                    tmpState.AdminHandler.selectedGame.gameStatus.downPlayer = event.username;
+                }else {
+                    console.log("Sike sike bekleyeceksiniz xd");
+                    tmpState.GuestHandler.selectedGame.gameStatus.isWaiting = true;
+                    tmpState.GuestHandler.selectedGame.gameStatus.downPlayer = event.username;
+                    tmpState.GuestHandler.selectedGame.gameStatus.weAreGoing = event.isDecided;
+                }
                 this.setState(tmpState);
-*/
                 break;
             case ServerActions.meExit:
+                // Go to menu...
                 console.log("I EXIT");
                 tmpState = this.state;
                 tmpState.GuestHandler.gameDetails = null;
@@ -220,7 +240,13 @@ class SystemScreensContainer extends Component {
         console.log("kankalarla go game room keyfi");
         this.state.connection.getAllRooms();
     }
-
+    /*
+    adminDecision(dec) {
+        if (dec) {
+            this.state.connection.
+        }
+    }
+*/
     joinGameRoom(gameRoomID, username){
         cookies.set(gameRoomID+"uname", username);
         this.state.connection.joinGameRoom(gameRoomID, username);
@@ -265,7 +291,7 @@ class SystemScreensContainer extends Component {
             if (this.state.loginHandler.isLogged) {
                 if (this.state.AdminHandler.createNewGame) {
                     if (this.state.AdminHandler.selectedGame.isSelected) {
-                        return <GameLobby  exitGame={this.exitGame.bind(this)} gameDetails={this.state.AdminHandler.selectedGame.gameDetails} userReady={ this.userIsReady.bind(this)} startGame={this.startGame.bind(this)}/>
+                        return <GameLobby  exitGame={this.exitGame.bind(this)} gameDetails={this.state.AdminHandler.selectedGame.gameDetails} userReady={ this.userIsReady.bind(this)} startGame={this.startGame.bind(this)} gameStatus={this.state.AdminHandler.selectedGame.gameStatus}/>
                     } else {
                         return <CreateGame createGameClicked={this.createGameClicked.bind(this)}/>;
                     }
@@ -277,7 +303,7 @@ class SystemScreensContainer extends Component {
             } else {
 
                 if (this.state.GuestHandler.joinedRoom) {
-                    return <GameLobby exitGame={this.exitGame.bind(this)} gameDetails={this.state.GuestHandler.gameDetails} userReady={ this.userIsReady.bind(this)}/>
+                    return <GameLobby exitGame={this.exitGame.bind(this)} gameDetails={this.state.GuestHandler.gameDetails} userReady={ this.userIsReady.bind(this)} gameStatus={this.state.GuestHandler.selectedGame.gameStatus}/>
                 } else {
                     if (this.state.GuestHandler.showRooms) {
                         return <GameRooms gameRooms={this.state.GuestHandler.gameRoomData} joinGameRoom={this.joinGameRoom.bind(this)}/>
