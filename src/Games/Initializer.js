@@ -10,7 +10,7 @@ import TroubledTown from "./TroubledTown/game_index";
 
 const g = {"TicTacToe": TicTacToe,"ButtonPressAdventure": ButtonPressAdventure,"MemoryGame": MemoryGame, "TruthOrDare": TruthOrDare, "CelebrityHeads": CelebrityHeads, "TroubledTown": TroubledTown};
 
-export const  Initializer = (gameID,gameRoomID, userList) => {
+export const  Initializer = (gameID,gameRoomID, userList, isAdmin) => {
     console.log("initializer gameid: ", gameID);
     let SelectedGame = null;
     games.forEach(function (game) {
@@ -22,7 +22,7 @@ export const  Initializer = (gameID,gameRoomID, userList) => {
 
 
     if(SelectedGame)
-        return <SelectedGame connection = {SocketHandler.newGameSocketConnection.bind({gameRoomID: gameRoomID})}  users={userList} gameRoomID={gameRoomID}/>;
+        return <SelectedGame users={userList} gameRoomID={gameRoomID} isAdmin={isAdmin}/>;
     else
         return <p>ERROR WHILE LOADING THE GAME</p>
 };

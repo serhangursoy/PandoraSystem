@@ -10,7 +10,6 @@ import {ServerNotification} from "./ServerNotification"
 
 export const SocketHandler = function () {
     let SystemSocket = null;
-    let GameSocket = null;
 
 
     return {
@@ -19,10 +18,8 @@ export const SocketHandler = function () {
                 SystemSocket = SystemSocketConnectionHandler(callFunc);
             return SystemSocket
         },
-        "newGameSocketConnection": function (gameRoomID , callback) {
-            if(!GameSocket)
-                GameSocket = GameSocketConnection(gameRoomID , callback);
-            return GameSocket
+        "newGameSocketConnection": function (callback) {
+            return SystemSocket.setGameConnection(callback)
         },
     }
 }();

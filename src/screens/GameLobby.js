@@ -120,7 +120,7 @@ class GameLobby extends Component {
             if (shouldGoOn) buttonAdder = <a className="btn btn-warning" onClick={this.startGameBinder.bind(this) }> Start Game</a>;
         }
 
-        if (this.state.gameRoomDetails.active) {
+        if (this.state.gameRoomDetails['status'] === 'active') {
             let buttonAdderForAdminReis;
             if (isAdmin) {
                 buttonAdderForAdminReis =  <button onClick={this.exitGame.bind(this)}>Exit game</button>;
@@ -155,30 +155,30 @@ class GameLobby extends Component {
                     }
                 }
             }
-            return (<div>
+            return (
+                    <div>
                         <header className="pandoraHeader">
                             <h1 className="App-title">Welcome to Pandora</h1>
                             { buttonAdderForAdminReis }
                         </header>
-                        <GamesScreenContainer selectedGame="DummyName" gameID={this.state.gameRoomDetails.gameID} gameRoomID={this.state.gameRoomDetails.gameRoomID} users={this.state.users}/>
+                        <GamesScreenContainer isAdmin={isAdmin} selectedGame="DummyName" gameID={this.state.gameRoomDetails.gameID} gameRoomID={this.state.gameRoomDetails.gameRoomID} users={this.state.users}/>
                     </div>);
-        } else
-            {
+        } else {
                 return (
-        <div className="page-header page-lobby">
-            <div className="page-header-image" style={customStyle}/>
-            <div className="container">
-                <h1 className="welcome-message">Game Lobby</h1>
-                <div className="col-md-4 content-center gameLobbyCont">
-                    <div className="gameContainer">
-                        {listAdder}
+                    <div className="page-header page-lobby">
+                        <div className="page-header-image" style={customStyle}/>
+                        <div className="container">
+                            <h1 className="welcome-message">Game Lobby</h1>
+                            <div className="col-md-4 content-center gameLobbyCont">
+                                <div className="gameContainer">
+                                    {listAdder}
+                                </div>
+                                {buttonAdder}
+                            </div>
+                        </div>
                     </div>
-                    {buttonAdder}
-                </div>
-            </div>
-        </div>
-    );
-}
+                );
+        }
     }
 }
 

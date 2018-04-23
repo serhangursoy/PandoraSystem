@@ -15,7 +15,7 @@ class GamesScreenContainer extends Component {
         console.log(props);
         this.state = {
             installedGames: games,
-            selectedGame: Initializer(props.gameID , props.gameRoomID, props.users)
+            selectedGame: Initializer(props.gameID , props.gameRoomID, props.users, props.isAdmin)
         }
 
     }

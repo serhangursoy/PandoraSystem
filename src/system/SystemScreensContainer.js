@@ -64,11 +64,12 @@ class SystemScreensContainer extends Component {
     }
 
     componentDidMount() {
-        this.isAlreadyInAnyGame();
+
     }
 
 
     SocketHandlerFunction (event) {
+        console.log("GELEN BİŞİLER VAR ", event);
         let tmpState = this.state;
         switch (event.type) {
             case ServerActions.userJoined:
@@ -148,13 +149,23 @@ class SystemScreensContainer extends Component {
                 break;
             case ServerActions.continueGame:
                 tmpState = this.state;
+                console.log("devam continue falan geldi..");
                 if(this.state.loginHandler.isLogged) {
                     console.log("BÜYÜK BEKLEYİŞ SONA ERDİ");
                     tmpState.AdminHandler.selectedGame.gameStatus.isWaiting = false;
                     tmpState.AdminHandler.selectedGame.gameStatus.isDecided = false;
                     tmpState.AdminHandler.selectedGame.gameStatus.downPlayer = null;
+                    /*
+                    tmpState.AdminHandler.selectedGame.isSelected = true;
+                    tmpState.AdminHandler.selectedGame.gameDetails = event.room;
+                    tmpState.AdminHandler.selectedGame.gameDetails.isAdmin = false;
+                    tmpState.AdminHandler.selectedGame.gameDetails.username = this.state.AdminHandler.adminUsername;
+                    */
                 }else {
-                    console.log("Sike sike bekleyeceksiniz xd");
+                    console.log("oyna devam..");
+                    tmpState.GuestHandler.gameDetails = event.room;
+                    tmpState.GuestHandler.joinedRoom = true;
+                    tmpState.GuestHandler.showRooms = false;
                     tmpState.GuestHandler.selectedGame.gameStatus.isWaiting = false;
                     tmpState.GuestHandler.selectedGame.gameStatus.downPlayer = null;
                     tmpState.GuestHandler.selectedGame.gameStatus.weAreGoing = false;
@@ -213,6 +224,7 @@ class SystemScreensContainer extends Component {
     dummyClicked() {
         let tmpState = this.state;
         tmpState.dummyButton = true;
+        this.isAlreadyInAnyGame();
         this.setState(tmpState);
     }
 

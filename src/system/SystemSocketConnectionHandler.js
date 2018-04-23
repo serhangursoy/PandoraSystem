@@ -4,9 +4,11 @@ export const SystemSocketConnectionHandler = function(callback){
     window.WebSocket = window.WebSocket || window.MozWebSocket;
 
     //const connection = new WebSocket('ws://139.179.103.246:1337');
-    const connection = new WebSocket('ws://localhost:1337');
-    //const connection = new WebSocket('ws://192.168.1.111:1337');
+    //const connection = new WebSocket('ws://localhost:1337');
+    const connection = new WebSocket('ws://192.168.1.62:1337');
 
+
+    let gameConnection = null;
     connection.onopen = function () {
         console.log("Connection established");
     };
@@ -19,9 +21,15 @@ export const SystemSocketConnectionHandler = function(callback){
     connection.onmessage = function (message) {
         try {
             let json = JSON.parse(message.data);
-
-            if(callback){
-                callback(json)
+            switch(json.type){
+                case "STATE_UPDATE":
+                    console.log("state gelmiş napcam bunla?" , json);
+                    gameConnection(json.state);
+                    break;
+                default:
+                    if(callback){
+                        callback(json)
+                    }
             }
         } catch (e) {
             console.log('This doesn\'t look like a valid JSON: ',
@@ -29,6 +37,7 @@ export const SystemSocketConnectionHandler = function(callback){
         }
 
     };
+
 
     function waitForSocketConnection(socket, callback){
         setTimeout(
@@ -47,6 +56,7 @@ export const SystemSocketConnectionHandler = function(callback){
     }
 
     return {
+        "gameConnection":  null,
         "adminLogin": function (password) {
             waitForSocketConnection(connection, function () {
                 connection.send(JSON.stringify({type: "ADMIN_LOGIN", password: password}))
@@ -101,6 +111,23 @@ export const SystemSocketConnectionHandler = function(callback){
             waitForSocketConnection(connection, function () {
                 connection.send(JSON.stringify({"type": "EXIT_GAME_ROOM", "gameRoomID": gameRoomID , "username": username}))
             })
+        },
+        "sendNewState": function (state, gameRoomID) {
+            waitForSocketConnection(connection ,function () {
+                connection.send(JSON.stringify({type: "STATE_UPDATE", gameRoomID: gameRoomID , state: state }));
+            })
+
+        },
+        "enterGame": function (gameRoomID) {
+            console.log("Sending Enter Game");
+            waitForSocketConnection(connection, function () {
+                connection.send(JSON.stringify({type: "ENTER_GAME" , gameRoomID: gameRoomID}))
+            })
+
+        },
+        "setGameConnection": function (callback) {
+            gameConnection = callback;
+            return this
         }
 
     }

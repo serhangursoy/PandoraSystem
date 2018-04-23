@@ -14,11 +14,18 @@ export default class GameContainer extends GameWrapperRedux {
     constructor(props) {
         super(props);
         username = cookies.get(this.props.gameRoomID + "uname").toUpperCase();
+
+        let arr = [];
+        for (let k = 0; k < props.users.length; k++)
+        {
+            arr[k] = -1;
+        }
+
         this.state.game = {
-            "ID": props.gameRoomID,
-            "nameArray" : [],     // Names that left one implicated
-            "turn": 0,   // Who's turn
-            "users": props.users
+                "ID": props.gameRoomID,
+                "nameArray" : arr,     // Names that left one implicated
+                "turn": 0,   // Who's turn
+                "users": props.users
         };
 
         for(let i = 0; i < props.users.length; i++) {
@@ -39,7 +46,7 @@ export default class GameContainer extends GameWrapperRedux {
 
         console.log("Toplamda ", this.props.users.length, " user var. Liste böyle ", this.props.users);
         for (let i = 0; i < this.props.users.length; i++) {
-            if ( this.state.game.nameArray[i] === undefined)
+            if ( this.state.game.nameArray[i] === -1)
                 return false;
         }
 
@@ -47,7 +54,7 @@ export default class GameContainer extends GameWrapperRedux {
     }
 
     didYouWrote(){
-        if ( this.state.game.nameArray[youWillCheck] !== undefined)
+        if ( this.state.game.nameArray[youWillCheck] !== -1)
             return true;
         else
             return false;
