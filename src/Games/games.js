@@ -38,5 +38,17 @@ export const games =[
         "playerCount": 5,
         "entryClass": "game_index.js",
         "id": "d177fcd9-edb3-486e-b2bf-0c925b111169"
+    },
+    {
+        "name": "Codenames",
+        "playerCount": 10,
+        "entryClass": "index.js",
+        "id": "6c0e76d5-2fa2-46d0-9047-9526fe999999"
+    },
+    {
+        "name": "Trivia",
+        "playerCount": 10,
+        "entryClass": "game.js",
+        "id": "36a38bd1-4d90-4ecf-be5d-0b6619ce3ee7"
     }
 ];

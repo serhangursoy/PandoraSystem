@@ -1,0 +1,556 @@
+{
+  "categories": [
+    {
+      "History": [
+        {
+          "question": "Which German field marshal was known as the 'Desert Fox'?",
+          "correct_answer": 1,
+          "answers": [
+            "Ernst Busch",
+            "Erwin Rommel",
+            "Wolfram Freiherr von Richthofen",
+            "Wilhelm List"
+          ]
+        },
+        {
+          "question": "Who discovered Penicillin?",
+          "correct_answer": 2,
+          "answers": [
+            "Marie Curie",
+            "Alfred Nobel",
+            "Alexander Flemming",
+            "Louis Pasteur"
+          ]
+        },
+        {
+          "question": "The idea of Socialism was articulated and advanced by whom?",
+          "correct_answer": 0,
+          "answers": [
+            "Karl Marx",
+            "Vladimir Lenin",
+            "Joseph Stalin",
+            "Vladimir Putin"
+          ]
+        },
+        {
+          "question": "Which famous world leader is famed for the saying, 'Let them eat cake', yet is rumored that he/she never said it at all?",
+          "correct_answer": 1,
+          "answers": [
+            "Czar Nicholas II",
+            "Marie Antoinette",
+            "Elizabeth I",
+            "Henry VIII"
+          ]
+        },
+        {
+          "question": "How old was Adolf Hitler when he died?",
+          "correct_answer": 3,
+          "answers": [
+            "43",
+            "65",
+            "47",
+            "56"
+          ]
+        }
+      ]
+    },
+    {
+      "Sports": [
+        {
+          "question": "In golf, what name is given to a hole score of two under par?",
+          "correct_answer": 2,
+          "answers": [
+            "Birdie",
+            "Bogey",
+            "Eagle",
+            "Albatross"
+          ]
+        },
+        {
+          "question": "Which English football club has the nickname 'The Foxes'?",
+          "correct_answer": 1,
+          "answers": [
+            "Northampton Town",
+            "Leicester City",
+            "Bradford City",
+            "West Bromwich Albion"
+          ]
+        },
+        {
+          "question": "The Rio 2016 Summer Olympics held it's closing ceremony on what date?",
+          "correct_answer": 3,
+          "answers": [
+            "August 23",
+            "August 19",
+            "August 17",
+            "August 21"
+          ]
+        },
+        {
+          "question": "Which country is hosting the 2018 FIFA World Cup?",
+          "correct_answer": 2,
+          "answers": [
+            "Germany",
+            "United States",
+            "Russia",
+            "Saudi Arabia"
+          ]
+        },
+        {
+          "question": "Which driver has been the Formula 1 world champion for a record 7 times?",
+          "correct_answer": 0,
+          "answers": [
+            "Michael Schumacher",
+            "Ayrton Senna",
+            "Fernando Alonso",
+            "Jim Clark"
+          ]
+        },
+        {
+          "question": "What was the final score of the Germany vs. Brazil 2014 FIFA World Cup match?",
+          "correct_answer": 1,
+          "answers": [
+            "0 - 1",
+            "7 - 1",
+            "3 - 4",
+            "16 - 0"
+          ]
+        },
+        {
+          "question": "Which team won 2014 FIFA World Cup in Brazil?",
+          "correct_answer": 3,
+          "answers": [
+            "Argentina",
+            "Brazil",
+            "Netherlands",
+            "Germany"
+          ]
+        },
+        {
+          "question": "How many points did LeBron James score in his first NBA game?",
+          "correct_answer": 0,
+          "answers": [
+            "25",
+            "19",
+            "69",
+            "41"
+          ]
+        },
+        {
+          "question": "Which city did the former NHL team 'The Nordiques' originiate from?",
+          "correct_answer": 1,
+          "answers": [
+            "Houston",
+            "Quebec City",
+            "Montreal",
+            "New York"
+          ]
+        },
+        {
+          "question": "What year did the New Orleans Saints win the Super Bowl?",
+          "correct_answer": 3,
+          "answers": [
+            "2008",
+            "2010",
+            "2011",
+            "2009"
+          ]
+        },
+        {
+          "question": "Which of the following sports is not part of the triathlon?",
+          "correct_answer": 3,
+          "answers": [
+            "Cycling",
+            "Swimming",
+            "Running",
+            "Horse-Riding"
+          ]
+        },
+        {
+          "question": "How many soccer players should be on the field at the same time?",
+          "correct_answer": 1,
+          "answers": [
+            "20",
+            "22",
+            "24",
+            "26"
+          ]
+        },
+        {
+          "question": "In what sport is a 'shuttlecock' used?",
+          "correct_answer": 2,
+          "answers": [
+            "Table Tennis",
+            "Rugby",
+            "Badminton",
+            "Cricket"
+          ]
+        },
+        {
+          "question": "Which team won the 2015-16 English Premier League?",
+          "correct_answer": 0,
+          "answers": [
+            "Leicester City",
+            "Liverpool",
+            "Cheslea",
+            "Manchester United"
+          ]
+        },
+        {
+          "question": "In baseball, how many fouls are an out?",
+          "correct_answer": 1,
+          "answers": [
+            "5",
+            "0",
+            "3",
+            "2"
+          ]
+        },
+        {
+          "question": "Which country will host the 2020 Summer Olympics?",
+          "correct_answer": 1,
+          "answers": [
+            "China",
+            "Japan",
+            "Australia",
+            "Germany"
+          ]
+        },
+        {
+          "question": "Who won the 2015 Formula 1 World Championship?",
+          "correct_answer": 2,
+          "answers": [
+            "Nico Rosberg",
+            "Sebastian Vettel",
+            "Lewis Hamilton",
+            "Jenson Button"
+          ]
+        },
+        {
+          "question": "In Baseball, how many times does the ball have to be pitched outside of the strike zone before the batter is walked?",
+          "correct_answer": 3,
+          "answers": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        {
+          "question": "Who won the 2016 Formula 1 World Driver's Championship?",
+          "correct_answer": 0,
+          "answers": [
+            "Nico Rosberg",
+            "Lewis Hamilton",
+            "Max Verstappen",
+            "Kimi Raikkonen"
+          ]
+        }
+      ]
+    },
+    {
+      "General_Knowledge": [
+        {
+          "question": "What's the name of Batman's  parents?",
+          "correct_answer": 3,
+          "answers": [
+            "Joey & Jackie",
+            "Jason & Sarah",
+            "Todd & Mira",
+            "Thomas & Martha"
+          ]
+        },
+        {
+          "question": "What is the most common surname Wales?",
+          "correct_answer": 1,
+          "answers": [
+            "Williams",
+            "Jones",
+            "Davies",
+            "Evans"
+          ]
+        },
+        {
+          "question": "What is the first book of the Old Testament?",
+          "correct_answer": 1,
+          "answers": [
+            "Exodus",
+            "Genesis",
+            "Leviticus",
+            "Numbers"
+          ]
+        },
+        {
+          "question": "In the video-game franchise Kingdom Hearts, the main protagonist, carries a weapon with what shape?",
+          "correct_answer": 0,
+          "answers": [
+            "Key",
+            "Sword",
+            "Pen",
+            "Cellphone"
+          ]
+        },
+        {
+          "question": "Which best selling toy of 1983 caused hysteria, resulting in riots breaking out in stores?",
+          "correct_answer": 2,
+          "answers": [
+            "Transformers",
+            "Care Bears",
+            "Cabbage Patch Kids",
+            "Rubik's Cube"
+          ]
+        },
+        {
+          "question": "What does a funambulist walk on?",
+          "correct_answer": 3,
+          "answers": [
+            "Broken Glass",
+            "Balls",
+            "The Moon",
+            "A Tight Rope"
+          ]
+        },
+        {
+          "question": "Which sign of the zodiac is represented by the Crab?",
+          "correct_answer": 3,
+          "answers": [
+            "Libra",
+            "Virgo",
+            "Sagittarius",
+            "Cancer"
+          ]
+        },
+        {
+          "question": "What does the 'S' stand for in the abbreviation SIM, as in SIM card? ",
+          "correct_answer": 2,
+          "answers": [
+            "Single",
+            "Secure",
+            "Subscriber",
+            "Solid"
+          ]
+        },
+        {
+          "question": "What word represents the letter 'T' in the NATO phonetic alphabet?",
+          "correct_answer": 0,
+          "answers": [
+            "Tango",
+            "Target",
+            "Taxi",
+            "Turkey"
+          ]
+        },
+        {
+          "question": "What alcoholic drink is made from molasses?",
+          "correct_answer": 1,
+          "answers": [
+            "Gin",
+            "Rum",
+            "Vodka",
+            "Whisky"
+          ]
+        },
+        {
+          "question": "What is 'dabbing'?",
+          "correct_answer": 3,
+          "answers": [
+            "A medical procedure",
+            "A sport",
+            "A language",
+            "A dance"
+          ]
+        },
+        {
+          "question": "What is the shape of the toy invented by Hungarian professor Ern\u0151 Rubik?",
+          "correct_answer": 1,
+          "answers": [
+            "Sphere",
+            "Cube",
+            "Cylinder",
+            "Pyramid"
+          ]
+        },
+        {
+          "question": "What is the name of the Jewish New Year?",
+          "correct_answer": 0,
+          "answers": [
+            "Rosh Hashanah",
+            "Elul",
+            "New Year",
+            "Succoss"
+          ]
+        },
+        {
+          "question": "Which one of the following rhythm games was made by Harmonix?",
+          "correct_answer": 0,
+          "answers": [
+            "Rock Band",
+            "Meat Beat Mania",
+            "Guitar Hero Live",
+            "Dance Dance Revolution"
+          ]
+        },
+        {
+          "question": "What type of animal was Harambe, who was shot after a child fell into it's enclosure at the Cincinnati Zoo?",
+          "correct_answer": 2,
+          "answers": [
+            "Tiger",
+            "Panda",
+            "Gorilla",
+            "Crocodile"
+          ]
+        },
+        {
+          "question": "How many colors are there in a rainbow?",
+          "correct_answer": 3,
+          "answers": [
+            "8",
+            "9",
+            "10",
+            "7"
+          ]
+        },
+        {
+          "question": "Red Vines is a brand of what type of candy?",
+          "correct_answer": 0,
+          "answers": [
+            "Licorice",
+            "Lollipop",
+            "Chocolate",
+            "Bubblegum"
+          ]
+        },
+        {
+          "question": "What is on display in the Madame Tussaud's museum in London?",
+          "correct_answer": 3,
+          "answers": [
+            "Designer clothing",
+            "Unreleased film reels",
+            "Vintage cars",
+            "Wax sculptures"
+          ]
+        },
+        {
+          "question": "What was the nickname given to the Hughes H-4 Hercules, a heavy transport flying boat which achieved flight in 1947?",
+          "correct_answer": 2,
+          "answers": [
+            "Noah's Ark",
+            "Fat Man",
+            "Spruce Goose",
+            "Trojan Horse"
+          ]
+        },
+        {
+          "question": "Which of these colours is NOT featured in the logo for Google?",
+          "correct_answer": 1,
+          "answers": [
+            "Yellow",
+            "Pink",
+            "Blue",
+            "Green"
+          ]
+        },
+        {
+          "question": "What is the French word for 'hat'?",
+          "correct_answer": 3,
+          "answers": [
+            "Bonnet",
+            "Echarpe",
+            "Casque",
+            "Pink"
+          ]
+        },
+        {
+          "question": "Five dollars is worth how many nickles?",
+          "correct_answer": 2,
+          "answers": [
+            "50",
+            "25",
+            "100",
+            "69"
+          ]
+        },
+        {
+          "question": "Which one of these is not a typical European sword design?",
+          "correct_answer": 2,
+          "answers": [
+            "Falchion",
+            "Ulfberht",
+            "Scimitar",
+            "Flamberge"
+          ]
+        },
+        {
+          "question": "According to Sherlock Holmes, 'If you eliminate the impossible, whatever remains, however improbable, must be the...'",
+          "correct_answer": 0,
+          "answers": [
+            "Truth",
+            "Answer",
+            "Cause",
+            "Source"
+          ]
+        },
+        {
+          "question": "What do the letters of the fast food chain KFC stand for?",
+          "correct_answer": 3,
+          "answers": [
+            "Kentucky Fresh Cheese",
+            "Kibbled Freaky Cow",
+            "Kiwi Food Cut",
+            "Kentucky Fried Chicken"
+          ]
+        },
+        {
+          "question": "Which restaurant's mascot is a clown?",
+          "correct_answer": 1,
+          "answers": [
+            "Whataburger",
+            "McDonald's",
+            "Burger King",
+            "Sonic"
+          ]
+        },
+        {
+          "question": "What was the first ever London Underground line to be built?",
+          "correct_answer": 3,
+          "answers": [
+            "Circle Line",
+            "Bakerloo Line",
+            "Victoria Line",
+            "Metropolitan Line"
+          ]
+        },
+        {
+          "question": "What machine element is located in the center of fidget spinners?",
+          "correct_answer": 0,
+          "answers": [
+            "Bearings",
+            "Axles",
+            "Gears",
+            "Belts"
+          ]
+        },
+        {
+          "question": "Which sign of the zodiac comes between Virgo and Scorpio?",
+          "correct_answer": 1,
+          "answers": [
+            "Gemini",
+            "Libra",
+            "Taurus",
+            "Capricorn"
+          ]
+        },
+        {
+          "question": "Which of the following presidents is not on Mount Rushmore?",
+          "correct_answer": 2,
+          "answers": [
+            "Theodore Roosevelt",
+            "Abraham Lincoln",
+            "John F. Kennedy",
+            "Thomas Jefferson"
+          ]
+        }
+      ]
+    }
+  ]
+}

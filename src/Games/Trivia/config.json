@@ -1,0 +1,6 @@
+{
+  "name": "Trivia",
+  "playerCount": 10,
+  "entryClass": "game.js",
+  "id": "36a38bd1-4d90-4ecf-be5d-0b6619ce3ee7"
+}
