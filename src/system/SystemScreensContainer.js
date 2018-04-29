@@ -236,6 +236,7 @@ class SystemScreensContainer extends Component {
     dummyClicked() {
         let tmpState = this.state;
         tmpState.dummyButton = true;
+        cookies.remove("adminKey");
         this.isAlreadyInAnyGame();
         this.setState(tmpState);
     }
