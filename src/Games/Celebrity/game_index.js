@@ -81,7 +81,7 @@ export default class GameContainer extends GameWrapperRedux {
 
         if (!this.areWeAllDone()) {
             if (!this.didYouWrote()) {
-                card = <div><p> You are writing for {this.props.users[youWillCheck].username} </p>
+                card = <div><p> You are writing for {this.props.users[youWillCheck].username}, type any object or person into box below to continue </p>
                     <textarea ref={yourID}> </textarea>
                     <div className="exbtn truthbutton" onClick={this.submitName.bind(this)}>DONE</div>
                 </div>;
@@ -90,7 +90,7 @@ export default class GameContainer extends GameWrapperRedux {
             }
         } else {
             if (this.state.game.turn === yourID) {
-                card = <div><p> ??? -- Guess </p></div>;
+                card = <div><p> It is your turn! Try to guess now.. Your <b> supervisor </b> can press the button in order to skip next player..</p></div>;
             } else if ( this.state.game.turn === youWillCheck) {
                 card = <div><p>  {this.props.users[this.state.game.turn].username} is now {this.state.game.nameArray[this.state.game.turn]}. Press the button if he gets no. </p>
                     <div className="exbtn darebutton" onClick={this.changeTurn.bind(this)}> Continue </div>

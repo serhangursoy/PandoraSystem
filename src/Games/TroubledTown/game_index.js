@@ -44,7 +44,7 @@ export default class GameContainer extends GameWrapperRedux {
             "playerAffirmation": [],
             "deadPlayerIDs": [],
             "werewolvesClicked": [],
-            "sleepers": [],
+            // "sleepers": [],
             "selectedUser": 0,
             "decideMoment": true,
             "alivePlayers": tmpArr,
@@ -81,7 +81,7 @@ export default class GameContainer extends GameWrapperRedux {
                 rolesArr.push("VILLAGER2");
             return this.shuffle(rolesArr);
         } else {
-            rolesArr = [ "WEREWOLF", "WEREWOLF2", "VILLAGER", "VILLAGER2", "KING"];
+            rolesArr = [ "WEREWOLF", "VILLAGER", "VILLAGER", "VILLAGER2", "KING"];
             return this.shuffle(rolesArr);
         }
     }

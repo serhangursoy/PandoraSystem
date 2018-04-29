@@ -91,6 +91,12 @@ class SystemScreensContainer extends Component {
                 console.log("Creating game room..");
                 console.log(event);
                 console.log(this.state.AdminHandler.adminUsername);
+
+                tmpState = this.state;
+
+                tmpState.AdminHandler.selectedGame.gameStatus = { isWaiting: false,downPlayer: null,isDecided: false };
+                tmpState.GuestHandler.selectedGame.gameStatus = { isWaiting: false,downPlayer: null,weAreGoing: false,isDecided: false};
+                this.setState(tmpState);
                 cookies.set(event.gameRoom.gameRoomID+"uname", this.state.AdminHandler.adminUsername, COOKIE_OPTIONS);
                 this.state.connection.joinGameRoom(event.gameRoom.gameRoomID , this.state.AdminHandler.adminUsername);
                 console.log(event);

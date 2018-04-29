@@ -5,7 +5,7 @@ export const SystemSocketConnectionHandler = function(callback){
 
     //const connection = new WebSocket('ws://139.179.103.246:1337');
     //const connection = new WebSocket('ws://localhost:1337');
-    const connection = new WebSocket('ws://192.168.1.62:1337');
+    const connection = new WebSocket('ws://192.168.1.30:1337');
 
 
     let gameConnection = null;

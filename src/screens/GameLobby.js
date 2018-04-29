@@ -23,9 +23,19 @@ class GameLobby extends Component {
         console.log("GameRoomID: ", props.gameDetails.gameRoomID, " user List: ", props.gameDetails.users);
         uname = cookies.get(props.gameDetails.gameRoomID+"uname");
         if (cookies.get("adminKey") != null) isAdmin = true;
+
+        let minPlayerCount = -1;
+
+        games.forEach( function ( game ) {
+            console.log(game);
+           if (game.id === this.props.gameDetails.gameID) {
+               minPlayerCount = game.playerCount;
+           }
+        }.bind(this));
         this.state = {
             gameRoomDetails: this.props.gameDetails,
             amIReady: false,
+            minPlayer: minPlayerCount,
             users: props.gameDetails.users
         };
     }
@@ -114,10 +124,16 @@ class GameLobby extends Component {
         let buttonAdder = null;
         if (isAdmin) {
             let shouldGoOn = true;
-            for(let k = 0 ; k< gameRoomUsers.length; k++) {
-                if(!gameRoomUsers[k].ready) shouldGoOn = false
+            if (gameRoomUsers.length >= this.state.minPlayer ) {
+                for (let k = 0; k < gameRoomUsers.length; k++) {
+                    if (!gameRoomUsers[k].ready) {
+                        shouldGoOn = false;
+                        break;
+                    }
+                }
+                if (shouldGoOn) buttonAdder =
+                    <a className="btn btn-warning" onClick={this.startGameBinder.bind(this)}> Start Game</a>;
             }
-            if (shouldGoOn) buttonAdder = <a className="btn btn-warning" onClick={this.startGameBinder.bind(this) }> Start Game</a>;
         }
 
         if (this.state.gameRoomDetails['status'] === 'active') {

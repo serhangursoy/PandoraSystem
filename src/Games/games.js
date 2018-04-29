@@ -23,13 +23,13 @@ export const games =[
     },
     {
         "name": "TruthOrDare",
-        "playerCount": 8,
+        "playerCount": 2,
         "entryClass": "game_index.js",
         "id": "6c0e76d5-2fa2-46d0-9047-9526fe5855d9"
     },
     {
         "name": "CelebrityHeads",
-        "playerCount": 10,
+        "playerCount": 2,
         "entryClass": "game_index.js",
         "id": "d177fcd9-edb3-486e-b2bf-0c925b782769"
     },
@@ -41,13 +41,13 @@ export const games =[
     },
     {
         "name": "Codenames",
-        "playerCount": 10,
+        "playerCount": 3,
         "entryClass": "index.js",
         "id": "6c0e76d5-2fa2-46d0-9047-9526fe999999"
     },
     {
         "name": "Trivia",
-        "playerCount": 10,
+        "playerCount": 3,
         "entryClass": "game.js",
         "id": "36a38bd1-4d90-4ecf-be5d-0b6619ce3ee7"
     }
