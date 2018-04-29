@@ -188,6 +188,12 @@ class SystemScreensContainer extends Component {
                 tmpState.GuestHandler.showRooms = false;
                 this.setState(tmpState);
                 break;
+            case ServerActions.roomCreated:
+                console.log("room yaratılmış");
+                tmpState = this.state;
+                tmpState.GuestHandler.gameRoomData.push(event.gameRoom);
+                this.setState(tmpState);
+                break;
             case ServerActions.userReadyStateChanged:
                 tmpState = this.state;
                 console.log("Stateler değişti, orta gamelobbyde kartlar yeniden karılıyor! Yeni event... ", event);

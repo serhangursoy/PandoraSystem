@@ -14,6 +14,7 @@ export const ServerActions = {
     userDisconnectedFromGame: "USER_DISCONNECTED_GAME",
     waitUser: "WAIT_USER",
     continueGame: "CONTINUE_GAME",
+    roomCreated: "ROOM_CREATED",
     amIPlaying: "AM_I_PLAYING",
     meExit: "ME_EXIT"
 };
