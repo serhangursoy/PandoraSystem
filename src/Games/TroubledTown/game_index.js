@@ -25,6 +25,12 @@ let username;
 let userID;
 let myRole;
 
+const sounds = {
+    kingDecision: new Audio("./sounds/someonedead.mp3"),
+    night: new Audio("./sounds/night.mp3"),
+    wakeUp: new Audio("./sounds/wakeup.mp3")
+};
+
 const cookies = new Cookies();
 
 export default class GameContainer extends GameWrapperRedux {
@@ -100,7 +106,9 @@ export default class GameContainer extends GameWrapperRedux {
 
     okayLetsStart(){
         let state = this.state.game;
+        console.log("User says I'm alright -> " , userID);
         if (this.props.users.length - 1 == state.playerStartOrder.length) {
+            console.log("Game starts... ");
             state.gameStarted = true;
             // Need to create cards!
             state.playerRoles = this.createCardShuffle();
@@ -124,6 +132,7 @@ export default class GameContainer extends GameWrapperRedux {
 
     okayFineCard(){
         let state = this.state.game;
+        console.log("Player says my card is lit -> ",  userID );
         if (this.props.users.length - 1 == state.playerAffirmation.length) {
             state.isReallyStarted = true;
             state.isNight = true;
@@ -203,6 +212,16 @@ export default class GameContainer extends GameWrapperRedux {
         return false;
     }
 
+    playSound( type ) {
+        if (type === "NIGHT") {
+            let obj = <audio loop autoPlay><source src={sounds.night}/></audio>;
+            return obj;
+        } else if (type === "DAY") {
+            let obj = <span><audio loop autoPlay><source src={sounds.kingDecision}/></audio><audio autoPlay><source src={sounds.wakeUp}/></audio></span>;
+            return obj;
+        }
+    }
+
     whoAmIShowCard(){
         let userRole = this.state.game.playerRoles[userID];
         if (userRole == "VILLAGER") {
@@ -247,17 +266,34 @@ export default class GameContainer extends GameWrapperRedux {
         // check if others clicked too, if not, end night. ONLY SHERIFF CAN MAKE AN ACTION ACTUALLY
         let state = this.state.game;
         state.deadPlayerIDs.push(state.selectedUser);
-        state.alivePlayers.splice(state.selectedUser,1);
+
+        let tmpArr = state.alivePlayers;
+        let killIndex = -1;
+        for (let k = 0; k < tmpArr.length; k++)
+            if ( state.selectedUser === tmpArr[k])
+                killIndex = k;
+
+        tmpArr.splice(killIndex,1);
+
         state.selectedUser = -1;
         state.isNight = false;
         state.decideMoment = true;
+        state.alivePlayers = tmpArr;
         this.setState(state);
     }
 
+    // King calls this
     killMe(killedID){
         let state = this.state.game;
         state.deadPlayerIDs.push(killedID);
-        state.alivePlayers.splice(killedID,1);
+
+        let tmpArr = state.alivePlayers;
+        let killIndex = -1;
+        for (let k = 0; k < tmpArr.length; k++)
+            if ( killedID === tmpArr[k])
+                killIndex = k;
+        tmpArr.splice(killIndex,1);
+
         state.decideMoment = false;
         state.playerAffirmation = state.deadPlayerIDs.slice();
         this.setState(state);
@@ -308,7 +344,10 @@ export default class GameContainer extends GameWrapperRedux {
 
                 if (!this.amIDead()) {
                     // Check night or day. Act accordingly..
+
+
                     if (this.state.game.isNight) {
+                        let soundElem = this.playSound("NIGHT");
                         // If not werewolf, show sleep. Sheriff pick someone..
                         if (myRole == "WEREWOLF" || myRole == "WEREWOLF2") {
 
@@ -330,17 +369,18 @@ export default class GameContainer extends GameWrapperRedux {
                                 </div>
                             });
 
-                            rendElem = <div> {listAdder}  <div className="exbtn darebutton" onClick={this.finishKilling.bind(this)} aria-disabled={this.state.game.selectedUser == -1}> KILL</div> </div>;
+                            rendElem = <div> {listAdder}  <div className="exbtn darebutton btnListForKilling" onClick={this.finishKilling.bind(this)} aria-disabled={this.state.game.selectedUser == -1}> KILL</div> {soundElem} </div>;
                             // } else if (myRole == "SHERIFF") {
                         } else {
                             // Sleep thingy....
-                            rendElem =<div><p> YOU ARE SLEEPING. When night ends, perhaps you may see the day light... </p>
+                            rendElem =<div><p> YOU ARE SLEEPING. When night ends, perhaps you may see the day light... </p> { soundElem }
                                 </div>;
                         }
                     } else {
                         // If DAY, show table, announce last dead... Wait for reis to decide..
 
                         if (this.state.game.decideMoment) {
+                            let soundElem = this.playSound("DAY");
                             let overRes =this.isGameOver();
                             if (overRes == 0) {
                                 let aliveUsers = this.state.game.alivePlayers;
@@ -364,16 +404,16 @@ export default class GameContainer extends GameWrapperRedux {
                                     let listAdder = aliveUsers.map((uid, i) => {
                                         return <div key={i}>
                                             <div className="row">
-                                                <div className="exbtn darebutton" onClick={this.killMe.bind(this, uid)}
+                                                <div className="exbtn darebutton btnListForKilling" onClick={this.killMe.bind(this, uid)}
                                                      hidden={uid == userID}> {this.props.users[uid].username}
                                                 </div>
                                             </div>
                                         </div>
                                     });
 
-                                    rendElem = <span> {rendElem} {listAdder} </span>;
+                                    rendElem = <span> {rendElem} {listAdder}  {soundElem} </span>;
                                 } else {
-                                    rendElem = <div> {rendElem} State your opinions to your King, to drive werevolves out of your
+                                    rendElem = <div> {rendElem} State your opinions to your King, to drive werevolves out of your {soundElem}
                                         town!</div>;
                                 }
                             } else if (overRes == 1) {
@@ -398,6 +438,9 @@ export default class GameContainer extends GameWrapperRedux {
 
                     }
                 }else {
+                    if ("vibrate" in navigator) {
+                        navigator.vibrate(1000);
+                    }
                     rendElem = <div><img src={DEAD} color="white" alt=""/>You are dead!</div>
                 }
             }

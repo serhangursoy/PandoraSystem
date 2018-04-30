@@ -139,17 +139,17 @@ class GameLobby extends Component {
         if (this.state.gameRoomDetails['status'] === 'active') {
             let buttonAdderForAdminReis;
             if (isAdmin) {
-                buttonAdderForAdminReis =  <button onClick={this.exitGame.bind(this)}>Exit game</button>;
+                buttonAdderForAdminReis =  <button className="btn btn-danger" onClick={this.exitGame.bind(this)}>Close Game</button>;
 
                 if (this.props.gameStatus.isDecided) {
                   return(
-                      <div> Beklemeyi seçenler bekleyecekler </div>
+                      <div> <h1> Admin choose to wait.<br/><br/> Waiting for to reconnect in 1 minute...  </h1> </div>
                   );
                 }
 
                 if (this.props.gameStatus.isWaiting) {
                     return(
-                        <div> <p> Bekleyek mi? </p> <br/> <button onClick={this.adminSayYes.bind(this)}> YEP </button>  <button onClick={this.adminSayNo.bind(this)}> NO </button> </div>
+                        <div> <h1> Should we wait for the user reconnect? </h1> <br/> <button onClick={this.adminSayYes.bind(this)}> YEP </button>  <button onClick={this.adminSayNo.bind(this)}> NO </button> </div>
                     );
                 }
             } else {
@@ -158,24 +158,22 @@ class GameLobby extends Component {
                 if (this.props.gameStatus.isWaiting) {
                     if (this.props.gameStatus.isDecided) {
                         return (
-                            <div> Beklemeyi seçenler bekleyecekler </div>
+                            <div> <h1> Admin choose to wait.<br/><br/> Waiting for to reconnect in 1 minute...  </h1> </div>
                         );
                     }
 
                     if (this.props.gameStatus.weAreGoing) {
-                        return (<div> Admin gg. birkaç saniye sonra kaçayruz =)</div>);
+                        return (<div> <h1> Admin disconnected from box. <br/> We are transferring you to main page in a few seconds.. =) </h1> </div>);
                     } else {
                         return (
-                            <div> {this.props.gameStatus.downPlayer} kardeşimiz düştü. Beklemenin icap edip etmediğine
-                                admin Reis karar verecek. Beklemede kalın. </div>);
+                            <div> Player {this.props.gameStatus.downPlayer} disconnected from server. <br/> Admin will decide whether we should wait or terminate the game session.. <br/> <br/> Please wait.. </div>);
                     }
                 }
             }
             return (
                     <div>
                         <header className="pandoraHeader">
-                            <h1 className="App-title">Welcome to Pandora</h1>
-                            { buttonAdderForAdminReis }
+                            <h1 className="App-title">Pandora <br/> { buttonAdderForAdminReis } </h1>
                         </header>
                         <GamesScreenContainer isAdmin={isAdmin} selectedGame="DummyName" gameID={this.state.gameRoomDetails.gameID} gameRoomID={this.state.gameRoomDetails.gameRoomID} users={this.state.users}/>
                     </div>);

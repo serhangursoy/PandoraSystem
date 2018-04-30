@@ -151,6 +151,14 @@ label {
         margin-top: 15%;
         overflow-y: scroll;
     }
+
+    .gamePickerPanel {
+        position: relative;
+        max-width: 100px;
+        max-height: 80%;
+        margin-top: -5%;
+        overflow-y: scroll;
+    }
 }
 
 /* For Tablets */
@@ -160,6 +168,15 @@ label {
         max-width: 100%;
         max-height: 84%;
         margin-top: 20px;
+        overflow-y: scroll;
+    }
+
+    .gamePickerPanel {
+        position: relative;
+        max-width: 100%;
+        max-height: 84%;
+        margin-top: 5px;
+        margin-left: 10px;
         overflow-y: scroll;
     }
 }

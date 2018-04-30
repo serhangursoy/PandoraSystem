@@ -82,7 +82,7 @@ export default class GameContainer extends GameWrapperRedux {
         if (!this.areWeAllDone()) {
             if (!this.didYouWrote()) {
                 card = <div><p> You are writing for {this.props.users[youWillCheck].username}, type any object or person into box below to continue </p>
-                    <textarea ref={yourID}> </textarea>
+                    <textarea className="xAffrkSrTf" ref={yourID}> </textarea>
                     <div className="exbtn truthbutton" onClick={this.submitName.bind(this)}>DONE</div>
                 </div>;
             } else {

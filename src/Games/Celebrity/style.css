@@ -2,10 +2,8 @@
 input,
 textarea {
     display: block;
-    width: 80%;
+    width: 100%;
     border: 0;
-    margin-left: 10%;
-    color: white;
     padding: 10px 5px;
     background: transparent no-repeat;
 
@@ -23,6 +21,12 @@ textarea {
     /* animation solely on background-size */
     transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);/*, background-color 0.3s cubic-bezier(0.64, 0.09, 0.08, 1); */
 
+}
+
+
+.xAffrkSrTf {
+    margin-left: 10%;
+    color: white;
 }
 
 input:focus,

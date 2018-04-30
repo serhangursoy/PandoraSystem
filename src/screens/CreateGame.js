@@ -55,12 +55,13 @@ class CreateGame extends Component {
     render() {
         let customStyle = { backgroundImage: "url(" + Background + ")" };
         let listAdder = games.map( (game, i) =>
-            <div key={i} className="card gameCard">
-                    <div className="header text-center">
-                        <h4 className="title title-up">{game.name}</h4>
-                        <a className="btn btn-success btn-round" onClick={this.openPopupModal.bind(this, games[i].id)}>Create</a>
-                    </div>
-            </div>
+
+                <div key={i} className="card gameCard">
+                        <div className="header text-center">
+                            <h4 className="title title-up">{game.name}</h4>
+                            <a className="btn btn-success btn-round" onClick={this.openPopupModal.bind(this, games[i].id)}>Create</a>
+                        </div>
+                </div>
         );
         return (
 
@@ -68,12 +69,12 @@ class CreateGame extends Component {
             <div className="page-header">
                 <div className="page-header-image" style={customStyle}></div>
                 <div className="container">
-                    <div className="content-center">
                         <h5 className="adaptiveTitle">New Game</h5>
-                        <div className="gameContainer">
-                            { listAdder }
+                        <div className="col-md-4 content-center gamePickerPanel">
+                            <div className="gameContainer">
+                                { listAdder }
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
                 <Modal open={this.state.ModalHandler.nameModal.open} onClose={this.closePopupModal.bind(this)}>
