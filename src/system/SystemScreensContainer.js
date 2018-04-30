@@ -338,7 +338,25 @@ removeAllCookies() {
 
     resetBox() {
         console.log("This will reset box...");
+        // Call resetting func
     }
+
+    changeWifiSettings(wName,wPass){
+        // Call backend to start bash
+    }
+
+    goBack() {
+        let tmpState = this.state;
+        tmpState.AdminHandler.goToSettings = false;
+        this.setState(tmpState);
+    }
+
+    goBack2() {
+        let tmpState = this.state;
+        tmpState.AdminHandler.createNewGame = false;
+        this.setState(tmpState);
+    }
+
 
     // This will do the heavy work!
     calculatePage() {
@@ -351,10 +369,10 @@ removeAllCookies() {
                     if (this.state.AdminHandler.selectedGame.isSelected) {
                         return <GameLobby  exitGame={this.exitGame.bind(this)} gameDetails={this.state.AdminHandler.selectedGame.gameDetails} userReady={ this.userIsReady.bind(this)} startGame={this.startGame.bind(this)} adminDecision={this.adminDecision.bind(this)} gameStatus={this.state.AdminHandler.selectedGame.gameStatus}/>
                     } else {
-                        return <CreateGame createGameClicked={this.createGameClicked.bind(this)}/>;
+                        return <CreateGame createGameClicked={this.createGameClicked.bind(this)} goBack={this.goBack2.bind(this)}/>;
                     }
                 } else if(this.state.AdminHandler.goToSettings){
-                    return <AdminSettings changeWifiSettings={this.changewifiSettings.bind(this)} resetBox={this.resetBox.bind(this)}/>
+                    return <AdminSettings changeWifiSettings={this.changeWifiSettings.bind(this)} resetBox={this.resetBox.bind(this)} goBack={this.goBack.bind(this)}/>
                 } else {
                     return <AdminMenu adminCreateGame={this.createNewGame.bind(this)} adminClickSettings={this.settingClicked.bind(this)}/>
                 }

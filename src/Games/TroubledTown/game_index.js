@@ -17,6 +17,9 @@ import DAY from "./img/townday.png";
 import KILL from "./img/kill.png";
 import DEAD from "./img/dead.png";
 import KILL_EMPTY from "./img/kill_empty.png";
+import S_KING from "./sounds/someonedead.mp3";
+import S_NIGHT from "./sounds/night.mp3";
+import S_DAY from "./sounds/wakeup.mp3";
 
 import "./style.css"
 import Cookies from "universal-cookie";
@@ -24,13 +27,13 @@ import Cookies from "universal-cookie";
 let username;
 let userID;
 let myRole;
-
+/*
 const sounds = {
     kingDecision: new Audio("./sounds/someonedead.mp3"),
     night: new Audio("./sounds/night.mp3"),
     wakeUp: new Audio("./sounds/wakeup.mp3")
 };
-
+*/
 const cookies = new Cookies();
 
 export default class GameContainer extends GameWrapperRedux {
@@ -214,11 +217,9 @@ export default class GameContainer extends GameWrapperRedux {
 
     playSound( type ) {
         if (type === "NIGHT") {
-            let obj = <audio loop autoPlay><source src={sounds.night}/></audio>;
-            return obj;
+            return <audio loop autoPlay><source src={  S_NIGHT } type="audio/mpeg"/></audio>;
         } else if (type === "DAY") {
-            let obj = <span><audio loop autoPlay><source src={sounds.kingDecision}/></audio><audio autoPlay><source src={sounds.wakeUp}/></audio></span>;
-            return obj;
+            return <span><audio loop autoPlay><source src={ S_KING } type="audio/mpeg"/></audio> <audio autoPlay><source src={ S_DAY } type="audio/mpeg" /></audio></span>;
         }
     }
 
@@ -381,6 +382,11 @@ export default class GameContainer extends GameWrapperRedux {
 
                         if (this.state.game.decideMoment) {
                             let soundElem = this.playSound("DAY");
+
+                            if ("vibrate" in navigator) {
+                                navigator.vibrate([500, 300, 100]);
+                            }
+
                             let overRes =this.isGameOver();
                             if (overRes == 0) {
                                 let aliveUsers = this.state.game.alivePlayers;

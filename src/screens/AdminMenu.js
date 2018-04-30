@@ -18,7 +18,7 @@ class AdminMenu extends Component {
                         <h5 className="adaptiveTitle">Admin Menu</h5>
                         <ul className="list-group">
                         <a className="list-group-item btn btn-info" onClick={this.props.adminCreateGame}> Create New Game</a>
-                        <a className="list-group-item btn btn-purp"> Saved Games</a>
+                        <a className="list-group-item btn btn-purp" disabled="true"> Saved Games</a>
                         <a className="list-group-item btn" onClick={this.props.adminClickSettings}> Settings</a>
                         </ul>
                     </div>

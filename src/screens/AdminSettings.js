@@ -106,6 +106,7 @@ class AdminSettings extends Component {
                         <ul className="list-group">
                             <a className="list-group-item btn btn-info" onClick={this.openPopupModal.bind(this)}> Change Wifi Credentials</a>
                             <a className="list-group-item btn" onClick={this.props.resetBox}> Reset Pandora</a>
+                            <a className="btn btn-warning" onClick={this.props.goBack}> Return to Menu </a>
                         </ul>
                     </div>
                 </div>

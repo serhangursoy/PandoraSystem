@@ -75,6 +75,9 @@ class CreateGame extends Component {
                                 { listAdder }
                             </div>
                         </div>
+                    <div className="backButtonStable">
+                        <a className="btn btn-warning" onClick={this.props.goBack}> Return to Menu </a>
+                    </div>
                 </div>
             </div>
                 <Modal open={this.state.ModalHandler.nameModal.open} onClose={this.closePopupModal.bind(this)}>
