@@ -71,15 +71,22 @@ class GameRooms extends Component {
 
         let allGameRooms = this.state.activeGameRooms;
         // console.log(allGameRooms);
-        let listAdder = allGameRooms.map( (game,i) =>  <div className="card" key={i}>
-            <img className="card-img-top" alt="Card image cap"/>
-            <div className="card-body">
-                <h5 className="card-title">{this.findGameName(game.gameID)}</h5>
-                <p className="card-text">Game Room #{game.gameRoomID}</p>
-                <a onClick={ this.openPopupModal.bind(this,game.gameRoomID) } className="btn btn-primary">Enter Game Room</a>
-            </div>
-        </div> );
-
+        let listAdder;
+        if (allGameRooms.length !== 0) {
+            listAdder = allGameRooms.map((game, i) => <div className="card" key={i}>
+                <img className="card-img-top" alt="Card image cap"/>
+                <div className="card-body">
+                    <h5 className="card-title">{this.findGameName(game.gameID)}</h5>
+                    <p className="card-text">Game Room #{game.gameRoomID}</p>
+                    <a onClick={this.openPopupModal.bind(this, game.gameRoomID)} className="btn btn-primary">Enter Game
+                        Room</a>
+                </div>
+            </div>);
+        } else {
+           listAdder = <div className="">
+                <a className="btn btn-warning"> No active game room found. Please wait until Admin creates a new game room. </a>
+            </div>;
+        }
         return (
             <div>
                 <div className="page-header page-lobby">

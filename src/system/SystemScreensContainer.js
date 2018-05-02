@@ -358,6 +358,11 @@ removeAllCookies() {
     }
 
 
+    refreshPage(){
+        window.location.reload();
+    }
+
+
     // This will do the heavy work!
     calculatePage() {
         if(this.state.dummyButton === "false") {
@@ -367,7 +372,7 @@ removeAllCookies() {
             if (this.state.loginHandler.isLogged) {
                 if (this.state.AdminHandler.createNewGame) {
                     if (this.state.AdminHandler.selectedGame.isSelected) {
-                        return <GameLobby  exitGame={this.exitGame.bind(this)} gameDetails={this.state.AdminHandler.selectedGame.gameDetails} userReady={ this.userIsReady.bind(this)} startGame={this.startGame.bind(this)} adminDecision={this.adminDecision.bind(this)} gameStatus={this.state.AdminHandler.selectedGame.gameStatus}/>
+                        return <GameLobby  exitGame={this.exitGame.bind(this)} gameDetails={this.state.AdminHandler.selectedGame.gameDetails} userReady={ this.userIsReady.bind(this)} startGame={this.startGame.bind(this)} adminDecision={this.adminDecision.bind(this)} gameStatus={this.state.AdminHandler.selectedGame.gameStatus} exitRoom={this.refreshPage.bind(this)}/>
                     } else {
                         return <CreateGame createGameClicked={this.createGameClicked.bind(this)} goBack={this.goBack2.bind(this)}/>;
                     }
@@ -379,10 +384,10 @@ removeAllCookies() {
             } else {
 
                 if (this.state.GuestHandler.joinedRoom) {
-                    return <GameLobby exitGame={this.exitGame.bind(this)} gameDetails={this.state.GuestHandler.gameDetails} userReady={ this.userIsReady.bind(this)} gameStatus={this.state.GuestHandler.selectedGame.gameStatus}/>
+                    return <GameLobby exitGame={this.exitGame.bind(this)} gameDetails={this.state.GuestHandler.gameDetails} userReady={ this.userIsReady.bind(this)} gameStatus={this.state.GuestHandler.selectedGame.gameStatus} exitRoom={this.refreshPage.bind(this)}/>
                 } else {
                     if (this.state.GuestHandler.showRooms) {
-                        return <GameRooms gameRooms={this.state.GuestHandler.gameRoomData} joinGameRoom={this.joinGameRoom.bind(this)}/>
+                        return <GameRooms gameRooms={this.state.GuestHandler.gameRoomData} joinGameRoom={this.joinGameRoom.bind(this)} exitRoom={this.refreshPage.bind(this)}  />
                     }else {
                         return <Login adminLogin={this.adminLogin.bind(this)}
                                       isLoginFailed={this.state.loginHandler.loginFailed}

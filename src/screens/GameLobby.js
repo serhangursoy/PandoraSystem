@@ -189,6 +189,7 @@ class GameLobby extends Component {
                                 </div>
                                 {buttonAdder}
                             </div>
+                            <a className="btn btn-danger btn-xs" onClick={this.props.exitRoom}> Leave </a>
                         </div>
                     </div>
                 );
