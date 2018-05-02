@@ -84,7 +84,7 @@ class GameRooms extends Component {
             </div>);
         } else {
            listAdder = <div className="">
-                <a className="btn btn-warning"> No active game room found. Please wait until Admin creates a new game room. </a>
+                <a className="btn btn-warning"> No active game room found. <br/>Please wait until Admin creates a new game room. </a>
             </div>;
         }
         return (

@@ -168,7 +168,7 @@ label {
 
 
 /* For Tablets */
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 769px) {
     .gameLobbyCont {
         position: relative;
         max-width: 100%;
@@ -189,4 +189,38 @@ label {
     .backButtonStable {
         margin-top: 58%;
     }
+}
+
+@media screen and (min-width: 1440px) {
+    .gameLobbyCont {
+        position: relative;
+        max-width: 100%;
+        max-height: 84%;
+        margin-top: 20px;
+        overflow-y: scroll;
+    }
+
+    .gamePickerPanel {
+        position: relative;
+        max-width: 100%;
+        max-height: 84%;
+        margin-top: 5px;
+        margin-left: 10px;
+        overflow-y: scroll;
+    }
+
+    .backButtonStable {
+        margin-top: 73%;
+    }
+}
+
+
+
+
+
+.waitForUser {
+    content: "\ea44";
+    font-size: 100px;
+    text-align: center;
+    margin-left: 45%;
 }

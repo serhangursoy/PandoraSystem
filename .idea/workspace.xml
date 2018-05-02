@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3ba77e93-2a42-4b9f-8262-856fa9e54ce2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/screens/AdminSettings.js" afterPath="$PROJECT_DIR$/src/screens/AdminSettings.js" />
       <change beforePath="$PROJECT_DIR$/src/screens/GameLobby.js" afterPath="$PROJECT_DIR$/src/screens/GameLobby.js" />
       <change beforePath="$PROJECT_DIR$/src/screens/GameRooms.js" afterPath="$PROJECT_DIR$/src/screens/GameRooms.js" />
-      <change beforePath="$PROJECT_DIR$/src/system/SystemScreensContainer.js" afterPath="$PROJECT_DIR$/src/system/SystemScreensContainer.js" />
+      <change beforePath="$PROJECT_DIR$/src/style/custom.css" afterPath="$PROJECT_DIR$/src/style/custom.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +22,8 @@
       <file leaf-file-name="SystemScreensContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/system/SystemScreensContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="358" column="0" lean-forward="true" selection-start-line="358" selection-start-column="0" selection-end-line="358" selection-end-column="0" />
+            <state relative-caret-position="17697">
+              <caret line="358" column="0" lean-forward="false" selection-start-line="358" selection-start-column="0" selection-end-line="358" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -43,7 +42,7 @@
       <file leaf-file-name="AdminMenu.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/AdminMenu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
+            <state relative-caret-position="1020">
               <caret line="21" column="112" lean-forward="true" selection-start-line="21" selection-start-column="112" selection-end-line="21" selection-end-column="112" />
               <folding />
             </state>
@@ -53,8 +52,8 @@
       <file leaf-file-name="GameLobby.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/screens/GameLobby.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="683">
-              <caret line="191" column="56" lean-forward="false" selection-start-line="191" selection-start-column="56" selection-end-line="191" selection-end-column="56" />
+            <state relative-caret-position="1244">
+              <caret line="147" column="86" lean-forward="false" selection-start-line="147" selection-start-column="86" selection-end-line="147" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -63,8 +62,18 @@
       <file leaf-file-name="GameRooms.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/GameRooms.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="86" column="45" lean-forward="false" selection-start-line="86" selection-start-column="34" selection-end-line="86" selection-end-column="45" />
+            <state relative-caret-position="204">
+              <caret line="86" column="79" lean-forward="false" selection-start-line="86" selection-start-column="79" selection-end-line="86" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kit.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/style/kit.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="4269" column="17" lean-forward="false" selection-start-line="4269" selection-start-column="17" selection-end-line="4269" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -83,8 +92,8 @@
       <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/style/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8670">
-              <caret line="170" column="33" lean-forward="false" selection-start-line="170" selection-start-column="33" selection-end-line="170" selection-end-column="33" />
+            <state relative-caret-position="891">
+              <caret line="223" column="23" lean-forward="true" selection-start-line="223" selection-start-column="23" selection-end-line="223" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -93,7 +102,7 @@
       <file leaf-file-name="games.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Games/games.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="965">
+            <state relative-caret-position="2346">
               <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
               <folding />
             </state>
@@ -113,7 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>soc</find>
       <find>createGameRoom</find>
       <find>.room</find>
       <find>http://127.0.0.1API</find>
@@ -143,6 +151,7 @@
       <find>playerStartOrder</find>
       <find>goBack</find>
       <find>src</find>
+      <find>title</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -198,10 +207,10 @@
         <option value="$PROJECT_DIR$/src/Games/TroubledTown/game_index.js" />
         <option value="$PROJECT_DIR$/src/screens/AdminMenu.js" />
         <option value="$PROJECT_DIR$/src/screens/CreateGame.js" />
-        <option value="$PROJECT_DIR$/src/style/custom.css" />
         <option value="$PROJECT_DIR$/src/screens/AdminSettings.js" />
         <option value="$PROJECT_DIR$/src/system/SystemScreensContainer.js" />
         <option value="$PROJECT_DIR$/src/screens/GameRooms.js" />
+        <option value="$PROJECT_DIR$/src/style/custom.css" />
         <option value="$PROJECT_DIR$/src/screens/GameLobby.js" />
       </list>
     </option>
@@ -224,7 +233,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="734" />
     <option name="y" value="128" />
     <option name="width" value="1758" />
@@ -245,7 +254,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -292,6 +300,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -408,7 +417,8 @@
       <workItem from="1524326246167" duration="2188000" />
       <workItem from="1524607073169" duration="286000" />
       <workItem from="1525101138297" duration="15302000" />
-      <workItem from="1525279880005" duration="1132000" />
+      <workItem from="1525279880005" duration="2109000" />
+      <workItem from="1525284920512" duration="2958000" />
     </task>
     <task id="LOCAL-00001" summary="GameRoomSocketConnectionHandler added.">
       <created>1520255311165</created>
@@ -435,10 +445,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226326000" />
+    <option name="totallyTimeSpent" value="230261000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-16" y="-16" width="3872" height="2092" extended-state="7" />
+    <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294596" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -447,8 +457,8 @@
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5024665" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33010882" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33010882" sideWeight="0.49753347" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33010882" sideWeight="0.49753347" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21731551" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -545,13 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/style/kit.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="44" column="17" lean-forward="true" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Games/TruthOrDare/config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -636,7 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="15" column="33" lean-forward="false" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -700,9 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-306">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -791,34 +790,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/style/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8670">
-          <caret line="170" column="33" lean-forward="false" selection-start-line="170" selection-start-column="33" selection-end-line="170" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Games/games.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="965">
+        <state relative-caret-position="2346">
           <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/AdminSettings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="109" column="43" lean-forward="false" selection-start-line="109" selection-start-column="43" selection-end-line="109" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/AdminMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
+        <state relative-caret-position="1020">
           <caret line="21" column="112" lean-forward="true" selection-start-line="21" selection-start-column="112" selection-end-line="21" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/SystemScreensContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17697">
+          <caret line="358" column="0" lean-forward="false" selection-start-line="358" selection-start-column="0" selection-end-line="358" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -831,26 +822,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/SystemScreensContainer.js">
+    <entry file="file://$PROJECT_DIR$/src/screens/AdminSettings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="358" column="0" lean-forward="true" selection-start-line="358" selection-start-column="0" selection-end-line="358" selection-end-column="0" />
+        <state relative-caret-position="279">
+          <caret line="109" column="43" lean-forward="false" selection-start-line="109" selection-start-column="43" selection-end-line="109" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/GameRooms.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="86" column="45" lean-forward="false" selection-start-line="86" selection-start-column="34" selection-end-line="86" selection-end-column="45" />
+        <state relative-caret-position="204">
+          <caret line="86" column="79" lean-forward="false" selection-start-line="86" selection-start-column="79" selection-end-line="86" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style/kit.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="4269" column="17" lean-forward="false" selection-start-line="4269" selection-start-column="17" selection-end-line="4269" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="223" column="23" lean-forward="true" selection-start-line="223" selection-start-column="23" selection-end-line="223" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/GameLobby.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="191" column="56" lean-forward="false" selection-start-line="191" selection-start-column="56" selection-end-line="191" selection-end-column="56" />
+        <state relative-caret-position="1244">
+          <caret line="147" column="86" lean-forward="false" selection-start-line="147" selection-start-column="86" selection-end-line="147" selection-end-column="86" />
           <folding />
         </state>
       </provider>

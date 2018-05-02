@@ -143,13 +143,26 @@ class GameLobby extends Component {
 
                 if (this.props.gameStatus.isDecided) {
                   return(
-                      <div> <h1> Admin choose to wait.<br/><br/> Waiting for to reconnect in 1 minute...  </h1> </div>
+                      <div className="container">
+                          <div className="content-center brand">
+                              <i className="now-ui-icons waitForUser spin">&#8634;</i>
+                              <h3 className="h1-seo"> Admin choose to wait.<br/><br/> Waiting for to reconnect in 1 minute... </h3>
+                              <br/>
+                          </div>
+                      </div>
                   );
                 }
 
                 if (this.props.gameStatus.isWaiting) {
                     return(
-                        <div> <h1> Should we wait for the user reconnect? </h1> <br/> <button onClick={this.adminSayYes.bind(this)}> YEP </button>  <button onClick={this.adminSayNo.bind(this)}> NO </button> </div>
+                        <div className="container">
+                            <div className="content-center brand">
+                                <i className="now-ui-icons waitForUser spin">&#8634;</i>
+                                    <h3 className="h1-seo"> Should we wait for user to reconnect?</h3>
+                                    <br/>
+                                <a className="btn btn-success btn-block" onClick={this.adminSayYes.bind(this)}> YES </a> <a className="btn btn-danger btn-block" onClick={this.adminSayNo.bind(this)}> NO </a>
+                            </div>
+                        </div>
                     );
                 }
             } else {
@@ -158,15 +171,36 @@ class GameLobby extends Component {
                 if (this.props.gameStatus.isWaiting) {
                     if (this.props.gameStatus.isDecided) {
                         return (
-                            <div> <h1> Admin choose to wait.<br/><br/> Waiting for to reconnect in 1 minute...  </h1> </div>
+                            <div className="container">
+                                <div className="content-center brand">
+                                    <i className="now-ui-icons waitForUser spin">&#8634;</i>
+                                    <h3 className="h1-seo"> Admin choose to wait.<br/><br/> Waiting for to reconnect in 1 minute... </h3>
+                                    <br/>
+                                </div>
+                            </div>
                         );
                     }
 
                     if (this.props.gameStatus.weAreGoing) {
-                        return (<div> <h1> Admin disconnected from box. <br/> We are transferring you to main page in a few seconds.. =) </h1> </div>);
+                        return (
+                            <div className="container">
+                                <div className="content-center brand">
+                                    <i className="now-ui-icons waitForUser spin">&#8634;</i>
+                                    <h3 className="h1-seo"> Admin disconnected from box. <br/> We are transferring you to main page in a few seconds.. =) </h3>
+                                    <br/>
+                                </div>
+                            </div>
+                        );
                     } else {
                         return (
-                            <div> Player {this.props.gameStatus.downPlayer} disconnected from server. <br/> Admin will decide whether we should wait or terminate the game session.. <br/> <br/> Please wait.. </div>);
+
+                            <div className="container">
+                                <div className="content-center brand">
+                                    <i className="now-ui-icons waitForUser spin">&#8634;</i>
+                                    <h3 className="h1-seo">Player {this.props.gameStatus.downPlayer} disconnected from server. <br/> Admin will decide whether we should wait or terminate the game session.. <br/> <br/> Please wait..  </h3>
+                                    <br/>
+                                </div>
+                            </div>);
                     }
                 }
             }
