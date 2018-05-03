@@ -19,6 +19,8 @@ export default class Board extends GameWrapperRedux {
             "cells": [ [-1,-1,-1],[-1,-1,-1],[-1,-1,-1] ],
             "turn" : 0,  // Always start with player 1
             "moveCount": 0,
+            "isOver": false,
+            "winner": null,
             "winlose": {
                 "playerone": {
                     "win" : 0,
@@ -67,7 +69,12 @@ export default class Board extends GameWrapperRedux {
         if (currState.moveCount === 9) {
             // DRAW
             console.log("Berabere kaldınız!");
-            alert("BERABERLIQUE");
+            //alert("BERABERLIQUE");
+
+            let tmpstate =  this.state.game;
+            tmpstate.isOver = true;
+            tmpstate.winner = "TIED!";
+            this.setState(tmpstate);
             return;
         } else if (currState.moveCount < 4) {
             return;
@@ -191,7 +198,13 @@ export default class Board extends GameWrapperRedux {
     winnerNotif(score, possibleWinner) {
         if(score === 3) {
             console.log("Tebrikler oyuncu " + (possibleWinner+1) + " kazandı!");
-            alert("Tebrikler oyuncu " + (possibleWinner+1) + " kazandı!");
+
+            let tmpstate =  this.state.game;
+            tmpstate.isOver = true;
+            tmpstate.winner = possibleWinner+1;
+            this.setState(tmpstate);
+
+            // alert("Tebrikler oyuncu " + (possibleWinner+1) + " kazandı!");
             /* dispatch( {
                 condition: "Finish",
                 winner: possibleWinner
@@ -204,11 +217,21 @@ export default class Board extends GameWrapperRedux {
         let tmpStye= {
             width: "10%"
         };
+
+        /*
         if(this.state.game.turn !== 1) {
             return ( <img src={oObj} style={tmpStye} alt="logo"/> );
         } else {
             return ( <img src={xObj}  style={tmpStye} alt="logo"/> );
         }
+        */
+
+        if(this.props.users[0].username === username) {
+            return ( <img src={oObj} style={tmpStye} alt="logo"/> );
+        } else {
+            return ( <img src={xObj}  style={tmpStye} alt="logo"/> );
+        }
+
     }
 
     onReset(){
@@ -264,10 +287,18 @@ export default class Board extends GameWrapperRedux {
         const st3 = {
             marginTop: "15px",
         };
+
+        let somePart;
+        if (!this.state.game.isOver) {
+            somePart = <span><h1> Player { this.state.game.turn  + 1 }'s turn.</h1>
+                <h2> Your icon: { this.getIcon() }</h2></span>;
+        } else {
+            somePart = <span><h1> Player { this.state.game.winner } WON! </h1></span>;
+        }
+
         return (
             <div style={st}>
-                <h1> Player { this.state.game.turn  + 1 }'s turn.</h1>
-                <h2> Your icon: { this.getIcon() }</h2>
+                { somePart }
                 <table style={st2}>
                     <tbody>
                     {elements}
