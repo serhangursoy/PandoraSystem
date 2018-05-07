@@ -60,7 +60,8 @@ class SystemScreensContainer extends Component {
             gameRoomState: null
         };
 
-
+        cookies.remove("adminKey");
+        this.isAlreadyInAnyGame();
     }
 
     componentDidMount() {
@@ -224,8 +225,8 @@ class SystemScreensContainer extends Component {
                     console.log("guest not going to lobby :):):)");
                     tmpState.GuestHandler.gameDetails = null;
                     tmpState.GuestHandler.joinedRoom = false;
-                    //tmpState.GuestHandler.showRooms = true;
-                    tmpState.GuestHandler.gameRoomData = null;
+                    tmpState.GuestHandler.showRooms = false;
+                    //tmpState.GuestHandler.gameRoomData = null;
                 }
                 this.setState(tmpState);
 

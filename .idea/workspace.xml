@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3ba77e93-2a42-4b9f-8262-856fa9e54ce2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Games/games.js" afterPath="$PROJECT_DIR$/src/Games/games.js" />
-      <change beforePath="$PROJECT_DIR$/src/screens/GameRooms.js" afterPath="$PROJECT_DIR$/src/screens/GameRooms.js" />
       <change beforePath="$PROJECT_DIR$/src/system/SystemScreensContainer.js" afterPath="$PROJECT_DIR$/src/system/SystemScreensContainer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,18 +20,18 @@
       <file leaf-file-name="GameLobby.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/GameLobby.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2612">
+            <state relative-caret-position="8313">
               <caret line="232" column="70" lean-forward="false" selection-start-line="232" selection-start-column="70" selection-end-line="232" selection-end-column="70" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SystemScreensContainer.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SystemScreensContainer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/system/SystemScreensContainer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="368">
-              <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+              <caret line="232" column="14" lean-forward="false" selection-start-line="232" selection-start-column="14" selection-end-line="232" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -71,10 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="games.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="games.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Games/games.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
+            <state relative-caret-position="-510">
               <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
               <folding />
             </state>
@@ -132,10 +130,10 @@
       <find>src</find>
       <find>title</find>
       <find>turn</find>
-      <find>gameRoom</find>
-      <find>gameID</find>
-      <find>showRooms</find>
       <find>findGame</find>
+      <find>showRooms</find>
+      <find>gameID</find>
+      <find>gameRoom</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -194,8 +192,8 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/screens/GameLobby.js" />
         <option value="$PROJECT_DIR$/src/screens/GameRooms.js" />
-        <option value="$PROJECT_DIR$/src/system/SystemScreensContainer.js" />
         <option value="$PROJECT_DIR$/src/Games/games.js" />
+        <option value="$PROJECT_DIR$/src/system/SystemScreensContainer.js" />
       </list>
     </option>
   </component>
@@ -217,7 +215,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1614" />
     <option name="y" value="148" />
     <option name="width" value="1758" />
@@ -407,7 +405,7 @@
       <workItem from="1525373041560" duration="3686000" />
       <workItem from="1525395576234" duration="523000" />
       <workItem from="1525609341297" duration="2057000" />
-      <workItem from="1525715702255" duration="6535000" />
+      <workItem from="1525715702255" duration="7082000" />
     </task>
     <task id="LOCAL-00001" summary="GameRoomSocketConnectionHandler added.">
       <created>1520255311165</created>
@@ -434,10 +432,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243683000" />
+    <option name="totallyTimeSpent" value="244230000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-16" y="-16" width="3872" height="2092" extended-state="7" />
+    <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294596" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -816,14 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/GameLobby.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2612">
-          <caret line="232" column="70" lean-forward="false" selection-start-line="232" selection-start-column="70" selection-end-line="232" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Games/GamesScreenContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1377">
@@ -831,14 +821,6 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/SystemScreensContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -854,8 +836,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Games/games.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
+        <state relative-caret-position="-510">
           <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/GameLobby.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8313">
+          <caret line="232" column="70" lean-forward="false" selection-start-line="232" selection-start-column="70" selection-end-line="232" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/SystemScreensContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="232" column="14" lean-forward="false" selection-start-line="232" selection-start-column="14" selection-end-line="232" selection-end-column="14" />
           <folding />
         </state>
       </provider>
