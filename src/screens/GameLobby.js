@@ -16,6 +16,8 @@ const cookies = new Cookies();
 let uname = "null";
 let uloc = -1;
 let isAdmin = false;
+let gameName = "";
+
 class GameLobby extends Component {
 
     constructor(props) {
@@ -80,6 +82,18 @@ class GameLobby extends Component {
             this.props.userReady(uname.toUpperCase(), tmpHolder, this.state.gameRoomDetails.gameRoomID);
         }
     }
+
+    findGameName(gameID){
+        let name = {};
+        games.forEach(function (game) {
+            if(game.id == gameID) {
+                console.log("found game name", game.name);
+                name.name = game.name;
+            }
+        }, name)
+        return name.name;
+    }
+
 
     adminSayYes() {
         this.props.adminDecision(this.state.gameRoomDetails.gameRoomID, true);
@@ -216,7 +230,8 @@ class GameLobby extends Component {
                     <div className="page-header page-lobby">
                         <div className="page-header-image" style={customStyle}/>
                         <div className="container">
-                            <h1 className="welcome-message">Game Lobby</h1>
+                            <h1 className="welcome-message">GAME LOBBY</h1>
+                            <h3> <b>Game:</b> { this.findGameName(this.props.gameDetails.gameID) } </h3>
                             <div className="col-md-4 content-center gameLobbyCont">
                                 <div className="gameContainer">
                                     {listAdder}

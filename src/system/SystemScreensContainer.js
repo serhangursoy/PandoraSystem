@@ -146,7 +146,7 @@ class SystemScreensContainer extends Component {
                     tmpState.AdminHandler.selectedGame.gameStatus.isWaiting = true;
                     tmpState.AdminHandler.selectedGame.gameStatus.downPlayer = event.username;
                 }else {
-                    console.log("Sike sike bekleyeceksiniz xd");
+                    console.log("Bekleyeceksiniz xd");
                     tmpState.GuestHandler.selectedGame.gameStatus.isWaiting = true;
                     tmpState.GuestHandler.selectedGame.gameStatus.downPlayer = event.username;
                     tmpState.GuestHandler.selectedGame.gameStatus.weAreGoing = event.isDecided;
@@ -214,6 +214,7 @@ class SystemScreensContainer extends Component {
                 break;
             case ServerActions.gameRoomClosed:
                 console.log(ServerActions.gameRoomClosed);
+
                 tmpState = this.state;
                 if(this.state.loginHandler.isLogged) {
                     console.log("admin not going to lobby :):):)");
@@ -223,9 +224,13 @@ class SystemScreensContainer extends Component {
                     console.log("guest not going to lobby :):):)");
                     tmpState.GuestHandler.gameDetails = null;
                     tmpState.GuestHandler.joinedRoom = false;
-                    tmpState.GuestHandler.showRooms = false;
+                    //tmpState.GuestHandler.showRooms = true;
+                    tmpState.GuestHandler.gameRoomData = null;
                 }
                 this.setState(tmpState);
+
+                this.goGameRooms();
+                //this.goGameRooms();
                 break;
             default:
                 new Error("Server Action not recognized");
