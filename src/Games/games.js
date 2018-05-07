@@ -1,13 +1,16 @@
 
 import React from 'react'
-import image from './ButtonPressAdventure/there-is-no-game-1.png'
+import image from './thumb.png'
+import imgTicTacToe from './TicTacToe/thumb/tictoethumb.png';
+//const image = "./Games/thumb.png";
+
 export const games =[
     {
         "name": "TicTacToe",
         "playerCount": 2,
         "entryClass": "Board.js",
         "id": "985ebfa1-33f3-48fa-87cc-9e5a1170b014",
-        "thumbnail": image
+        "thumbnail": imgTicTacToe
     },
     {
         "name": "ButtonPressAdventure",

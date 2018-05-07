@@ -61,15 +61,16 @@ class GameRooms extends Component {
         }, name);
         return name.name;
     }
+
     findGameImage(gameID){
         let name = {};
         games.forEach(function (game) {
             if(game.id == gameID) {
-                console.log("found game name", game.name);
-                name = game;
+                console.log("found game icon", game.thumbnail);
+                name = game.thumbnail;
             }
         }, name);
-        return name.thumbnail;
+        return name;
     }
 
 

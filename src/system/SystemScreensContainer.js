@@ -23,7 +23,7 @@ class SystemScreensContainer extends Component {
         super();
         this.state = {
             connection: SocketHandler.newSystemSocketConnection(this.SocketHandlerFunction.bind(this)),
-            dummyButton: "false",
+            dummyButton: "true",
             loginHandler: {
                 loginFailed: debug,
                 isLogged: debug
