@@ -25,8 +25,8 @@ export const  Initializer = (gameID,gameRoomID, userList, isAdmin) => {
 
 
     if(SelectedGame)
-        return <SelectedGame users={userList} gameRoomID={gameRoomID} isAdmin={isAdmin}/>;
+        return(<SelectedGame users={userList} gameRoomID={gameRoomID} isAdmin={isAdmin}/>);
     else
-        return <p>ERROR WHILE LOADING THE GAME</p>
+        return(<p>ERROR WHILE LOADING THE GAME</p>)
 };
 

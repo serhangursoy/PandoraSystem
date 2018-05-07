@@ -58,8 +58,18 @@ class GameRooms extends Component {
                 console.log("found game name", game.name);
                 name.name = game.name;
             }
-        }, name)
+        }, name);
         return name.name;
+    }
+    findGameImage(gameID){
+        let name = {};
+        games.forEach(function (game) {
+            if(game.id == gameID) {
+                console.log("found game name", game.name);
+                name = game;
+            }
+        }, name);
+        return name.thumbnail;
     }
 
 
@@ -74,7 +84,7 @@ class GameRooms extends Component {
         let listAdder;
         if (allGameRooms.length !== 0) {
             listAdder = allGameRooms.map((game, i) => <div className="card" key={i}>
-                <img className="card-img-top" alt="Card image cap"/>
+                <img src={this.findGameImage(game.gameID)}/>
                 <div className="card-body">
                     <h5 className="card-title">{this.findGameName(game.gameID)}</h5>
                     <p className="card-text">Game Room #{game.gameRoomID}</p>

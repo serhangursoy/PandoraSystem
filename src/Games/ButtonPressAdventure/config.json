@@ -2,5 +2,6 @@
   "name": "ButtonPressAdventure",
   "playerCount": 2,
   "entryClass": "game_index.js",
-  "id": "c617fcd9-edb3-486e-b2bf-0c610b78275c"
+  "id": "c617fcd9-edb3-486e-b2bf-0c610b78275c",
+  "thumbnail": "there-is-no-game-1.png"
 }
