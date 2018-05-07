@@ -71,12 +71,15 @@ class GameRooms extends Component {
 
         let allGameRooms = this.state.activeGameRooms;
         // console.log(allGameRooms);
+
+        console.log("Printing game room thingy... ", allGameRooms);
         let listAdder;
         if (allGameRooms.length !== 0) {
             listAdder = allGameRooms.map((game, i) => <div className="card" key={i}>
                 <img className="card-img-top" alt="Card image cap"/>
                 <div className="card-body">
                     <h5 className="card-title">{this.findGameName(game.gameID)}</h5>
+                    <p> Player In: { game.users.length === 0 ? 1: game.users.length } </p>
                     <p className="card-text">Game Room #{game.gameRoomID}</p>
                     <a onClick={this.openPopupModal.bind(this, game.gameRoomID)} className="btn btn-primary">Enter Game
                         Room</a>

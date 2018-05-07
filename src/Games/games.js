@@ -7,7 +7,8 @@ export const games =[
         "name": "TicTacToe",
         "playerCount": 2,
         "entryClass": "Board.js",
-        "id": "985ebfa1-33f3-48fa-87cc-9e5a1170b014"
+        "id": "985ebfa1-33f3-48fa-87cc-9e5a1170b014",
+        "image_path": ""
     },
     {
         "name": "ButtonPressAdventure",
