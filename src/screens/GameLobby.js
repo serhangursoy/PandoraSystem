@@ -153,7 +153,7 @@ class GameLobby extends Component {
         if (this.state.gameRoomDetails['status'] === 'active') {
             let buttonAdderForAdminReis;
             if (isAdmin) {
-                buttonAdderForAdminReis =  <button className="btn btn-danger" onClick={this.exitGame.bind(this)}>Close Game</button>;
+                buttonAdderForAdminReis =  <a className="btn btn-danger buttonCloseAdminPriv" onClick={this.exitGame.bind(this)}>Close Game</a>;
 
                 if (this.props.gameStatus.isDecided) {
                   return(

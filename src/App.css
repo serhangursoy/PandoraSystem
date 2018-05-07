@@ -20,6 +20,7 @@
 .App-title {
   font-size: 1.5em;
   align-self: center;
+  display: inline-flex;
 }
 
 .App-intro {
@@ -28,10 +29,16 @@
 
 .pandoraHeader {
   background-color: #1b0f41;
-  height: 120px;
+  height: 65px;
   padding: 20px;
   color: white;
 }
+
+.buttonCloseAdminPriv {
+  margin-left: 15%;
+  margin-top: -10px;
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

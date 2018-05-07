@@ -552,7 +552,7 @@ export default class GameContainer extends GameWrapperRedux {
             element = this.renderWaitPlayers();
         }
         return (
-            <div>
+            <div className="triviaBackground">
                 {element}
             </div>
         );

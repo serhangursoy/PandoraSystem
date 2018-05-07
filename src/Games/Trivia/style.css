@@ -11,6 +11,12 @@ table {
     font-family: Arial;
 }
 
+
+.triviaBackground{
+    background-color: #ECE1A3;
+    height: 600px;
+}
+
 .team-options .welcomeMsg {
     margin-top: 20px;
     font-size: 30px;
