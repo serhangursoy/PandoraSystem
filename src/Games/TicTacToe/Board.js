@@ -20,6 +20,7 @@ export default class Board extends GameWrapperRedux {
             "turn" : 0,  // Always start with player 1
             "moveCount": 0,
             "isOver": false,
+            "isTied": false,
             "winner": null,
             "winlose": {
                 "playerone": {
@@ -36,30 +37,32 @@ export default class Board extends GameWrapperRedux {
     }
 
     cellClicked(clickedID) {
-        let currState = this.state.game;
-        console.log("Cookie username ", username, " lakin şu an oynaması gereken user ", this.props.users[currState.turn].username );
-        if ( username === this.props.users[currState.turn].username) {
-            let cells = currState.cells;
-            let turn = currState.turn;
-            let row = Math.floor(clickedID / 3);
-            let ind = (clickedID % 3);
-            if ((cells[row])[ind] !== -1) {
-                return;
-            }
-            (cells[row])[ind] = turn;
+        if (!this.state.game.isOver) {
+            let currState = this.state.game;
+            console.log("Cookie username ", username, " lakin şu an oynaması gereken user ", this.props.users[currState.turn].username);
+            if (username === this.props.users[currState.turn].username) {
+                let cells = currState.cells;
+                let turn = currState.turn;
+                let row = Math.floor(clickedID / 3);
+                let ind = (clickedID % 3);
+                if ((cells[row])[ind] !== -1) {
+                    return;
+                }
+                (cells[row])[ind] = turn;
 
-            if (turn === 1) {
-                turn = 0;
-            } else {
-                turn = 1;
-            }
-            currState.cells = cells;
-            currState.turn = turn;
-            currState.moveCount += 1;
-            // console.log("Clicked: ID=" + clickedID + " Row:" + row + " Index:" + ind + "MATH " + (clickedID / 3)  );
-            this.setState(currState);
+                if (turn === 1) {
+                    turn = 0;
+                } else {
+                    turn = 1;
+                }
+                currState.cells = cells;
+                currState.turn = turn;
+                currState.moveCount += 1;
+                // console.log("Clicked: ID=" + clickedID + " Row:" + row + " Index:" + ind + "MATH " + (clickedID / 3)  );
+                this.setState(currState);
 
-            this.controlGamestatus(row, ind, (cells[row])[ind]);
+                this.controlGamestatus(row, ind, (cells[row])[ind]);
+            }
         }
     }
 
@@ -73,6 +76,7 @@ export default class Board extends GameWrapperRedux {
 
             let tmpstate =  this.state.game;
             tmpstate.isOver = true;
+            tmpstate.isTied = true;
             tmpstate.winner = "TIED!";
             this.setState(tmpstate);
             return;
@@ -94,6 +98,7 @@ export default class Board extends GameWrapperRedux {
             tmpCol--;
         }
         this.winnerNotif(tmpCount,moveData);
+        if (tmpCount === 3) return;
         // Check right
         tmpCol = lastActionColumn;
         tmpCount = 0;
@@ -106,7 +111,7 @@ export default class Board extends GameWrapperRedux {
             tmpCol++;
         }
         this.winnerNotif(tmpCount,moveData);
-
+        if (tmpCount === 3) return;
         // Vertical
         // Check up
         let tmpRow = lastActionRow;
@@ -120,6 +125,7 @@ export default class Board extends GameWrapperRedux {
             tmpRow--;
         }
         this.winnerNotif(tmpCount,moveData);
+        if (tmpCount === 3) return;
         // Check down
         tmpRow = lastActionRow;
         tmpCount = 0;
@@ -132,7 +138,7 @@ export default class Board extends GameWrapperRedux {
             tmpRow++;
         }
         this.winnerNotif(tmpCount,moveData);
-
+        if (tmpCount === 3) return;
         // Check diagonal
         // LeftTop
         tmpRow = lastActionRow;
@@ -148,6 +154,7 @@ export default class Board extends GameWrapperRedux {
             tmpCol--;
         }
         this.winnerNotif(tmpCount,moveData);
+        if (tmpCount === 3) return;
         // LeftBottom
         tmpRow = lastActionRow;
         tmpCol = lastActionColumn;
@@ -162,7 +169,7 @@ export default class Board extends GameWrapperRedux {
             tmpCol--;
         }
         this.winnerNotif(tmpCount,moveData);
-
+        if (tmpCount === 3) return;
         // LeftTop
         tmpRow = lastActionRow;
         tmpCol = lastActionColumn;
@@ -177,6 +184,7 @@ export default class Board extends GameWrapperRedux {
             tmpCol++;
         }
         this.winnerNotif(tmpCount,moveData);
+        if (tmpCount === 3) return;
         // LeftBottom
         tmpRow = lastActionRow;
         tmpCol = lastActionColumn;
@@ -191,7 +199,26 @@ export default class Board extends GameWrapperRedux {
             tmpCol++;
         }
         this.winnerNotif(tmpCount,moveData);
+        if (tmpCount === 3) return;
 
+
+        tmpRow = lastActionRow;
+        tmpCol = lastActionColumn;
+        if (lastActionColumn === 1 && lastActionRow === 1) {
+            if ( ((currCells[tmpRow+1])[tmpCol+1] === moveData && (currCells[tmpRow-1])[tmpCol-1] === moveData) ||
+                ((currCells[tmpRow])[tmpCol+1] === moveData && (currCells[tmpRow])[tmpCol-1] === moveData) ||
+                ((currCells[tmpRow+1])[tmpCol] === moveData && (currCells[tmpRow-1])[tmpCol] === moveData) ||
+                (currCells[tmpRow-1])[tmpCol+1] === moveData && (currCells[tmpRow+1])[tmpCol-1] === moveData ) {
+                this.winnerNotif(3,moveData);
+            }
+        }
+/*
+        if (lastActionColumn !== 1) {
+
+        }
+        this.winnerNotif(tmpCount,moveData);
+        if (tmpCount === 3) return;
+        */
     }
 
 
@@ -234,11 +261,14 @@ export default class Board extends GameWrapperRedux {
 
     }
 
-    onReset(){
+    resetButton(){
         this.setState({game:{
             "cells": [ [-1,-1,-1],[-1,-1,-1],[-1,-1,-1] ],
             "turn" : 0,  // Always start with player 1
             "moveCount": 0,
+                "isOver": false,
+                "isTied": false,
+                "winner": null,
             "winlose": {
                 "playerone": {
                     "win" : 0,
@@ -293,7 +323,10 @@ export default class Board extends GameWrapperRedux {
             somePart = <span><h1> Player { this.state.game.turn  + 1 }'s turn.</h1>
                 <h2> Your icon: { this.getIcon() }</h2></span>;
         } else {
+            if (!this.state.game.isTied)
             somePart = <span><h1> Player { this.state.game.winner } WON! </h1></span>;
+            else
+                somePart = <span> <h1> TIED! </h1> </span>;
         }
 
         return (
@@ -304,7 +337,7 @@ export default class Board extends GameWrapperRedux {
                     {elements}
                     </tbody>
                 </table>
-                <button style={st3} onClick={this.onReset.bind(this)}>Reset</button>
+                <button style={st3} onClick={this.resetButton.bind(this)}>Reset</button>
             </div>
         );
     }
