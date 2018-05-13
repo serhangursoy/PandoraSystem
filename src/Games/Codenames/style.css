@@ -3,6 +3,11 @@
     font-family: Arial;
 }
 
+.codeNamesBackground{
+    background-color: #eceacf;
+    height: 600px;
+}
+
 .team-options .welcomeMsg {
     margin-top: 20px;
     font-size: 30px;

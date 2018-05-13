@@ -75,16 +75,29 @@ export default class GameContainer extends GameWrapperRedux {
             </div>
         )
     }
+
     renderWaitPlayers() {
-        return (
-            <div className="waitPlayer">
-                <img src={ require('./clock.png') } alt="Waiting.."/>
-                <h2 className="pickedTeamInfo">You picked {pickedTeam}!</h2>
-                <h3>Waiting for other players to pick a team...</h3>
-                <button onClick={() => this.changeTeam()}>Change Team</button>
-            </div>
-        )
+        if(pickedTeam === 0){
+            return (
+                <div className="waitPlayer">
+                    <img src={ require('./clock.png') } alt="Waiting.."/>
+                    <h2 className="pickedTeamInfo">You picked Red Team!</h2>
+                    <h3 className="waitOthersInfo">Waiting for other players to pick a team...</h3>
+                    <button onClick={() => this.changeTeam()}>Change Team</button>
+                </div>
+            )
+        }else{
+            return (
+                <div className="waitPlayer">
+                    <img src={ require('./clock.png') } alt="Waiting.."/>
+                    <h2 className="pickedTeamInfo">You picked Blue Team!</h2>
+                    <h3 className="waitOthersInfo">Waiting for other players to pick a team...</h3>
+                    <button onClick={() => this.changeTeam()}>Change Team</button>
+                </div>
+            )
+        }
     }
+
     pickTeam(team) {
         let state = this.state.game;
 
@@ -112,6 +125,7 @@ export default class GameContainer extends GameWrapperRedux {
 
         this.setState(state);
     }
+
     changeTeam() {
         let state = this.state.game;
 
@@ -351,7 +365,7 @@ export default class GameContainer extends GameWrapperRedux {
         if(state.ansReadyPlayers.indexOf(userID) === -1){
             element = <button className="ansReadyBtn" onClick={() => this.answerReady()}>Ready</button>;
         } else {
-            element = <button className="ansReadyBtn" onClick={() => this.answerNotReady()}>Not Ready</button>
+            element = <button className="ansReadyBtn" onClick={() => this.answerNotReady()}>Not Ready</button>;
         }
 
         return element;
@@ -501,7 +515,7 @@ export default class GameContainer extends GameWrapperRedux {
         let random;
 
         for(let i=0; i<5; i++){
-            random = Math.floor(Math.random() * 5); // 5 -> 10, 20, 30 olacak daha sonra
+            random = Math.floor(Math.random() * 25); // 5 -> 10, 20, 30 olacak daha sonra
             if(indices.indexOf(random) !== -1)
                 i--;
             else
@@ -539,6 +553,7 @@ export default class GameContainer extends GameWrapperRedux {
             )
         }
     }
+
     render(){
         let element;
 

@@ -51,6 +51,261 @@
             "47",
             "56"
           ]
+        },
+        {
+          "question":"What disease crippled President Franklin D. Roosevelt and led him to help the nation find a cure? ",
+          "correct_answer":3,
+          "answers":[
+            "Cancer",
+            "Meningitis",
+            "HIV",
+            "Polio"
+          ]
+        },
+        {
+          "question":"In what year did Neil Armstrong and Buzz Aldrin land on the moon?",
+          "correct_answer":2,
+          "answers":[
+            "1965",
+            "1966",
+            "1969",
+            "1973"
+          ]
+        },
+        {
+          "question":"Which king was killed at the Battle of Bosworth Field in 1485? ",
+          "correct_answer":2,
+          "answers":[
+            "Edward V",
+            "Henry VII",
+            "Richard III",
+            "James I"
+          ]
+        },
+        {
+          "question":"America's Strategic Defense System during the Cold War was nicknamed after this famous movie.",
+          "correct_answer":1,
+          "answers":[
+            "Jaws",
+            "Star Wars",
+            "Blade Runner",
+            "Alien"
+          ]
+        },
+        {
+          "question":"In relation to the British Occupation in Ireland, what does the IRA stand for.",
+          "correct_answer":0,
+          "answers":[
+            "Irish Republican Army",
+            "Irish Rebel Alliance",
+            "Irish Reformation Army",
+            "Irish-Royal Alliance"
+          ]
+        },
+        {
+          "question":"In what year was the famous 45 foot tall Hollywood sign first erected?",
+          "correct_answer":1,
+          "answers":["1903",
+            "1923",
+            "1913",
+            "1933"
+          ]
+        },
+        {
+          "question":"All of the following are names of the Seven Warring States EXCEPT:",
+          "correct_answer":3,
+          "answers":[
+            "Zhao (\u8d99)",
+            "Qin (\u79e6)",
+            "Qi (\u9f4a)",
+            "Zhai (\u7fdf)"
+          ]
+        },
+        {
+          "question":"Which of the following Assyrian kings did NOT rule during the Neo-Assyrian Empire?",
+          "correct_answer":2,
+          "answers":[
+            "Shalmaneser V",
+            "Esharhaddon",
+            "Shamshi-Adad III",
+            "Ashur-nasir-pal II"
+          ]
+        },
+        {
+          "question":"Which infamous European traitor was known as 'the last person to enter Parliament with honest intentions'?",
+          "correct_answer":3,
+          "answers":[
+            "Robert Catesby",
+            "Francis Tresham",
+            "Everard Digby",
+            "Guy Fawkes"
+          ]
+        },
+        {
+          "question":"How old was Lyndon B. Johnson when he assumed the role of President of the United States?",
+          "correct_answer":0,
+          "answers":["55",
+            "50",
+            "60",
+            "54"
+          ]
+        },
+        {
+          "question":"Which Apollo mission was the last one in NASA's Apollo program?",
+          "correct_answer":2,
+          "answers":[
+            "Apollo 13",
+            "Apollo 11",
+            "Apollo 17",
+            "Apollo 15"]},
+        {
+          "question":"In what year did the North American Video Game Crash occur?",
+          "correct_answer":3,
+          "answers":[
+            "1982",
+            "1993",
+            "1970",
+            "1983"
+          ]
+        },
+        {
+          "question":"Adolf Hitler was born on which date?",
+          "correct_answer":3,
+          "answers":[
+            "June 12, 1889",
+            "February 6, 1889",
+            "April 16, 1889",
+            "April 20, 1889"
+          ]
+        },
+        {
+          "question":"Which WWII tank ace is credited with having destroyed the most tanks?",
+          "correct_answer":0,
+          "answers":[
+            "Kurt Knispel",
+            "Michael Wittmann",
+            "Walter Kniep",
+            "Otto Carius"
+          ]
+        },
+        {
+          "question":"Which American civilization is the source of the belief that the world would end or drastically change on December 21st, 2012?",
+          "correct_answer":0,
+          "answers":[
+            "The Mayans",
+            "The Incas",
+            "The Aztecs",
+            "The Navajos"]
+        },
+        {
+          "question":"When did Norway get its constitution?",
+          "correct_answer":0,
+          "answers":
+          [
+            "1814",
+            "1932",
+            "1905",
+            "1854"
+          ]
+        },
+        {
+          "question":"Which of the following snipers has the highest amount of confirmed kills?",
+          "correct_answer":0,
+          "answers":
+          [
+            "Simo Hayha",
+            "Chris Kyle",
+            "Vasily Zaytsev",
+            "Craig Harrison"
+          ]
+        },
+        {
+          "question":"What was the unofficial name for Germany between 1919 and 1933?",
+          "correct_answer":1,
+          "answers":
+          [
+            "German Democratic Republic",
+            "Weimar Republic",
+            "Federal Republic of Germany",
+            "Oesterreich "
+          ]
+        },
+        {
+          "question":"The Fallingwater House, located in Pennsylvania, was designed by which architect?",
+          "correct_answer":2,
+          "answers":
+          [
+            "Antoni Gaudi",
+            "Frank Gehry",
+            "Frank Lloyd Wright",
+            "Le Corbusier"
+          ]
+        },
+        {
+          "question":"Which Las Vegas casino was originally constructed and operated by mobster Bugsy Siegel?",
+          "correct_answer":1,
+          "answers":
+          [
+            "The MGM Grand",
+            "The Flamingo",
+            "The Sands",
+            "The Sahara"
+          ]
+        },
+        {
+          "question":"What was the name of one of the surviving palaces of Henry VIII located near Richmond, London?",
+          "correct_answer":1,
+          "answers":
+          [
+            "St James's Palace",
+            "Hampton Court",
+            "Buckingham Palace",
+            "Coughton Court"
+          ]
+        },
+        {
+          "question":"In what year did Kentucky become the 15th state to join the union?",
+          "correct_answer":2,
+          "answers":
+          [
+            "1782",
+            "1798",
+            "1792",
+            "1788"
+          ]
+        },
+        {
+          "question":"In what year did the Berlin Wall fall?",
+          "correct_answer":1,
+          "answers":
+          [
+            "1987",
+            "1989",
+            "1991",
+            "1993"
+          ]
+        },
+        {
+          "question":"Which country was an allied power in World War II?",
+          "correct_answer":3,
+          "answers":
+          [
+            "Italy",
+            "Germany",
+            "Japan",
+            "Soviet Union"
+          ]
+        },
+        {
+          "question":"When was the People's Republic of China founded?",
+          "correct_answer":1,
+          "answers":
+          [
+            "April 3, 1947",
+            "October 1, 1949",
+            "May 7, 1945",
+            "December 6, 1950"
+          ]
         }
       ]
     },
@@ -244,6 +499,117 @@
             "Lewis Hamilton",
             "Max Verstappen",
             "Kimi Raikkonen"
+          ]
+        },
+        {
+          "question":"At which bridge does the annual Oxford and Cambridge boat race start?",
+          "correct_answer": 3,
+          "answers":[
+            "Hammersmith",
+            "Vauxhall ",
+            "Battersea",
+            "Putney"
+          ]
+        },
+        {
+          "question":"With which team did Michael Schumacher make his Formula One debut at the 1991 Belgian Grand Prix?",
+          "correct_answer":2,
+          "answers":[
+            "Benetton",
+            "Ferrari",
+            "Jordan",
+            "Mercedes"
+          ]
+        },
+        {
+          "question":"Which German sportswear company's logo is the 'Formstripe'",
+          "correct_answer":1,
+          "answers":[
+            "Nike",
+            "Puma",
+            "Adidas",
+            "Reebok"
+          ]
+        },
+        {
+          "question":"What cricketing term denotes a batsman being dismissed with a score of zero?",
+          "correct_answer":0,
+          "answers":
+          ["Duck",
+            "Bye",
+            "Beamer",
+            "Carry"
+          ]
+        },
+        {
+          "question":"Which of these teams isn't a member of the NHL's &quot;Original Six&quot; era?",
+          "correct_answer":0,
+          "answers":
+          ["Philadelphia Flyers",
+            "New York Rangers",
+            "Toronto Maple Leafs",
+            "Boston Bruins"
+          ]
+        },
+        {
+          "question":"Who was the British professional wrestler Shirley Crabtree better known as?",
+          "correct_answer":2,
+          "answers":
+          ["Giant Haystacks",
+            "Kendo Nagasaki",
+            "Big Daddy",
+            "Masambula"
+          ]
+        },
+        {
+          "question":"What is the nickname of Northampton town's rugby union club?",
+          "correct_answer":1,
+          "answers":
+          [
+            "Harlequins",
+            "Saints",
+            "Saracens",
+            "Wasps"
+          ]
+        },
+        {
+          "question":"A stimpmeter measures the speed of a ball over what surface?",
+          "correct_answer":3,
+          "answers":[
+            " Football Pitch",
+            "Cricket Outfield",
+            "Pinball Table",
+            "Golf Putting Green"
+          ]
+        },
+        {
+          "question":"Which Formula One driver was nicknamed 'The Professor'?",
+          "correct_answer":1,
+          "answers":[
+            "Ayrton Senna",
+            "Alain Prost",
+            "Niki Lauda",
+            "Emerson Fittipaldi"
+          ]
+        },
+        {
+          "question":"In a game of snooker, what colour ball is worth 3 points?",
+          "correct_answer":3,
+          "answers":[
+            "Yellow",
+            "Brown",
+            "Blue",
+            "Green"
+          ]
+        },
+        {
+          "question":"Which nation hosted the FIFA World Cup in 2006?",
+          "correct_answer":2,
+          "answers":[
+            "United Kingdom",
+            "Brazil",
+            "Germany",
+            "South Africa"
           ]
         }
       ]

@@ -535,7 +535,7 @@ export default class GameContainer extends GameWrapperRedux {
         }
 
         return (
-            <div>
+            <div className="codeNamesBackground">
                 {element}
             </div>
         );
