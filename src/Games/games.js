@@ -63,7 +63,7 @@ export const games =[
     },
     {
         "name": "Bluff",
-        "playerCount": 3,
+        "playerCount": 2,
         "entryClass": "game.js",
         "id": "c617fcd9-edb3-486e-b2bf-0c610b123321",
         "thumbnail": image
