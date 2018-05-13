@@ -9,9 +9,9 @@ import CelebrityHeads from "./Celebrity/game_index";
 import TroubledTown from "./TroubledTown/game_index";
 import Codenames from "./Codenames/index";
 import Trivia from "./Trivia/game";
+import Bluff from "./Bluff/game_index";
 
-
-const g = {"TicTacToe": TicTacToe,"ButtonPressAdventure": ButtonPressAdventure,"MemoryGame": MemoryGame, "TruthOrDare": TruthOrDare, "CelebrityHeads": CelebrityHeads, "TroubledTown": TroubledTown, "Codenames": Codenames, "Trivia": Trivia};
+const g = {"TicTacToe": TicTacToe,"ButtonPressAdventure": ButtonPressAdventure,"MemoryGame": MemoryGame, "TruthOrDare": TruthOrDare, "CelebrityHeads": CelebrityHeads, "TroubledTown": TroubledTown, "Codenames": Codenames, "Trivia": Trivia, "Bluff": Bluff};
 
 export const  Initializer = (gameID,gameRoomID, userList, isAdmin) => {
     console.log("initializer gameid: ", gameID);
