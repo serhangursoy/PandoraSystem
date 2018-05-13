@@ -49,14 +49,14 @@ export const games =[
     },
     {
         "name": "Codenames",
-        "playerCount": 3,
+        "playerCount": 4,
         "entryClass": "index.js",
         "id": "6c0e76d5-2fa2-46d0-9047-9526fe999999",
         "thumbnail": image
     },
     {
         "name": "Trivia",
-        "playerCount": 3,
+        "playerCount": 4,
         "entryClass": "game.js",
         "id": "36a38bd1-4d90-4ecf-be5d-0b6619ce3ee7",
         "thumbnail": image
